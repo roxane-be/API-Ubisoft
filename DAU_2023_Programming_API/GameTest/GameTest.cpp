@@ -88,4 +88,10 @@ void Shutdown()
 	// Example Sprite Code....
 	// 
 	//------------------------------------------------------------------------
+
+	std::ofstream saveFile(".\\TestData\\Save.txt");
+	if (saveFile)
+	{
+		saveFile << "pos player " << mainCharacter->GetPositionX() << " et " << mainCharacter->GetPositionY();
+	}
 }

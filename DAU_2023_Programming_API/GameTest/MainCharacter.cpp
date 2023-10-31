@@ -90,4 +90,23 @@ void MainCharacter::RenderSprite()
 	testSprite->Draw();
 	//------------------------------------------------------------------------
 
+
+
+}
+
+float MainCharacter::GetPositionX()
+{
+	GetPosition();
+	return posX;
+}
+
+float MainCharacter::GetPositionY()
+{
+	GetPosition();
+	return posY;
+}
+
+void MainCharacter::GetPosition()
+{
+	testSprite->GetPosition(posX, posY);
 }
