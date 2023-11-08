@@ -13,18 +13,18 @@
 // Eample data....
 //------------------------------------------------------------------------
 //CSimpleSprite *testSprite;
-MainCharacter* mainCharacter;
 
 
 
+GameData gd;
 
 //------------------------------------------------------------------------
 // Called before first update. Do any initial setup here.
 //------------------------------------------------------------------------
 void Init()
 {
-	mainCharacter = new MainCharacter;
-	mainCharacter->InitSprite();
+	gd.mainCharacter = new MainCharacter;
+	gd.mainCharacter->InitSprite();
 }
 
 //------------------------------------------------------------------------
@@ -33,15 +33,20 @@ void Init()
 //------------------------------------------------------------------------
 void Update(float deltaTime)
 {
-	mainCharacter->UpdateSprite(deltaTime);
+	gd.mainCharacter->UpdateSprite(deltaTime);
 
 
 	//------------------------------------------------------------------------
 	// Sample Sound.
 	//------------------------------------------------------------------------
-	if (App::GetController().CheckButton(XINPUT_GAMEPAD_B, true))
+	//if (App::GetController().CheckButton(XINPUT_GAMEPAD_B, true))
+	//{
+	//	App::PlaySound(".\\TestData\\Test.wav");
+	//}
+
+	//if (App::IsKeyPressed(VK_RETURN) || App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
-		App::PlaySound(".\\TestData\\Test.wav");
+		gd.gameStatue = Game;
 	}
 }
 
@@ -51,12 +56,20 @@ void Update(float deltaTime)
 //------------------------------------------------------------------------
 void Render()
 {
-	mainCharacter->RenderSprite();
+	//if (gd.gameStatue == Game)
+	{
+		gd.mainCharacter->RenderSprite();
 
-	//------------------------------------------------------------------------
-	// Example Text.
-	//------------------------------------------------------------------------
-	App::Print(100, 100, "Sample Text");
+		//------------------------------------------------------------------------
+		// Example Text.
+		//------------------------------------------------------------------------
+		std::string text = "X ->" ;
+		text += std::to_string(gd.mainCharacter->position.X);
+		text += "   Y ->";
+		text += std::to_string(gd.mainCharacter->position.Y);
+		App::Print(100, 100, text.c_str());
+
+	}
 
 	//------------------------------------------------------------------------
 	// Example Line Drawing.
@@ -92,6 +105,6 @@ void Shutdown()
 	std::ofstream saveFile(".\\TestData\\Save.txt");
 	if (saveFile)
 	{
-		saveFile << "pos player " << mainCharacter->GetPositionX() << " et " << mainCharacter->GetPositionY();
+		saveFile << "pos player " << gd.mainCharacter->position.X << " et " << gd.mainCharacter->position.Y;
 	}
 }

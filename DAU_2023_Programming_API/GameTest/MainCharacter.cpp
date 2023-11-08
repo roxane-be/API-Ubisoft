@@ -5,7 +5,8 @@
 
 MainCharacter::MainCharacter()
 {
-
+	position.SetPosition(400,400);
+	testSprite = nullptr;
 }
 
 void MainCharacter::InitSprite()
@@ -13,7 +14,7 @@ void MainCharacter::InitSprite()
 	//------------------------------------------------------------------------
 		// Example Sprite Code....
 	testSprite = App::CreateSprite(".\\TestData\\Test.bmp", 8, 4);
-	testSprite->SetPosition(400.0f, 400.0f);
+	testSprite->SetPosition(position.X, position.Y);
 	float speed = 1.0f / 15.0f;
 	testSprite->CreateAnimation(ANIM_BACKWARDS, speed, { 0,1,2,3,4,5,6,7 });
 	testSprite->CreateAnimation(ANIM_LEFT, speed, { 8,9,10,11,12,13,14,15 });
@@ -32,34 +33,25 @@ void MainCharacter::UpdateSprite(float deltaTime)
 	if (App::GetController().GetLeftThumbStickX() > 0.5f)
 	{
 		testSprite->SetAnimation(ANIM_RIGHT);
-		float x, y;
-		testSprite->GetPosition(x, y);
-		x += 1.0f;
-		testSprite->SetPosition(x, y);
+		position.SetPosition(position.X +1,position.Y);
 	}
 	if (App::GetController().GetLeftThumbStickX() < -0.5f)
 	{
 		testSprite->SetAnimation(ANIM_LEFT);
-		float x, y;
-		testSprite->GetPosition(x, y);
-		x -= 1.0f;
-		testSprite->SetPosition(x, y);
+		position.SetPosition(position.X - 1, position.Y);
+
 	}
 	if (App::GetController().GetLeftThumbStickY() > 0.5f)
 	{
 		testSprite->SetAnimation(ANIM_FORWARDS);
-		float x, y;
-		testSprite->GetPosition(x, y);
-		y += 1.0f;
-		testSprite->SetPosition(x, y);
+		position.SetPosition(position.X, position.Y+1);
+
 	}
 	if (App::GetController().GetLeftThumbStickY() < -0.5f)
 	{
 		testSprite->SetAnimation(ANIM_BACKWARDS);
-		float x, y;
-		testSprite->GetPosition(x, y);
-		y -= 1.0f;
-		testSprite->SetPosition(x, y);
+		position.SetPosition(position.X, position.Y -1);
+
 	}
 	if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_UP, false))
 	{
@@ -87,26 +79,7 @@ void MainCharacter::RenderSprite()
 {
 	//------------------------------------------------------------------------
 	// Example Sprite Code....
+	testSprite->SetPosition(position.X, position.Y);
 	testSprite->Draw();
 	//------------------------------------------------------------------------
-
-
-
-}
-
-float MainCharacter::GetPositionX()
-{
-	GetPosition();
-	return posX;
-}
-
-float MainCharacter::GetPositionY()
-{
-	GetPosition();
-	return posY;
-}
-
-void MainCharacter::GetPosition()
-{
-	testSprite->GetPosition(posX, posY);
 }

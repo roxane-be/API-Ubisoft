@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Entity.h"
 
 class CSimpleSprite;
 enum AnimationSprite
@@ -10,7 +10,7 @@ enum AnimationSprite
 	ANIM_RIGHT
 };
 
-class MainCharacter
+class MainCharacter : public Entity
 {
 public:
 	MainCharacter();
@@ -20,17 +20,11 @@ public:
 	void InitSprite();
 	void UpdateSprite(float deltaTime);
 	void RenderSprite();
-	
-	float GetPositionX();
-	float GetPositionY();
-	private: 
-	void GetPosition();
 
+	
 	private :
 	//SPRITE
-	CSimpleSprite* testSprite;
-	float posX =0;
-	float posY=0;
+	CSimpleSprite* testSprite ;
 
 };
 

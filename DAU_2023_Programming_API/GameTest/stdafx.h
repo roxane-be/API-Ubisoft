@@ -14,6 +14,8 @@
 
 // TODO: reference additional headers your program requires here
 #include "MainCharacter.h"
+#include "GameData.h"
+#include "Entity.h"
 #include <iostream>
 #include <fstream>
 #include <string>
