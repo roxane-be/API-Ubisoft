@@ -44,7 +44,7 @@ void Update(float deltaTime)
 	//	App::PlaySound(".\\TestData\\Test.wav");
 	//}
 
-	//if (App::IsKeyPressed(VK_RETURN) || App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
+	if (App::IsKeyPressed(VK_RETURN) || App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
 		gd.gameStatue = Game;
 	}
@@ -56,7 +56,7 @@ void Update(float deltaTime)
 //------------------------------------------------------------------------
 void Render()
 {
-	//if (gd.gameStatue == Game)
+	if (gd.gameStatue == Game)
 	{
 		gd.mainCharacter->RenderSprite();
 
@@ -74,22 +74,23 @@ void Render()
 	//------------------------------------------------------------------------
 	// Example Line Drawing.
 	//------------------------------------------------------------------------
-	//static float a = 0.0f;
-	//float r = 1.0f;
-	//float g = 1.0f;
-	//float b = 1.0f;
-	//a += 0.1f;
-	//for (int i = 0; i < 20; i++)
-	//{
-	//
-	//	float sx = 200 + sinf(a + i * 0.1f)*60.0f;
-	//	float sy = 200 + cosf(a + i * 0.1f)*60.0f;
-	//	float ex = 700 - sinf(a + i * 0.1f)*60.0f;
-	//	float ey = 700 - cosf(a + i * 0.1f)*60.0f;
-	//	g = (float)i / 20.0f;
-	//	b = (float)i / 20.0f;
-	//	App::DrawLine(sx, sy, ex, ey,r,g,b);
-	//}
+	/*static float a = 0.0f;
+	float r = 1.0f;
+	float g = 1.0f;
+	float b = 1.0f;
+	a += 0.1f;
+	for (int i = 0; i < 20; i++)
+	{
+	
+		float sx = 200 + sinf(a + i * 0.1f)*60.0f;
+		float sy = 200 + cosf(a + i * 0.1f)*60.0f;
+		float ex = 700 - sinf(a + i * 0.1f)*60.0f;
+		float ey = 700 - cosf(a + i * 0.1f)*60.0f;
+		g = (float)i / 20.0f;
+		b = (float)i / 20.0f;
+		App::DrawLine(sx, sy, ex, ey,r,g,b);
+	}*/
+
 }
 //------------------------------------------------------------------------
 // Add your shutdown code here. Called when the APP_QUIT_KEY is pressed.

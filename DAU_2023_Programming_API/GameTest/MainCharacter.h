@@ -26,5 +26,8 @@ public:
 	//SPRITE
 	CSimpleSprite* testSprite ;
 
+
+	Vector2f other ;
+
 };
 

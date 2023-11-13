@@ -1,0 +1,24 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+    },
+    "last.imagePath": "C:/Users/roxan/Downloads/craftpix-net-352322-nature-pixel-art-environment-free-assets-pack",
+    "map.tileHeight": 48,
+    "map.tileWidth": 48,
+    "openFiles": [
+    ],
+    "project": "sans titre.tiled-project",
+    "recentFiles": [
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 48,
+        "width": 48
+    }
+}

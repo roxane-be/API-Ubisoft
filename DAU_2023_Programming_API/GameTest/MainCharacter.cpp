@@ -5,8 +5,9 @@
 
 MainCharacter::MainCharacter()
 {
-	position.SetPosition(400,400);
+	position.SetPosition(200, 400);
 	testSprite = nullptr;
+	other.SetPosition(700, 400);
 }
 
 void MainCharacter::InitSprite()
@@ -33,7 +34,7 @@ void MainCharacter::UpdateSprite(float deltaTime)
 	if (App::GetController().GetLeftThumbStickX() > 0.5f)
 	{
 		testSprite->SetAnimation(ANIM_RIGHT);
-		position.SetPosition(position.X +1,position.Y);
+		position.SetPosition(position.X + 1, position.Y);
 	}
 	if (App::GetController().GetLeftThumbStickX() < -0.5f)
 	{
@@ -44,16 +45,16 @@ void MainCharacter::UpdateSprite(float deltaTime)
 	if (App::GetController().GetLeftThumbStickY() > 0.5f)
 	{
 		testSprite->SetAnimation(ANIM_FORWARDS);
-		position.SetPosition(position.X, position.Y+1);
+		position.SetPosition(position.X, position.Y + 1);
 
 	}
 	if (App::GetController().GetLeftThumbStickY() < -0.5f)
 	{
 		testSprite->SetAnimation(ANIM_BACKWARDS);
-		position.SetPosition(position.X, position.Y -1);
+		position.SetPosition(position.X, position.Y - 1);
 
 	}
-	if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_UP, false))
+	/*if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_UP, false))
 	{
 		testSprite->SetScale(testSprite->GetScale() + 0.1f);
 	}
@@ -72,7 +73,10 @@ void MainCharacter::UpdateSprite(float deltaTime)
 	if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
 		testSprite->SetAnimation(-1);
-	}
+	}*/
+
+
+
 }
 
 void MainCharacter::RenderSprite()
@@ -82,4 +86,29 @@ void MainCharacter::RenderSprite()
 	testSprite->SetPosition(position.X, position.Y);
 	testSprite->Draw();
 	//------------------------------------------------------------------------
+
+
+	float r = 0.0f;
+	float g = 1.0f;
+	float b = 0.0f;
+	int decalage = 35;
+
+	//colplayer
+	App::DrawLine(position.X - decalage, position.Y - decalage * 2, position.X + decalage, position.Y - decalage * 2, r, g, b);
+	App::DrawLine(position.X + decalage, position.Y - decalage * 2, position.X + decalage, position.Y + decalage * 2, r, g, b);
+	App::DrawLine(position.X + decalage, position.Y + decalage * 2, position.X - decalage, position.Y + decalage * 2, r, g, b);
+	App::DrawLine(position.X - decalage, position.Y + decalage * 2, position.X - decalage, position.Y - decalage * 2, r, g, b);
+
+	r = 1.0f;
+	g = 1.0f;
+	b = 0.0f;
+
+
+	App::DrawLine(other.X - decalage, other.Y - decalage * 2, other.X + decalage, other.Y - decalage * 2, r, g, b);
+	App::DrawLine(other.X + decalage, other.Y - decalage * 2, other.X + decalage, other.Y + decalage * 2, r, g, b);
+	App::DrawLine(other.X + decalage, other.Y + decalage * 2, other.X - decalage, other.Y + decalage * 2, r, g, b);
+	App::DrawLine(other.X - decalage, other.Y + decalage * 2, other.X - decalage, other.Y - decalage * 2, r, g, b);
+	if (other.X - decalage >= position.X + decalage)
+
+		other.SetPosition(other.X - 1, other.Y);
 }

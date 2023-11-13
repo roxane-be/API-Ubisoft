@@ -1,1 +1,1 @@
-pos player 416 et 490
+pos player 200 et 400

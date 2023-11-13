@@ -7,6 +7,7 @@ enum GameStatue
 {
 	Menu,
 	Game,
+	Shop,
 };
 
 struct GameData
