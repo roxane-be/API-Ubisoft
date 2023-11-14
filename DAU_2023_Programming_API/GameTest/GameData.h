@@ -2,6 +2,8 @@
 
 #include "MainCharacter.h"
 #include "UIGame.h"
+#include "MapManager.h"
+
 
 
 enum GameStatue
@@ -17,7 +19,7 @@ class GameData
 public:
 	MainCharacter* mainCharacter;
 	UIGame* mainMenu;
-
+	MapManager* mapManager;
 	GameStatue gameStatue = Menu;
 
 

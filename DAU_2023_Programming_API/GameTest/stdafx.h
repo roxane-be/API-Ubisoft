@@ -18,6 +18,7 @@
 #include "Entity.h"
 #include "Button.h"
 #include "UIGame.h"
+#include "MapManager.h"
 
 
 

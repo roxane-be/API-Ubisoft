@@ -26,6 +26,9 @@ void Init()
 	GameData::Instance.mainCharacter->InitSprite();
 	GameData::Instance.mainMenu = new UIGame;
 	GameData::Instance.mainMenu->Init();
+
+	GameData::Instance.mapManager = new MapManager;
+	GameData::Instance.mapManager->Init();
 }
 
 //------------------------------------------------------------------------
@@ -43,6 +46,8 @@ void Update(float deltaTime)
 		GameData::Instance.mainMenu->Update(deltaTime);
 		break;
 	case Game:
+		GameData::Instance.mapManager->Update(deltaTime);
+
 		GameData::Instance.mainCharacter->UpdateSprite(deltaTime);
 		break;
 	}
@@ -73,6 +78,7 @@ void Render()
 		GameData::Instance.mainMenu->Render();
 	break;
 	case Game : 
+		GameData::Instance.mapManager->Render();
 		GameData::Instance.mainCharacter->RenderSprite();
 
 		//------------------------------------------------------------------------
