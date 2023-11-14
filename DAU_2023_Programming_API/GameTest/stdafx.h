@@ -16,6 +16,12 @@
 #include "MainCharacter.h"
 #include "GameData.h"
 #include "Entity.h"
+#include "Button.h"
+#include "UIGame.h"
+
+
+
+
 #include <iostream>
 #include <fstream>
 #include <string>

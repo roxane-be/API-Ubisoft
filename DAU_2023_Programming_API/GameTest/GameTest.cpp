@@ -15,16 +15,17 @@
 //CSimpleSprite *testSprite;
 
 
-
-GameData gd;
+GameData GameData::Instance;
 
 //------------------------------------------------------------------------
 // Called before first update. Do any initial setup here.
 //------------------------------------------------------------------------
 void Init()
 {
-	gd.mainCharacter = new MainCharacter;
-	gd.mainCharacter->InitSprite();
+	GameData::Instance.mainCharacter = new MainCharacter;
+	GameData::Instance.mainCharacter->InitSprite();
+	GameData::Instance.mainMenu = new UIGame;
+	GameData::Instance.mainMenu->Init();
 }
 
 //------------------------------------------------------------------------
@@ -33,8 +34,18 @@ void Init()
 //------------------------------------------------------------------------
 void Update(float deltaTime)
 {
-	gd.mainCharacter->UpdateSprite(deltaTime);
+	
+	
 
+	switch (GameData::Instance.gameStatue)
+	{
+	case Menu:
+		GameData::Instance.mainMenu->Update(deltaTime);
+		break;
+	case Game:
+		GameData::Instance.mainCharacter->UpdateSprite(deltaTime);
+		break;
+	}
 
 	//------------------------------------------------------------------------
 	// Sample Sound.
@@ -46,7 +57,7 @@ void Update(float deltaTime)
 
 	if (App::IsKeyPressed(VK_RETURN) || App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
-		gd.gameStatue = Game;
+		
 	}
 }
 
@@ -56,19 +67,23 @@ void Update(float deltaTime)
 //------------------------------------------------------------------------
 void Render()
 {
-	if (gd.gameStatue == Game)
+	switch (GameData::Instance.gameStatue)
 	{
-		gd.mainCharacter->RenderSprite();
+	case Menu :
+		GameData::Instance.mainMenu->Render();
+	break;
+	case Game : 
+		GameData::Instance.mainCharacter->RenderSprite();
 
 		//------------------------------------------------------------------------
 		// Example Text.
 		//------------------------------------------------------------------------
-		std::string text = "X ->" ;
-		text += std::to_string(gd.mainCharacter->position.X);
-		text += "   Y ->";
-		text += std::to_string(gd.mainCharacter->position.Y);
-		App::Print(100, 100, text.c_str());
-
+		//std::string text = "X ->";
+		//text += std::to_string(gd.mainCharacter->position.X);
+		//text += "   Y ->";
+		//text += std::to_string(gd.mainCharacter->position.Y);
+		//App::Print(100, 100, text.c_str());
+	break;
 	}
 
 	//------------------------------------------------------------------------
@@ -103,9 +118,9 @@ void Shutdown()
 	// 
 	//------------------------------------------------------------------------
 
-	std::ofstream saveFile(".\\TestData\\Save.txt");
-	if (saveFile)
-	{
-		saveFile << "pos player " << gd.mainCharacter->position.X << " et " << gd.mainCharacter->position.Y;
-	}
+	//std::ofstream saveFile(".\\TestData\\Save.txt");
+	//if (saveFile)
+	//{
+	//	saveFile << "pos player " << gd.mainCharacter->position.X << " et " << gd.mainCharacter->position.Y;
+	//}
 }

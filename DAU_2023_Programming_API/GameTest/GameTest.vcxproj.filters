@@ -24,6 +24,8 @@
     <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="GameData.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="UIGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -54,6 +56,8 @@
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="GameData.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="UIGame.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">

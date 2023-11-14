@@ -1,6 +1,7 @@
 #pragma once
 
 #include "MainCharacter.h"
+#include "UIGame.h"
 
 
 enum GameStatue
@@ -10,10 +11,17 @@ enum GameStatue
 	Shop,
 };
 
-struct GameData
+
+class GameData
 {
+public:
 	MainCharacter* mainCharacter;
+	UIGame* mainMenu;
 
 	GameStatue gameStatue = Menu;
+
+
+
+	static GameData Instance;
 };
 

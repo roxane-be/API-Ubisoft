@@ -1,4 +1,19 @@
-﻿  GameTest.cpp
+﻿  stdafx.cpp
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\MainCharacter.h(17,21): warning C4150: suppression de pointeur vers type incomplet 'CSimpleSprite' ; aucun destructeur appelé
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\MainCharacter.h(4,7): message : voir la déclaration de 'CSimpleSprite'
+  SimpleController.cpp
+  SimpleSound.cpp
+  SimpleSprite.cpp
+  app.cpp
+  main.cpp
+  Button.cpp
+  Entity.cpp
+  GameData.cpp
+  GameTest.cpp
+  MainCharacter.cpp
+  UIGame.cpp
+  stb_image.cpp
+  Génération de code en cours...
   GameTest.vcxproj -> C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
   C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
   1 fichier(s) copiÚ(s)
