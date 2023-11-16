@@ -1,5 +1,5 @@
 #pragma once
-#include "Entity.h"
+#include "Transform.h"
 
 class CSimpleSprite;
 enum AnimationSprite
@@ -10,7 +10,7 @@ enum AnimationSprite
 	ANIM_RIGHT
 };
 
-class MainCharacter : public Entity
+class MainCharacter 
 {
 public:
 	MainCharacter();
@@ -21,13 +21,14 @@ public:
 	void UpdateSprite(float deltaTime);
 	void RenderSprite();
 
+	Transform transform;
 	
 	private :
 	//SPRITE
 	CSimpleSprite* testSprite ;
 
 
-	Vector2f other ;
+	//Vector2f other ;
 
 };
 

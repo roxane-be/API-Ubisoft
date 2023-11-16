@@ -1,5 +1,6 @@
 #pragma once
 #include <functional>
+#include "Transform.h"
 
 class Button
 {
@@ -21,7 +22,7 @@ public:
 private:
 	CSimpleSprite* sprite;
 	const char* text;
-	Vector2f position;
+	Transform transform;
 	Vector2f positionText;
 	Vector2f size;
 };

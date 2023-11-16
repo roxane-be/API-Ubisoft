@@ -182,7 +182,7 @@
     <ClInclude Include="App\SimpleController.h" />
     <ClInclude Include="App\SimpleSound.h" />
     <ClInclude Include="App\SimpleSprite.h" />
-    <ClInclude Include="Entity.h" />
+    <ClInclude Include="Vector2.h" />
     <ClInclude Include="GameData.h" />
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="MapManager.h" />
@@ -190,6 +190,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="UIGame.h" />
   </ItemGroup>
   <ItemGroup>
@@ -198,7 +199,7 @@
     <ClCompile Include="App\SimpleController.cpp" />
     <ClCompile Include="App\SimpleSound.cpp" />
     <ClCompile Include="App\SimpleSprite.cpp" />
-    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="GameData.cpp" />
     <ClCompile Include="GameTest.cpp" />
     <ClCompile Include="MainCharacter.cpp" />
@@ -211,6 +212,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UIGame.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

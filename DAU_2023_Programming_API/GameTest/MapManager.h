@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "Transform.h"
 
 
 class MapManager
@@ -16,7 +17,7 @@ private:
 	std::vector<CSimpleSprite> spritesMap;
 	std::vector<CSimpleSprite> currentMapShow;
 
-	Vector2f position;
-	float sideScroll =-2;
+	Transform transform;
+	float sideScroll =-5;
 };
 

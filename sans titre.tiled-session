@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "sans titre.tmx",
     "expandedProjectPaths": [
         "."
     ],
@@ -15,6 +15,14 @@
         "Nature_props_01.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "sans titre.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 554,
+                "y": 302
+            }
         }
     },
     "last.imagePath": "C:/Users/roxan/Downloads/craftpix-net-352322-nature-pixel-art-environment-free-assets-pack",
@@ -22,13 +30,14 @@
     "map.tileHeight": 48,
     "map.tileWidth": 48,
     "openFiles": [
-        "Nature_props_01.tsx",
+        "sans titre.tmx",
         "Nature_environment_01.tsx"
     ],
     "project": "sans titre.tiled-project",
     "recentFiles": [
-        "Nature_props_01.tsx",
-        "Nature_environment_01.tsx"
+        "Nature_environment_01.tsx",
+        "sans titre.tmx",
+        "Nature_props_01.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

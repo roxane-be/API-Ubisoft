@@ -23,10 +23,11 @@
     </ClCompile>
     <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="GameData.cpp" />
-    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="UIGame.cpp" />
     <ClCompile Include="MapManager.cpp" />
+    <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -56,10 +57,11 @@
     </ClInclude>
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="GameData.h" />
-    <ClInclude Include="Entity.h" />
+    <ClInclude Include="Vector2.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="UIGame.h" />
     <ClInclude Include="MapManager.h" />
+    <ClInclude Include="Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">

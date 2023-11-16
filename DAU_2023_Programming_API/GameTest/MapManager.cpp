@@ -17,8 +17,9 @@ void MapManager::Init()
 		file += ".bmp";
 		CSimpleSprite* temp = App::CreateSprite(file.c_str(), 1, 1);
 		temp->SetScale(0.8f);
-		position.SetPosition(temp->GetWidth() / 2 * temp->GetScale(), temp->GetHeight() / 2 * temp->GetScale());
-		temp->SetPosition(position.X, position.Y);
+		transform.SetPosition(temp->GetWidth() / 2 * temp->GetScale(), temp->GetHeight() / 2 * temp->GetScale());
+		//position.SetPosition(temp->GetWidth() / 2 * temp->GetScale(), temp->GetHeight() / 2 * temp->GetScale());
+		temp->SetPosition(transform.GetPosition().x, transform.GetPosition().y);
 		spritesMap.push_back(*temp);
 		temp = nullptr;
 
@@ -31,21 +32,21 @@ void MapManager::Init()
 
 void MapManager::Update(float deltaTime)
 {
-	position.SetPosition(position.X + sideScroll, position.Y);
-	if (position.X <= -currentMapShow[0].GetWidth()*currentMapShow[0].GetScale()/2)
+	transform.SetPosition(transform.GetPosition().x + sideScroll, transform.GetPosition().y);
+	if (transform.GetPosition().x <= -currentMapShow[0].GetWidth()*currentMapShow[0].GetScale()/2)
 	{
 		//CSimpleSprite temp = currentMapShow[0];
 		currentMapShow[0]= currentMapShow[1];
 		currentMapShow[1] = spritesMap[rand() % spritesMap.size()];
 
-		position.SetPosition(currentMapShow[0].GetWidth() / 2 * currentMapShow[0].GetScale(), currentMapShow[0].GetHeight() / 2 * currentMapShow[0].GetScale());
+		transform.SetPosition(currentMapShow[0].GetWidth() / 2 * currentMapShow[0].GetScale(), currentMapShow[0].GetHeight() / 2 * currentMapShow[0].GetScale());
 	}
 }
 
 void MapManager::Render()
 {
-	currentMapShow[0].SetPosition(position.X, position.Y);
+	currentMapShow[0].SetPosition(transform.GetPosition().x, transform.GetPosition().y);
 	currentMapShow[0].Draw();
-	currentMapShow[1].SetPosition(position.X + (currentMapShow[0].GetWidth() * currentMapShow[0].GetScale()), position.Y);
+	currentMapShow[1].SetPosition(transform.GetPosition().x + (currentMapShow[0].GetWidth() * currentMapShow[0].GetScale()), transform.GetPosition().y);
 	currentMapShow[1].Draw();
 }

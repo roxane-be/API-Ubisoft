@@ -15,10 +15,11 @@
 // TODO: reference additional headers your program requires here
 #include "MainCharacter.h"
 #include "GameData.h"
-#include "Entity.h"
 #include "Button.h"
 #include "UIGame.h"
 #include "MapManager.h"
+#include "Transform.h"
+#include "Vector2.h"
 
 
 
