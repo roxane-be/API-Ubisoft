@@ -21,13 +21,27 @@
     <ClCompile Include="stb_image\stb_image.cpp">
       <Filter>stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="MainCharacter.cpp" />
-    <ClCompile Include="GameData.cpp" />
-    <ClCompile Include="Vector2.cpp" />
-    <ClCompile Include="Button.cpp" />
-    <ClCompile Include="UIGame.cpp" />
-    <ClCompile Include="MapManager.cpp" />
-    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Button.cpp">
+      <Filter>UbiCode\Private\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIGame.cpp">
+      <Filter>UbiCode\Private\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter.cpp">
+      <Filter>UbiCode\Private\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="GameData.cpp">
+      <Filter>UbiCode\Private\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="MapManager.cpp">
+      <Filter>UbiCode\Private\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>UbiCode\Private\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>UbiCode\Private\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -55,13 +69,27 @@
     <ClInclude Include="stb_image\stb_image.h">
       <Filter>stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="MainCharacter.h" />
-    <ClInclude Include="GameData.h" />
-    <ClInclude Include="Vector2.h" />
-    <ClInclude Include="Button.h" />
-    <ClInclude Include="UIGame.h" />
-    <ClInclude Include="MapManager.h" />
-    <ClInclude Include="Transform.h" />
+    <ClInclude Include="UIGame.h">
+      <Filter>UbiCode\Public\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>UbiCode\Public\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter.h">
+      <Filter>UbiCode\Public\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="MapManager.h">
+      <Filter>UbiCode\Public\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>UbiCode\Public\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>UbiCode\Public\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameData.h">
+      <Filter>UbiCode\Public\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">
@@ -69,6 +97,45 @@
     </Filter>
     <Filter Include="stb_image">
       <UniqueIdentifier>{61cfc19b-c57e-4021-b530-bac172fcba86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode">
+      <UniqueIdentifier>{ab2eb82b-e8fa-4732-aad7-0cf15b660ca2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Private">
+      <UniqueIdentifier>{7c5a0c93-2f62-4097-92ca-6486023b014a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Private\GUI">
+      <UniqueIdentifier>{ca8861a8-02be-43c8-85ac-51e87780d981}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Public">
+      <UniqueIdentifier>{67e6c095-077b-4b2b-a53a-ac6e82569373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Public\GUI">
+      <UniqueIdentifier>{efddee8c-ffe6-41d4-8259-556a87f27a64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Public\Gameplay">
+      <UniqueIdentifier>{f2dbb03b-7bfb-4e23-929b-4d21bc155cc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Private\Gameplay">
+      <UniqueIdentifier>{d4075ca4-3dbf-412e-ab12-e47588aca55e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Public\Map">
+      <UniqueIdentifier>{b82d4224-439f-4d68-b00b-53170d9f889e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Public\Engine">
+      <UniqueIdentifier>{08615949-3db3-4086-92c5-9fbe9dff1566}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Public\Data">
+      <UniqueIdentifier>{5afd1570-611c-42cc-b767-e85adae4f94a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Private\Data">
+      <UniqueIdentifier>{0fd82a4a-58d6-43b5-aa19-f7761b38d2fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Private\Map">
+      <UniqueIdentifier>{2cdc5984-e7c3-4418-9e2a-77ce3616798d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Private\Engine">
+      <UniqueIdentifier>{75d3c14e-5aee-4552-b446-ba8f9094cc24}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
