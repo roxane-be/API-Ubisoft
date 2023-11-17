@@ -14,7 +14,7 @@ void MapManager::Init()
 	{
 		std::string file = ".\\TestData\\Map\\Map";
 		file += std::to_string(i);
-		file += ".bmp";
+		file += ".png";
 		CSimpleSprite* temp = App::CreateSprite(file.c_str(), 1, 1);
 		temp->SetScale(0.8f);
 		transform.SetPosition(temp->GetWidth() / 2 * temp->GetScale(), temp->GetHeight() / 2 * temp->GetScale());
