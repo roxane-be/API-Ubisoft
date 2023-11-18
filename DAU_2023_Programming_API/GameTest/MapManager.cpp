@@ -12,10 +12,15 @@ void MapManager::Init()
 {
 	for (int i = 0; i<5; i++)
 	{
-		std::string file = ".\\TestData\\Map\\Map";
-		file += std::to_string(i);
-		file += ".png";
-		CSimpleSprite* temp = App::CreateSprite(file.c_str(), 1, 1);
+		std::string stringFile = ".\\TestData\\Map\\Map";
+		stringFile += std::to_string(i);
+		stringFile += ".png";
+		stringFile += "\0";
+
+		char* charFile = new char[stringFile.length() + 1];
+		std::strcpy(charFile, stringFile.c_str());
+
+		CSimpleSprite* temp = App::CreateSprite(charFile, 1, 1);
 		temp->SetScale(0.8f);
 		transform.SetPosition(temp->GetWidth() / 2 * temp->GetScale(), temp->GetHeight() / 2 * temp->GetScale());
 		//position.SetPosition(temp->GetWidth() / 2 * temp->GetScale(), temp->GetHeight() / 2 * temp->GetScale());
