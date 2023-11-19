@@ -4,9 +4,10 @@
 #include "App/SimpleSprite.h"
 #include <string>
 #include <iostream>
+
 VisualSprite::VisualSprite()
 {
-	sprite = nullptr;
+	//sprite = nullptr;
 }
 
 void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, float scale,
@@ -21,8 +22,6 @@ void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, flo
 	{
 		CreateAnimations(fileNameAnimation);
 	}
-
-
 
 }
 
@@ -41,7 +40,6 @@ void VisualSprite::CreateAnimations(const char* fileNameAnimation)
 		while (!myFile.eof()) {
 			tabAnim.push_back(std::vector<int>(0, 0));
 			myFile >> line;
-			//std::getline(myFile, line);
 			int enumAnim = line[0] - '0';
 			myFile >> line;
 			int frameBegin = std::stoi(line);
@@ -57,6 +55,16 @@ void VisualSprite::CreateAnimations(const char* fileNameAnimation)
 	for (int i = 0; i < tabAnim.size(); i++)
 		sprite->CreateAnimation(i, speed, tabAnim[i]);
 
+}
+
+Vector2f VisualSprite::GetSize()
+{
+	return Vector2f(sprite->GetWidth(), sprite->GetHeight());
+}
+
+float VisualSprite::GetScale()
+{
+	return sprite->GetScale();
 }
 
 void VisualSprite::SetScaleSprite(float scale)

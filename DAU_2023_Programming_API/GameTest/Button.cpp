@@ -4,8 +4,6 @@
 
 Button::Button()
 {
-	sprite = nullptr;
-
 	transform = Transform();
 	text = "text";
 	positionText.SetVector2f(0, 0);
@@ -13,15 +11,17 @@ Button::Button()
 
 void Button::Init()
 {
-	sprite = App::CreateSprite(".\\TestData\\UI\\Button.png", 1, 1);
-	sprite->SetPosition(transform.GetPosition().x, transform.GetPosition().y);
-	sprite->SetScale(1.f);
-	size.SetVector2f(sprite->GetWidth()/2, sprite->GetHeight()/2);
+	
+	//sprite->SetPosition(transform.GetPosition().x, transform.GetPosition().y);
+	
+	sprite.CreateSprite(".\\TestData\\UI\\Button.png", 1, 1);
+	size.SetVector2f(sprite.GetSize().x / 2, sprite.GetSize().y / 2);
+	//size.SetVector2f(50, 100);
 }
 
 void Button::Render()
 {
-	sprite->Draw();
+	sprite.RenderSprite(transform.GetPosition());
 	App::Print(positionText.x + transform.GetPosition().x, positionText.y + transform.GetPosition().y, text);
 
 	float r = 1.0f;
@@ -52,7 +52,7 @@ void Button::SetTextPosition(Vector2f _position)
 void Button::SetPosition(Vector2f _position)
 {
 	transform.SetPosition(_position);
-	sprite->SetPosition(transform.GetPosition().x, transform.GetPosition().y);
+	//sprite->SetPosition(transform.GetPosition().x, transform.GetPosition().y);
 }
 
 bool Button::IsHovered()

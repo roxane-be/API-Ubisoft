@@ -1,6 +1,7 @@
 #pragma once
 #include <functional>
 #include "Transform.h"
+#include "VisualSprite.h"
 
 class Button
 {
@@ -20,7 +21,7 @@ public:
 	std::function<void()> ptrF;
 
 private:
-	CSimpleSprite* sprite;
+	VisualSprite sprite;
 	const char* text;
 	Transform transform;
 	Vector2f positionText;

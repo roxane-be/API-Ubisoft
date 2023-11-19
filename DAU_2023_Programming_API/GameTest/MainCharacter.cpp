@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "MainCharacter.h"
 #include "App/app.h"
-#include "App/SimpleSprite.h"
 
 MainCharacter::MainCharacter()
 {
