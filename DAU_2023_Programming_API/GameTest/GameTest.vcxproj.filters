@@ -42,6 +42,7 @@
     <ClCompile Include="Vector2.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="VisualSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -90,6 +91,7 @@
     <ClInclude Include="GameData.h">
       <Filter>UbiCode\Public\Data</Filter>
     </ClInclude>
+    <ClInclude Include="VisualSprite.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">

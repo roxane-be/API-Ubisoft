@@ -20,8 +20,7 @@
 #include "MapManager.h"
 #include "Transform.h"
 #include "Vector2.h"
-
-
+#include "VisualSprite.h"
 
 
 #include <iostream>

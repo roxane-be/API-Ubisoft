@@ -1,5 +1,6 @@
 #pragma once
 #include "Transform.h"
+#include "VisualSprite.h"
 
 class CSimpleSprite;
 enum AnimationSprite
@@ -14,7 +15,7 @@ class MainCharacter
 {
 public:
 	MainCharacter();
-	~MainCharacter() { delete testSprite; };
+	~MainCharacter() { /*delete testSprite;*/ };
 
 	//SPRITE
 	void InitSprite();
@@ -22,10 +23,11 @@ public:
 	void RenderSprite();
 
 	Transform transform;
-	
+	VisualSprite vSprite;
+
 	private :
 	//SPRITE
-	CSimpleSprite* testSprite ;
+	//CSimpleSprite* testSprite ;
 
 
 	//Vector2f other ;
