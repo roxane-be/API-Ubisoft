@@ -1,4 +1,5 @@
 #pragma once
+#include "Character.h"
 #include "Transform.h"
 #include "VisualSprite.h"
 
@@ -11,26 +12,16 @@ enum AnimationSprite
 	ANIM_RIGHT
 };
 
-class MainCharacter 
+class MainCharacter : public Character
 {
 public:
 	MainCharacter();
 	~MainCharacter() { /*delete testSprite;*/ };
 
-	//SPRITE
-	void InitSprite();
-	void UpdateSprite(float deltaTime);
-	void RenderSprite();
 
-	Transform transform;
-	VisualSprite vSprite;
-
-	private :
-	//SPRITE
-	//CSimpleSprite* testSprite ;
-
-
-	//Vector2f other ;
+	virtual void Init() override;
+	virtual void Update(float deltaTime) override;
+	virtual void Render() override;
 
 };
 

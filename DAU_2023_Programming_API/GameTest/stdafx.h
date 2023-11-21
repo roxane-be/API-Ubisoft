@@ -21,8 +21,6 @@
 #include "Transform.h"
 #include "Vector2.h"
 #include "VisualSprite.h"
+#include "Entity.h"
+#include "Character.h"
 
-
-#include <iostream>
-#include <fstream>
-#include <string>

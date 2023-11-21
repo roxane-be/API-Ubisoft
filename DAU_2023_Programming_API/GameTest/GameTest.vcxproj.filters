@@ -43,6 +43,8 @@
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
     <ClCompile Include="VisualSprite.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Character.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -92,6 +94,8 @@
       <Filter>UbiCode\Public\Data</Filter>
     </ClInclude>
     <ClInclude Include="VisualSprite.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="Character.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">

@@ -23,7 +23,7 @@ GameData GameData::Instance;
 void Init()
 {
 	GameData::Instance.mainCharacter = new MainCharacter;
-	GameData::Instance.mainCharacter->InitSprite();
+	GameData::Instance.mainCharacter->Init();
 	GameData::Instance.mainMenu = new UIGame;
 	GameData::Instance.mainMenu->Init();
 
@@ -48,7 +48,7 @@ void Update(float deltaTime)
 	case Game:
 		GameData::Instance.mapManager->Update(deltaTime);
 
-		GameData::Instance.mainCharacter->UpdateSprite(deltaTime);
+		GameData::Instance.mainCharacter->Update(deltaTime);
 		break;
 	}
 
@@ -79,7 +79,7 @@ void Render()
 	break;
 	case Game : 
 		GameData::Instance.mapManager->Render();
-		GameData::Instance.mainCharacter->RenderSprite();
+		GameData::Instance.mainCharacter->Render();
 
 		//------------------------------------------------------------------------
 		// Example Text.
