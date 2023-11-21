@@ -23,4 +23,6 @@
 #include "VisualSprite.h"
 #include "Entity.h"
 #include "Character.h"
+#include "Collision.h"
+#include "Item.h"
 

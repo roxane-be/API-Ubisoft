@@ -15,6 +15,7 @@ public:
 	void RenderSprite(Vector2f& position);
 	Vector2f GetSize();
 	float GetScale();
+	bool IsNull();
 private:
 	void CreateAnimations(const char* fileNameAnimation);
 	CSimpleSprite* sprite = nullptr;

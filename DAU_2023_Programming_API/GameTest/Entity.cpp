@@ -1,11 +1,20 @@
 #include "stdafx.h"
 #include "Entity.h"
-#include "MainCharacter.h"
+#include "Character.h"
 
-Entity::Entity(MainCharacter* owner)
+Entity::Entity()
+{
+	m_owner = nullptr;
+}
+
+Entity::Entity(Character* owner, int life, int damage)
 {
 	m_owner = owner;
+	m_life = life;
+	m_damage = damage;
 }
+
+
 
 void Entity::TakeDamage(int damageToTake)
 {
@@ -17,7 +26,17 @@ void Entity::Death()
 	//
 }
 
-MainCharacter* Entity::GetOwner()
+Character* Entity::GetOwner()
 {
 	return m_owner;
+}
+
+int Entity::GetLife()
+{
+	return m_life;
+}
+
+int Entity::GetDamage()
+{
+	return m_damage;
 }

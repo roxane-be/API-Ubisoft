@@ -5,14 +5,21 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <filesystem>
+
 VisualSprite::VisualSprite()
 {
-	//sprite = nullptr;
+	sprite = nullptr;
 }
 
 void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, float scale,
 	const char* fileNameAnimation)
 {
+if(!std::filesystem::exists(fileName)
+	|| !std::filesystem::is_regular_file(fileName))
+	return;
+	
+
 	sprite = App::CreateSprite(fileName, columns, rows);
 	sprite->SetPosition(0.f, 0.f);
 	SetScaleSprite(scale);
@@ -65,6 +72,11 @@ Vector2f VisualSprite::GetSize()
 float VisualSprite::GetScale()
 {
 	return sprite->GetScale();
+}
+
+bool VisualSprite::IsNull()
+{
+	return (sprite == nullptr);
 }
 
 void VisualSprite::SetScaleSprite(float scale)

@@ -1,6 +1,8 @@
 #pragma once
 #include "Transform.h"
 #include "VisualSprite.h"
+#include "Entity.h"
+
 class Character
 {
 public : 
@@ -15,5 +17,8 @@ public :
 	//properties
 	Transform transform;
 	VisualSprite sprite;
+
+protected:
+	Entity entity;
 };
 

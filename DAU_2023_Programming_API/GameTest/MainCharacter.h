@@ -6,6 +6,7 @@
 class CSimpleSprite;
 enum AnimationSprite
 {
+	ANIM_WALK=0,
 	ANIM_FORWARDS,
 	ANIM_BACKWARDS,
 	ANIM_LEFT,
