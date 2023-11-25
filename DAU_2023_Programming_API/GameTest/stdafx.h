@@ -25,4 +25,4 @@
 #include "Character.h"
 #include "Collision.h"
 #include "Item.h"
-
+#include "Component.h"

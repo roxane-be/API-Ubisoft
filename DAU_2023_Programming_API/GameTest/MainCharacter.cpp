@@ -4,16 +4,16 @@
 
 MainCharacter::MainCharacter()
 {
-	transform = Transform(Vector2f(150, 300), Vector2f(0, 0), Vector2f(1, 1));
-	entity = Entity(this, 3, entity.GetDamage());
+	//transform = Transform(Vector2f(150, 300), Vector2f(0, 0), Vector2f(1, 1));
+	//entity = Entity(this, 3, entity.GetDamage());
 }
 
 void MainCharacter::Init()
 {
-	Character::Init();
-	sprite.CreateSprite(".\\TestData\\Player\\spritesheet.png", 8, 1, 1.0f, ".\\TestData\\Player\\spritesheet.txt");
-	if (!sprite.IsNull())
-	sprite.SetAnimation(ANIM_WALK);
+	//Character::Init();
+	//sprite.CreateSprite(".\\TestData\\Player\\spritesheet.png", 8, 1, 1.0f, ".\\TestData\\Player\\spritesheet.txt");
+	//if (!sprite.IsNull())
+	//sprite.SetAnimation(ANIM_WALK);
 
 }
 
@@ -49,21 +49,21 @@ void MainCharacter::Update(float deltaTime)
 
 void MainCharacter::Render()
 {
-	Character::Render();
-
-	//for print rect like collision
-	{
-		float r = 0.0f;
-		float g = 1.0f;
-		float b = 0.0f;
-		int decalage = 55;
-
-		//colplayer
-		App::DrawLine(transform.GetPosition().x - decalage, transform.GetPosition().y - decalage * 2, transform.GetPosition().x + decalage, transform.GetPosition().y - decalage * 2, r, g, b);
-		App::DrawLine(transform.GetPosition().x + decalage, transform.GetPosition().y - decalage * 2, transform.GetPosition().x + decalage, transform.GetPosition().y + decalage * 2, r, g, b);
-		App::DrawLine(transform.GetPosition().x + decalage, transform.GetPosition().y + decalage * 2, transform.GetPosition().x - decalage, transform.GetPosition().y + decalage * 2, r, g, b);
-		App::DrawLine(transform.GetPosition().x - decalage, transform.GetPosition().y + decalage * 2, transform.GetPosition().x - decalage, transform.GetPosition().y - decalage * 2, r, g, b);
-	}
+	//Character::Render();
+	//
+	////for print rect like collision
+	//{
+	//	float r = 0.0f;
+	//	float g = 1.0f;
+	//	float b = 0.0f;
+	//	int decalage = 55;
+	//
+	//	//colplayer
+	//	App::DrawLine(transform.GetPosition().x - decalage, transform.GetPosition().y - decalage * 2, transform.GetPosition().x + decalage, transform.GetPosition().y - decalage * 2, r, g, b);
+	//	App::DrawLine(transform.GetPosition().x + decalage, transform.GetPosition().y - decalage * 2, transform.GetPosition().x + decalage, transform.GetPosition().y + decalage * 2, r, g, b);
+	//	App::DrawLine(transform.GetPosition().x + decalage, transform.GetPosition().y + decalage * 2, transform.GetPosition().x - decalage, transform.GetPosition().y + decalage * 2, r, g, b);
+	//	App::DrawLine(transform.GetPosition().x - decalage, transform.GetPosition().y + decalage * 2, transform.GetPosition().x - decalage, transform.GetPosition().y - decalage * 2, r, g, b);
+	//}
 }
 
 

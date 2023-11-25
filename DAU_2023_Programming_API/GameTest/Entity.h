@@ -1,20 +1,32 @@
 #pragma once
 
-class Character;
+class Component;
 class Entity
 {
 public:
 	Entity();
-	Entity(Character* owner, int life = 1, int damage =1);
-	void TakeDamage(int damageToTake);
-	void Death();
-	Character* GetOwner();
-	int GetLife();
-	int GetDamage();
+	// To Character
+	//Entity(Character* owner, int life = 1, int damage =1);
+	//void TakeDamage(int damageToTake);
+	//void Death();
+	//Character* GetOwner();
+	//int GetLife();
+	//int GetDamage();
+
+	void Init();
+	void Update(float deltaTime);
+	void Render();
+
+	Transform* GetTransform() { return &transform; }
 
 private:
-	int m_life = 1;
-	int m_damage = 1;
-	Character* m_owner;
+	Transform transform;
+	// To Character
+	//int m_life = 1;
+	//int m_damage = 1;
+	//Character* m_owner;
+	std::vector<Component> m_components;
+	Component* componentStatus; // shortcut for perfo
 };
+
 

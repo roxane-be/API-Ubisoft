@@ -1,26 +1,5 @@
-﻿  stdafx.cpp
-  app.cpp
-  main.cpp
-  SimpleController.cpp
-  SimpleSound.cpp
-  SimpleSprite.cpp
-  Character.cpp
-  Collision.cpp
-  Entity.cpp
-  Item.cpp
-  Vector2.cpp
-  GameData.cpp
-  GameTest.cpp
-  MainCharacter.cpp
-  MapManager.cpp
+﻿  MapManager.cpp
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\MapManager.cpp(28,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\MapManager.cpp(29,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  stb_image.cpp
-  Button.cpp
-  Transform.cpp
-  UIGame.cpp
-  VisualSprite.cpp
-  Génération de code en cours...
   GameTest.vcxproj -> C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
   C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
   1 fichier(s) copiÚ(s)

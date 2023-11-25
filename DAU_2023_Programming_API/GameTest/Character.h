@@ -1,9 +1,8 @@
 #pragma once
 #include "Transform.h"
-#include "VisualSprite.h"
-#include "Entity.h"
+#include "Component.h"
 
-class Character
+class Character : public Component
 {
 public : 
 	Character();
@@ -15,10 +14,9 @@ public :
 	virtual void Render();
 
 	//properties
-	Transform transform;
-	VisualSprite sprite;
+	//VisualSprite sprite;
 
 protected:
-	Entity entity;
+	Transform* entityTransform;
 };
 

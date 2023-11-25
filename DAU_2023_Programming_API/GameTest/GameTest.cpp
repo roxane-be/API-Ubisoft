@@ -22,13 +22,40 @@ GameData GameData::Instance;
 //------------------------------------------------------------------------
 void Init()
 {
-	GameData::Instance.mainCharacter = new MainCharacter;
-	GameData::Instance.mainCharacter->Init();
-	GameData::Instance.mainMenu = new UIGame;
-	GameData::Instance.mainMenu->Init();
+	// rempir m_GlobalEntities
 
-	GameData::Instance.mapManager = new MapManager;
-	GameData::Instance.mapManager->Init();
+	// create mainChar ***********************************
+	{
+
+		//Entity* mainCharacter = new Entity;
+		//
+		//Component* componentStatus = new StatusComponent;
+		//Component* componentMainChar = new Character;
+		//Component* componentVisualMainChar = new VisualSprite;
+		////Component* componentVisualMainChar = new FX;
+		////Component* componentVisualMainChar = new Sound;
+		//
+		//componentStatus.init / load  // initalise les valeur 0  (speed, super sayanmode on/off, ...)
+		//
+		//	componentMainChar.init / load(componentStatus)
+		//	componentVisualMainChar.init / load
+		//
+		//	mainCharacter.m_components.push_back(componentMainChar);
+		//mainCharacter.m_components.push_back(componentVisualMainChar);
+		//
+		//
+		//m_GlobalEntities.push_back(mainCharacter);
+	}
+	// ***************************************************
+
+	//GameData::Instance.mainCharacter = new MainCharacter;
+	//GameData::Instance.mainCharacter->Init();
+	//
+	//GameData::Instance.mainMenu = new UIGame;
+	//GameData::Instance.mainMenu->Init();
+	//
+	//GameData::Instance.mapManager = new MapManager;
+	//GameData::Instance.mapManager->Init();
 }
 
 //------------------------------------------------------------------------
@@ -37,18 +64,20 @@ void Init()
 //------------------------------------------------------------------------
 void Update(float deltaTime)
 {
-	
-	
 
-	switch (GameData::Instance.gameStatue)
+
+
+	switch (GameData::Instance.currentLevel)
 	{
-	case Menu:
-		GameData::Instance.mainMenu->Update(deltaTime);
+	case MainMenu:
+		//GameData::Instance.mainMenu->Update(deltaTime);
 		break;
 	case Game:
-		GameData::Instance.mapManager->Update(deltaTime);
+		//GameData::Instance.mapManager->Update(deltaTime);
 
-		GameData::Instance.mainCharacter->Update(deltaTime);
+		//GameData::Instance.mainCharacter->Update(deltaTime);
+		// update GLobal entities
+		// update Level entities
 		break;
 	}
 
@@ -62,7 +91,7 @@ void Update(float deltaTime)
 
 	if (App::IsKeyPressed(VK_RETURN) || App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
-		
+
 	}
 }
 
@@ -72,14 +101,17 @@ void Update(float deltaTime)
 //------------------------------------------------------------------------
 void Render()
 {
-	switch (GameData::Instance.gameStatue)
+	switch (GameData::Instance.currentLevel)
 	{
-	case Menu :
-		GameData::Instance.mainMenu->Render();
-	break;
-	case Game : 
-		GameData::Instance.mapManager->Render();
-		GameData::Instance.mainCharacter->Render();
+	case MainMenu:
+		//GameData::Instance.mainMenu->Render();
+		break;
+	case Game:
+		//GameData::Instance.mapManager->Render();
+		//GameData::Instance.mainCharacter->Render();
+
+		// Render GLobal entities
+		// Render Level entities
 
 		//------------------------------------------------------------------------
 		// Example Text.
@@ -89,7 +121,7 @@ void Render()
 		//text += "   Y ->";
 		//text += std::to_string(gd.mainCharacter->position.Y);
 		//App::Print(100, 100, text.c_str());
-	break;
+		break;
 	}
 
 	//------------------------------------------------------------------------
@@ -102,7 +134,7 @@ void Render()
 	a += 0.1f;
 	for (int i = 0; i < 20; i++)
 	{
-	
+
 		float sx = 200 + sinf(a + i * 0.1f)*60.0f;
 		float sy = 200 + cosf(a + i * 0.1f)*60.0f;
 		float ex = 700 - sinf(a + i * 0.1f)*60.0f;

@@ -1,8 +1,9 @@
 #pragma once
+#include "Component.h"
 
 class CSimpleSprite;
 
-class VisualSprite
+class VisualSprite : public Component
 {
 public:
 	VisualSprite();

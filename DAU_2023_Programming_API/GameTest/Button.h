@@ -3,7 +3,7 @@
 #include "Transform.h"
 #include "VisualSprite.h"
 
-class Button
+class Button : public Component
 {
 public:
 	Button();

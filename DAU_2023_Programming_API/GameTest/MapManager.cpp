@@ -26,7 +26,6 @@ void MapManager::Init()
 	}
 	transform.SetPosition(spritesMap[0].GetSize().x / 2 * spritesMap[0].GetScale(), spritesMap[0].GetSize().y / 2 * spritesMap[0].GetScale());
 	srand(time(0));
-	srand(time(0));
 	currentMapShow.push_back(spritesMap[rand() % spritesMap.size()]);
 	currentMapShow.push_back(spritesMap[rand() % spritesMap.size()]);
 }

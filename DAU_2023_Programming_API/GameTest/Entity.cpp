@@ -4,39 +4,75 @@
 
 Entity::Entity()
 {
-	m_owner = nullptr;
+	
 }
 
-Entity::Entity(Character* owner, int life, int damage)
+void Entity::Init()
 {
-	m_owner = owner;
-	m_life = life;
-	m_damage = damage;
 }
 
-
-
-void Entity::TakeDamage(int damageToTake)
+void Entity::Update(float deltaTime)
 {
-	m_life - damageToTake <= 0 ? Death() : m_life -= damageToTake;
 }
 
-void Entity::Death()
+void Entity::Render()
 {
-	//
 }
 
-Character* Entity::GetOwner()
-{
-	return m_owner;
-}
 
-int Entity::GetLife()
-{
-	return m_life;
-}
 
-int Entity::GetDamage()
-{
-	return m_damage;
-}
+// très rare d'avoir besoin de ça
+// on préfère passer les components nécessaires à l'init ou au constructeur
+//Character* Entity::SearchCharacter()
+//{
+//	Character* FoundChar = nullptr;
+//
+//	for (auto c : m_components)
+//	{
+//		if (FoundChar = dynamic_cast<Character*>(c) != NULL)
+//		{
+//			return FoundChar;
+//		}
+//
+//	}
+//
+//	return nullptr;
+//}
+
+
+
+
+
+//Entity::Entity(Character* owner, int life, int damage)
+//{
+//	m_owner = owner;
+//	m_life = life;
+//	m_damage = damage;
+//}
+//
+//
+//
+//void Entity::TakeDamage(int damageToTake)
+//{
+//	m_life - damageToTake <= 0 ? Death() : m_life -= damageToTake;
+//}
+//
+//void Entity::Death()
+//{
+//	//
+//}
+//
+//Character* Entity::GetOwner()
+//{
+//	return m_owner;
+//}
+//
+//int Entity::GetLife()
+//{
+//	return m_life;
+//}
+//
+//int Entity::GetDamage()
+//{
+//	return m_damage;
+//}
