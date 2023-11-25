@@ -56,6 +56,8 @@ void Init()
 	//
 	//GameData::Instance.mapManager = new MapManager;
 	//GameData::Instance.mapManager->Init();
+
+	GameData::Instance.Init();
 }
 
 //------------------------------------------------------------------------
@@ -65,6 +67,7 @@ void Init()
 void Update(float deltaTime)
 {
 
+	GameData::Instance.Update(deltaTime);
 
 
 	switch (GameData::Instance.currentLevel)
@@ -101,6 +104,10 @@ void Update(float deltaTime)
 //------------------------------------------------------------------------
 void Render()
 {
+
+	GameData::Instance.Render();
+
+
 	switch (GameData::Instance.currentLevel)
 	{
 	case MainMenu:

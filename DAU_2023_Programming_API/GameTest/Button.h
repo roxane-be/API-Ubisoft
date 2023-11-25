@@ -9,6 +9,7 @@ public:
 	Button();
 
 	void Init();
+	void Update(float deltaTime);
 	void Render();
 	void OnClick();
 	void SetText(const char* _text);

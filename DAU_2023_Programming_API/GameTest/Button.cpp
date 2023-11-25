@@ -11,12 +11,19 @@ Button::Button()
 
 void Button::Init()
 {
-	
+
 	//sprite->SetPosition(transform.GetPosition().x, transform.GetPosition().y);
-	
+
 	sprite.CreateSprite(".\\TestData\\UI\\Button.png", 1, 1);
 	size.SetVector2f(sprite.GetSize().x / 2, sprite.GetSize().y / 2);
 	//size.SetVector2f(50, 100);
+}
+
+void Button::Update(float deltaTime)
+{
+	if (App::IsKeyPressed(VK_LBUTTON) && IsHovered())
+		OnClick();
+
 }
 
 void Button::Render()
@@ -28,11 +35,11 @@ void Button::Render()
 	float g = 0.0f;
 	float b = 0.0f;
 
-	App::DrawLine(transform.GetPosition().x - size.x ,transform.GetPosition().y - size.y , transform.GetPosition().x+ size.x, transform.GetPosition().y - size.y, r, g, b);
-	App::DrawLine(transform.GetPosition().x + size.x ,transform.GetPosition().y - size.y , transform.GetPosition().x+ size.x, transform.GetPosition().y + size.y, r, g, b);
-	App::DrawLine(transform.GetPosition().x + size.x ,transform.GetPosition().y + size.y , transform.GetPosition().x- size.x, transform.GetPosition().y + size.y, r, g, b);
-	App::DrawLine(transform.GetPosition().x - size.x ,transform.GetPosition().y + size.y , transform.GetPosition().x- size.x, transform.GetPosition().y - size.y, r, g, b);
-}																									  
+	App::DrawLine(transform.GetPosition().x - size.x, transform.GetPosition().y - size.y, transform.GetPosition().x + size.x, transform.GetPosition().y - size.y, r, g, b);
+	App::DrawLine(transform.GetPosition().x + size.x, transform.GetPosition().y - size.y, transform.GetPosition().x + size.x, transform.GetPosition().y + size.y, r, g, b);
+	App::DrawLine(transform.GetPosition().x + size.x, transform.GetPosition().y + size.y, transform.GetPosition().x - size.x, transform.GetPosition().y + size.y, r, g, b);
+	App::DrawLine(transform.GetPosition().x - size.x, transform.GetPosition().y + size.y, transform.GetPosition().x - size.x, transform.GetPosition().y - size.y, r, g, b);
+}
 
 void Button::OnClick()
 {
@@ -61,7 +68,7 @@ bool Button::IsHovered()
 	App::GetMousePos(posMouse.x, posMouse.y);
 	//App::GetMousePos(posMouse.X(), posMouse.Y());
 
-	if (   posMouse.x > transform.GetPosition().x - size.x
+	if (posMouse.x > transform.GetPosition().x - size.x
 		&& posMouse.x < transform.GetPosition().x + size.x
 		&& posMouse.y > transform.GetPosition().y - size.y
 		&& posMouse.y < transform.GetPosition().y + size.y

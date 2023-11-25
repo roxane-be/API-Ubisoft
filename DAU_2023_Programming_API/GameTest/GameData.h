@@ -12,12 +12,18 @@ enum eCurrentLevel
 	MainMenu,
 	Game,
 	Shop,
+	numberLevel
 };
 
 
 class GameData
 {
 public:
+	GameData();
+	void Init();
+	void Update(float deltaTime);
+	void Render();
+
 	//MainCharacter* mainCharacter;
 
 	//Entity* m_mainCharacter;
@@ -35,6 +41,6 @@ public:
 private:
 	//std::vector<Entity*> m_GlobalEntities;
 
-	std::vector<std::vector<Entity>> m_LevelsEntities;
+	std::vector<std::vector<Entity*>> m_LevelsEntities;
 };
 

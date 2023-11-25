@@ -2,10 +2,6 @@
 #include "Entity.h"
 #include "Character.h"
 
-Entity::Entity()
-{
-	
-}
 
 void Entity::Init()
 {
@@ -13,10 +9,23 @@ void Entity::Init()
 
 void Entity::Update(float deltaTime)
 {
+	for (int i = 0; i < m_components.size(); i++)
+	{
+		m_components[i]->Update(deltaTime);
+	}
 }
 
 void Entity::Render()
 {
+	for (int i = 0; i < m_components.size(); i++)
+	{
+		m_components[i]->Render();
+	}
+}
+
+void Entity::AddComponent(Component* component)
+{
+	m_components.push_back(component);
 }
 
 
