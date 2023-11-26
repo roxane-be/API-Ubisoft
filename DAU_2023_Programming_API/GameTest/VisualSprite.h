@@ -3,6 +3,11 @@
 
 class CSimpleSprite;
 
+enum eAnimationSprite
+{
+	ANIM_WALK=0,
+};
+
 class VisualSprite : public Component
 {
 public:
@@ -19,9 +24,12 @@ public:
 	Vector2f GetSize();
 	float GetScale();
 	bool IsNull();
+
+	Vector2f* GetOffsetSpritePosition() {return &m_offsetSpritePosition;};
 private:
 	void CreateAnimations(const char* fileNameAnimation);
 	CSimpleSprite* sprite = nullptr;
+	Vector2f m_offsetSpritePosition = Vector2f();
 
 
 

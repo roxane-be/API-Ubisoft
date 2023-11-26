@@ -26,7 +26,7 @@ public:
 
 	//MainCharacter* mainCharacter;
 
-	//Entity* m_mainCharacter;
+	Entity* m_mainCharacter;
 	//
 	//
 	//

@@ -4,14 +4,14 @@
 #include "VisualSprite.h"
 
 class CSimpleSprite;
-enum AnimationSprite
-{
-	ANIM_WALK=0,
-	ANIM_FORWARDS,
-	ANIM_BACKWARDS,
-	ANIM_LEFT,
-	ANIM_RIGHT
-};
+//enum AnimationSprite
+//{
+//	ANIM_WALK=0,
+//	ANIM_FORWARDS,
+//	ANIM_BACKWARDS,
+//	ANIM_LEFT,
+//	ANIM_RIGHT
+//};
 
 class MainCharacter : public Character
 {

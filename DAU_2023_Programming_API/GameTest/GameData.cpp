@@ -54,7 +54,7 @@ void GameData::Init()
 			buttonQuit->AddComponent(componentVisualButtonQuit);
 			Button* componentButtonQuit = new Button(buttonQuit);
 			componentButtonQuit->Init();
-			componentButtonQuit->SetText("Shop");
+			componentButtonQuit->SetText("Quit");
 			componentButtonQuit->SetOffsetTextPosition(Vector2f(-15, -5));
 			componentButtonQuit->ptrF = []() {exit(0); };
 			buttonQuit->AddComponent(componentButtonQuit);
@@ -63,17 +63,25 @@ void GameData::Init()
 
 	}
 
-	//init Entity for Game
+		//init Entity MapManager 
+	{
+		Entity* mapManager = new Entity("MapManager");
+		MapManager* componentMapManager = new MapManager(mapManager);
+		componentMapManager->Init();
+		mapManager->AddComponent(componentMapManager);
+		m_LevelsEntities[Game].push_back(mapManager);
+	}
+	//init Entity MainCharac 
 	{
 		Entity* mainCharac = new Entity("MainCharacter");
 		VisualSprite* componentVisuelMainCharac = new VisualSprite(mainCharac);
 		componentVisuelMainCharac->CreateSprite(".\\TestData\\Player\\spritesheet.png", 8, 1, 1.0f, ".\\TestData\\Player\\spritesheet.txt");
-		componentVisuelMainCharac->SetAnimation(0);
+		componentVisuelMainCharac->SetAnimation(eAnimationSprite::ANIM_WALK);
 		mainCharac->GetTransform()->SetPosition(Vector2f(150, 300));
 		mainCharac->AddComponent(componentVisuelMainCharac);
 		m_LevelsEntities[Game].push_back(mainCharac);
+		m_mainCharacter = mainCharac;
 	}
-
 }
 
 void GameData::Update(float deltaTime)

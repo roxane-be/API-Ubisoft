@@ -110,7 +110,7 @@ void VisualSprite::Render()
 {
 	if (!IsNull())
 	{
-		sprite->SetPosition(m_entity->GetTransform()->GetPosition()->x, m_entity->GetTransform()->GetPosition()->y);
+		sprite->SetPosition(m_entity->GetTransform()->GetPosition()->x + m_offsetSpritePosition.x, m_entity->GetTransform()->GetPosition()->y + m_offsetSpritePosition.y);
 		sprite->Draw();
 	}
 }
