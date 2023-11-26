@@ -12,13 +12,18 @@ VisualSprite::VisualSprite()
 	sprite = nullptr;
 }
 
+VisualSprite::VisualSprite(Entity* parent)
+{
+	m_entity = parent;
+}
+
 void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, float scale,
 	const char* fileNameAnimation)
 {
-if(!std::filesystem::exists(fileName)
-	|| !std::filesystem::is_regular_file(fileName))
-	return;
-	
+	if (!std::filesystem::exists(fileName)
+		|| !std::filesystem::is_regular_file(fileName))
+		return;
+
 
 	sprite = App::CreateSprite(fileName, columns, rows);
 	sprite->SetPosition(0.f, 0.f);
@@ -66,12 +71,16 @@ void VisualSprite::CreateAnimations(const char* fileNameAnimation)
 
 Vector2f VisualSprite::GetSize()
 {
-	return Vector2f(sprite->GetWidth(), sprite->GetHeight());
+	if (!IsNull())
+		return Vector2f(sprite->GetWidth(), sprite->GetHeight());
+	return Vector2f();
 }
 
 float VisualSprite::GetScale()
 {
-	return sprite->GetScale();
+	if (!IsNull())
+		return sprite->GetScale();
+	return -1;
 }
 
 bool VisualSprite::IsNull()
@@ -81,21 +90,27 @@ bool VisualSprite::IsNull()
 
 void VisualSprite::SetScaleSprite(float scale)
 {
-	sprite->SetScale(scale);
+	if (!IsNull())
+		sprite->SetScale(scale);
 }
 
 void VisualSprite::SetAnimation(int id)
 {
-	sprite->SetAnimation(id);
+	if (!IsNull())
+		sprite->SetAnimation(id);
 }
 
 void VisualSprite::Update(float deltaTime)
 {
-	sprite->Update(deltaTime);
+	if (!IsNull())
+		sprite->Update(deltaTime);
 }
 
-void VisualSprite::RenderSprite(Vector2f &position)
+void VisualSprite::Render()
 {
-	sprite->SetPosition(position.x, position.y);
-	sprite->Draw();
+	if (!IsNull())
+	{
+		sprite->SetPosition(m_entity->GetTransform()->GetPosition()->x, m_entity->GetTransform()->GetPosition()->y);
+		sprite->Draw();
+	}
 }

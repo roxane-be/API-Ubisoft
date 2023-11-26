@@ -22,14 +22,14 @@ public:
 	Transform* GetTransform() { return &transform; }
 
 private:
-	Transform transform;
+	Transform transform = Transform();
 	const char* m_name = "None";
 	// To Character
 	//int m_life = 1;
 	//int m_damage = 1;
 	//Character* m_owner;
 	std::vector<Component*> m_components;
-	Component* componentStatus; // shortcut for perfo
+	//Component* componentStatus; // shortcut for perfo
 };
 
 

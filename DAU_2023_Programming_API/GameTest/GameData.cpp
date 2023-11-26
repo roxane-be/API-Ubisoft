@@ -12,39 +12,67 @@ GameData::GameData()
 
 void GameData::Init()
 {
+	//init Entity for Main Menu
+	{
+		//entity Button Play
+		{
+			Entity* buttonPlay = new Entity("ButtonPlay");
+			buttonPlay->GetTransform()->SetPosition(Vector2f(200, 600));
+			VisualSprite* componentVisualButtonPlay = new VisualSprite(buttonPlay);
+			componentVisualButtonPlay->CreateSprite(".\\TestData\\UI\\Button.png", 1, 1);
+			buttonPlay->AddComponent(componentVisualButtonPlay);
+			Button* componentButtonPlay = new Button(buttonPlay);
+			componentButtonPlay->Init();
+			componentButtonPlay->SetText("Play");
+			componentButtonPlay->SetOffsetTextPosition(Vector2f(-15, -5));
+			componentButtonPlay->ptrF = []() { GameData::Instance.currentLevel = Game; };
+			buttonPlay->AddComponent(componentButtonPlay);
+			m_LevelsEntities[MainMenu].push_back(buttonPlay);
 
+		}
+		//entity Button Shop
+		{
+			Entity* buttonShop = new Entity("ButtonShop");
+			buttonShop->GetTransform()->SetPosition(Vector2f(200, 400));
+			VisualSprite* componentVisualButtonShop = new VisualSprite(buttonShop);
+			componentVisualButtonShop->CreateSprite(".\\TestData\\UI\\Button.png", 1, 1);
+			buttonShop->AddComponent(componentVisualButtonShop);
+			Button* componentButtonShop = new Button(buttonShop);
+			componentButtonShop->Init();
+			componentButtonShop->SetText("Shop");
+			componentButtonShop->SetOffsetTextPosition(Vector2f(-15, -5));
+			componentButtonShop->ptrF = []() {};
+			buttonShop->AddComponent(componentButtonShop);
+			m_LevelsEntities[MainMenu].push_back(buttonShop);
+		}
+		//entity Button Quit
+		{
+			Entity* buttonQuit = new Entity("ButtonQuit");
+			buttonQuit->GetTransform()->SetPosition(Vector2f(200, 200));
+			VisualSprite* componentVisualButtonQuit = new VisualSprite(buttonQuit);
+			componentVisualButtonQuit->CreateSprite(".\\TestData\\UI\\Button.png", 1, 1);
+			buttonQuit->AddComponent(componentVisualButtonQuit);
+			Button* componentButtonQuit = new Button(buttonQuit);
+			componentButtonQuit->Init();
+			componentButtonQuit->SetText("Shop");
+			componentButtonQuit->SetOffsetTextPosition(Vector2f(-15, -5));
+			componentButtonQuit->ptrF = []() {exit(0); };
+			buttonQuit->AddComponent(componentButtonQuit);
+			m_LevelsEntities[MainMenu].push_back(buttonQuit);
+		}
 
+	}
 
-	Entity* buttonMainMenu = new Entity("MainMenu");
-	//
-	Button* componentButtonPlay = new Button();
-	componentButtonPlay->Init();
-	componentButtonPlay->SetText("Play");
-	componentButtonPlay->SetTextPosition(Vector2f(-15, -5));
-	componentButtonPlay->SetPosition(Vector2f(200, 600));
-	componentButtonPlay->ptrF = []() { GameData::Instance.currentLevel = Game; };
-	//
-	Button* componentButtonShop = new Button();
-	componentButtonShop->Init();
-	componentButtonShop->SetText("Shop");
-	componentButtonShop->SetTextPosition(Vector2f(-15, -5));
-	componentButtonShop->SetPosition(Vector2f(200, 400));
-	componentButtonShop->ptrF = []() {};
-	//
-	Button* componentButtonQuit = new Button();
-	componentButtonQuit->Init();
-	componentButtonQuit->SetText("Quit");
-	componentButtonQuit->SetTextPosition(Vector2f(-15, -5));
-	componentButtonQuit->SetPosition(Vector2f(200, 200));
-	componentButtonQuit->ptrF = []() {exit(0); };
-
-	buttonMainMenu->AddComponent(componentButtonPlay);
-	buttonMainMenu->AddComponent(componentButtonShop);
-	buttonMainMenu->AddComponent(componentButtonQuit);
-
-	m_LevelsEntities[currentLevel].push_back(buttonMainMenu);
-
-
+	//init Entity for Game
+	{
+		Entity* mainCharac = new Entity("MainCharacter");
+		VisualSprite* componentVisuelMainCharac = new VisualSprite(mainCharac);
+		componentVisuelMainCharac->CreateSprite(".\\TestData\\Player\\spritesheet.png", 8, 1, 1.0f, ".\\TestData\\Player\\spritesheet.txt");
+		componentVisuelMainCharac->SetAnimation(0);
+		mainCharac->GetTransform()->SetPosition(Vector2f(150, 300));
+		mainCharac->AddComponent(componentVisuelMainCharac);
+		m_LevelsEntities[Game].push_back(mainCharac);
+	}
 
 }
 

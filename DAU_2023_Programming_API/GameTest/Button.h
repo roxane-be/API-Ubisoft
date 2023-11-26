@@ -6,7 +6,8 @@
 class Button : public Component
 {
 public:
-	Button();
+	Button() = default;
+	Button(Entity* parent) { m_entity = parent;  };
 
 	void Init();
 	void Update(float deltaTime);
@@ -14,17 +15,16 @@ public:
 	void OnClick();
 	void SetText(const char* _text);
 	//Marge
-	void SetTextPosition(Vector2f _position);
-	void SetPosition(Vector2f _position);
-	Vector2f GetTextPosition() { return positionText; };
+	void SetOffsetTextPosition(Vector2f _position);
+	Vector2f GetTextPosition() { return offsetPositionText; };
 
 	bool IsHovered();	
 	std::function<void()> ptrF;
 
 private:
-	VisualSprite sprite;
-	const char* text;
-	Transform transform;
-	Vector2f positionText;
-	Vector2f size;
+	//VisualSprite sprite;
+	const char* text = "Button";
+	//Transform transform = Transform();
+	Vector2f offsetPositionText = Vector2f();
+	Vector2f size = Vector2f(100,100);
 };

@@ -18,9 +18,9 @@ public:
 
 
 
-	Vector2f GetPosition() { return m_position; };
-	Vector2f GetRotation() { return m_rotation; };
-	Vector2f GetScale() { return m_scale; };
+	Vector2f* GetPosition() { return &m_position; };
+	Vector2f* GetRotation() { return &m_rotation; };
+	Vector2f* GetScale() { return &m_scale; };
 
 private:
 	Vector2f m_position = Vector2f(0, 0);
