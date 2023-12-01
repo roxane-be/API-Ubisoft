@@ -14,19 +14,19 @@
 //------------------------------------------------------------------------
 //CSimpleSprite *testSprite;
 
+GameManager gameManager;
+MapManager mapManager(&gameManager);
 
-GameData GameData::Instance;
+//GameManager GameManager::Instance;
 
 //------------------------------------------------------------------------
 // Called before first update. Do any initial setup here.
 //------------------------------------------------------------------------
 void Init()
 {
-	// rempir m_GlobalEntities
 
 	// create mainChar ***********************************
-	{
-
+	//{
 		//Entity* mainCharacter = new Entity;
 		//
 		//Component* componentStatus = new StatusComponent;
@@ -45,19 +45,13 @@ void Init()
 		//
 		//
 		//m_GlobalEntities.push_back(mainCharacter);
-	}
+	//}
 	// ***************************************************
 
-	//GameData::Instance.mainCharacter = new MainCharacter;
-	//GameData::Instance.mainCharacter->Init();
-	//
-	//GameData::Instance.mainMenu = new UIGame;
-	//GameData::Instance.mainMenu->Init();
-	//
-	//GameData::Instance.mapManager = new MapManager;
-	//GameData::Instance.mapManager->Init();
 
-	GameData::Instance.Init();
+	gameManager.Init();
+	mapManager.Init();
+	mapManager.currentLevel = gameManager.GetCurrentLevel();
 }
 
 //------------------------------------------------------------------------
@@ -66,23 +60,16 @@ void Init()
 //------------------------------------------------------------------------
 void Update(float deltaTime)
 {
-
-	GameData::Instance.Update(deltaTime);
-
-
-	switch (GameData::Instance.currentLevel)
+	if (mapManager.currentLevel != gameManager.GetCurrentLevel())
 	{
-	case MainMenu:
-		//GameData::Instance.mainMenu->Update(deltaTime);
-		break;
-	case Game:
-		//GameData::Instance.mapManager->Update(deltaTime);
+	gameManager.Init();
+		mapManager.currentLevel = gameManager.GetCurrentLevel();
 
-		//GameData::Instance.mainCharacter->Update(deltaTime);
-		// update GLobal entities
-		// update Level entities
-		break;
 	}
+
+	mapManager.Update(deltaTime);
+	gameManager.Update(deltaTime);
+
 
 	//------------------------------------------------------------------------
 	// Sample Sound.
@@ -105,51 +92,30 @@ void Update(float deltaTime)
 void Render()
 {
 
-	GameData::Instance.Render();
+	mapManager.Render();
+//	gameManager.Render();
 
 
-	switch (GameData::Instance.currentLevel)
-	{
-	case MainMenu:
-		//GameData::Instance.mainMenu->Render();
-		break;
-	case Game:
-		//GameData::Instance.mapManager->Render();
-		//GameData::Instance.mainCharacter->Render();
 
-		// Render GLobal entities
-		// Render Level entities
-
-		//------------------------------------------------------------------------
-		// Example Text.
-		//------------------------------------------------------------------------
-		//std::string text = "X ->";
-		//text += std::to_string(gd.mainCharacter->position.X);
-		//text += "   Y ->";
-		//text += std::to_string(gd.mainCharacter->position.Y);
-		//App::Print(100, 100, text.c_str());
-		break;
-	}
 
 	//------------------------------------------------------------------------
 	// Example Line Drawing.
 	//------------------------------------------------------------------------
-	/*static float a = 0.0f;
-	float r = 1.0f;
-	float g = 1.0f;
-	float b = 1.0f;
-	a += 0.1f;
-	for (int i = 0; i < 20; i++)
-	{
-
-		float sx = 200 + sinf(a + i * 0.1f)*60.0f;
-		float sy = 200 + cosf(a + i * 0.1f)*60.0f;
-		float ex = 700 - sinf(a + i * 0.1f)*60.0f;
-		float ey = 700 - cosf(a + i * 0.1f)*60.0f;
-		g = (float)i / 20.0f;
-		b = (float)i / 20.0f;
-		App::DrawLine(sx, sy, ex, ey,r,g,b);
-	}*/
+	//static float a = 0.0f;
+	//float r = 1.0f;
+	//float g = 1.0f;
+	//float b = 1.0f;
+	//a += 0.1f;
+	//for (int i = 0; i < 20; i++)
+	//{
+	//	float sx = 200 + sinf(a + i * 0.1f)*60.0f;
+	//	float sy = 200 + cosf(a + i * 0.1f)*60.0f;
+	//	float ex = 700 - sinf(a + i * 0.1f)*60.0f;
+	//	float ey = 700 - cosf(a + i * 0.1f)*60.0f;
+	//	g = (float)i / 20.0f;
+	//	b = (float)i / 20.0f;
+	//	App::DrawLine(sx, sy, ex, ey,r,g,b);
+	//}
 
 }
 //------------------------------------------------------------------------

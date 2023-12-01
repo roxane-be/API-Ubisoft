@@ -188,8 +188,11 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="LevelGame.h" />
+    <ClInclude Include="LevelMenu.h" />
     <ClInclude Include="Vector2.h" />
-    <ClInclude Include="GameData.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="MapManager.h" />
     <ClInclude Include="stb_image\stb_image.h" />
@@ -211,8 +214,11 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LevelGame.cpp" />
+    <ClCompile Include="LevelMenu.cpp" />
     <ClCompile Include="Vector2.cpp" />
-    <ClCompile Include="GameData.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameTest.cpp" />
     <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="MapManager.cpp" />

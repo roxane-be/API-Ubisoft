@@ -5,20 +5,28 @@
 #include <string>
 #include <ctime>  
 #include <filesystem>
-
-MapManager::MapManager()
-{
-}
-
-MapManager::MapManager(Entity* parent)
-{
-	m_entity = parent;
-}
+#include "GameManager.h"
 
 void MapManager::Init()
 {
 
-	const std::string pathFile = ".\\TestData\\Map";
+	
+}
+
+void MapManager::Update(float deltaTime)
+{
+
+}
+
+void MapManager::Render()
+{
+	
+	currentLevel->Render();
+}
+
+void MapManager::InitBackgroundSpriteMap()
+{
+	/*const std::string pathFile = ".\\TestData\\Map";
 	int nbElemenet = 0;
 
 	for (const auto& entry : std::filesystem::directory_iterator(pathFile)) {
@@ -46,27 +54,27 @@ void MapManager::Init()
 	{
 		currentMapShow[i] = rand() % spritesMap.size();
 
-	}
+	}*/
 }
 
-void MapManager::Update(float deltaTime)
+void MapManager::UpdateBackgroundSpriteMap(float deltaTime)
 {
-	m_entity->GetTransform()->SetPosition(m_entity->GetTransform()->GetPosition()->x + SpeedSideScroll, m_entity->GetTransform()->GetPosition()->y);
+	/*m_entity->GetTransform()->SetPosition(m_entity->GetTransform()->GetPosition()->x + SpeedSideScroll, m_entity->GetTransform()->GetPosition()->y);
 
-	if (m_entity->GetTransform()->GetPosition()->x <= -spritesMap[currentMapShow[0]].GetSize().x * spritesMap[currentMapShow[0]].GetScale() / 2 )
+	if (m_entity->GetTransform()->GetPosition()->x <= -spritesMap[currentMapShow[0]].GetSize().x * spritesMap[currentMapShow[0]].GetScale() / 2)
 	{
 		currentMapShow[0] = currentMapShow[1];
 		currentMapShow[1] = rand() % spritesMap.size();
 		spritesMap[currentMapShow[0]].GetOffsetSpritePosition()->SetVector2f(0, 0);
 		spritesMap[currentMapShow[1]].GetOffsetSpritePosition()->SetVector2f(spritesMap[currentMapShow[0]].GetSize().x * spritesMap[currentMapShow[0]].GetScale(), 0);
 		m_entity->GetTransform()->SetPosition(spritesMap[currentMapShow[0]].GetSize().x / 2 * spritesMap[currentMapShow[0]].GetScale(), spritesMap[currentMapShow[0]].GetSize().y / 2 * spritesMap[currentMapShow[0]].GetScale());
-	}
+	}*/
 }
 
-void MapManager::Render()
+void MapManager::RenderBackgroundSpriteMap()
 {
-	spritesMap[currentMapShow[0]].GetOffsetSpritePosition()->SetVector2f(0, 0);
+	/*spritesMap[currentMapShow[0]].GetOffsetSpritePosition()->SetVector2f(0, 0);
 	spritesMap[currentMapShow[0]].Render();
 	spritesMap[currentMapShow[1]].GetOffsetSpritePosition()->SetVector2f(spritesMap[currentMapShow[0]].GetSize().x * spritesMap[currentMapShow[0]].GetScale(), 0);
-	spritesMap[currentMapShow[1]].Render();
+	spritesMap[currentMapShow[1]].Render();*/
 }

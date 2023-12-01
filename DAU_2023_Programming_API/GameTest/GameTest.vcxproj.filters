@@ -30,11 +30,8 @@
     <ClCompile Include="MainCharacter.cpp">
       <Filter>UbiCode\Private\Gameplay</Filter>
     </ClCompile>
-    <ClCompile Include="GameData.cpp">
-      <Filter>UbiCode\Private\Data</Filter>
-    </ClCompile>
     <ClCompile Include="MapManager.cpp">
-      <Filter>UbiCode\Private\Map</Filter>
+      <Filter>UbiCode\Private\Other</Filter>
     </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
@@ -48,16 +45,30 @@
     <ClCompile Include="Collision.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Character.cpp">
-      <Filter>UbiCode\Private\Gameplay</Filter>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>UbiCode\Private\Other</Filter>
     </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>UbiCode\Private\Gameplay</Filter>
+    <ClCompile Include="Level.cpp">
+      <Filter>UbiCode\Private\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelMenu.cpp">
+      <Filter>UbiCode\Private\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelGame.cpp">
+      <Filter>UbiCode\Private\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
-      <Filter>UbiCode\Private\Gameplay</Filter>
+      <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Item.cpp">
+      <Filter>UbiCode\Private\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>UbiCode\Private\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -95,7 +106,7 @@
       <Filter>UbiCode\Public\Gameplay</Filter>
     </ClInclude>
     <ClInclude Include="MapManager.h">
-      <Filter>UbiCode\Public\Map</Filter>
+      <Filter>UbiCode\Public\Other</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>UbiCode\Public\Engine</Filter>
@@ -103,25 +114,36 @@
     <ClInclude Include="Vector2.h">
       <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="GameData.h">
-      <Filter>UbiCode\Public\Data</Filter>
-    </ClInclude>
     <ClInclude Include="VisualSprite.h">
       <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Collision.h">
       <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>UbiCode\Public\Gameplay</Filter>
+    <ClInclude Include="GameManager.h">
+      <Filter>UbiCode\Public\Other</Filter>
     </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>UbiCode\Public\Gameplay</Filter>
+    <ClInclude Include="Level.h">
+      <Filter>UbiCode\Public\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelMenu.h">
+      <Filter>UbiCode\Public\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelGame.h">
+      <Filter>UbiCode\Public\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>UbiCode\Public\Gameplay</Filter>
+      <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Component.h" />
+    <ClInclude Include="Character.h">
+      <Filter>UbiCode\Public\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>UbiCode\Public\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">
@@ -151,23 +173,23 @@
     <Filter Include="UbiCode\Private\Gameplay">
       <UniqueIdentifier>{d4075ca4-3dbf-412e-ab12-e47588aca55e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UbiCode\Public\Map">
-      <UniqueIdentifier>{b82d4224-439f-4d68-b00b-53170d9f889e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UbiCode\Public\Engine">
       <UniqueIdentifier>{08615949-3db3-4086-92c5-9fbe9dff1566}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UbiCode\Public\Data">
-      <UniqueIdentifier>{5afd1570-611c-42cc-b767-e85adae4f94a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UbiCode\Private\Data">
-      <UniqueIdentifier>{0fd82a4a-58d6-43b5-aa19-f7761b38d2fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UbiCode\Private\Map">
-      <UniqueIdentifier>{2cdc5984-e7c3-4418-9e2a-77ce3616798d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UbiCode\Private\Engine">
       <UniqueIdentifier>{75d3c14e-5aee-4552-b446-ba8f9094cc24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Private\Other">
+      <UniqueIdentifier>{2cdc5984-e7c3-4418-9e2a-77ce3616798d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Public\Other">
+      <UniqueIdentifier>{b82d4224-439f-4d68-b00b-53170d9f889e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Public\Level">
+      <UniqueIdentifier>{126b1dd9-a89a-4d83-9f8f-e193d29aec3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Private\Level">
+      <UniqueIdentifier>{45db106a-a79f-45b6-aea2-bf49982c527e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

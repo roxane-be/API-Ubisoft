@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "UIGame.h"
 #include "Button.h"
-#include "GameData.h"
+#include "GameManager.h"
 #include <functional>
 #include "App/app.h"
 

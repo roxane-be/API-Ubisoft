@@ -14,7 +14,7 @@ public:
 	VisualSprite();
 	VisualSprite(Entity* parent);
 
-	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f,
+	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f, int layer =0,
 		const char* fileNameAnimation = "None\0");
 	void SetScaleSprite(float scale);
 	void SetAnimation(int id);
@@ -26,6 +26,9 @@ public:
 	bool IsNull();
 
 	Vector2f* GetOffsetSpritePosition() {return &m_offsetSpritePosition;};
+
+	//le Z, fond
+	int m_layer =0;
 private:
 	void CreateAnimations(const char* fileNameAnimation);
 	CSimpleSprite* sprite = nullptr;

@@ -1,27 +1,37 @@
 #pragma once
 #include "Transform.h"
 #include "VisualSprite.h"
-#include "Component.h"
+#include <list>
+
 
 #define SpeedSideScroll -5.f
 
-class MapManager : public Component
+class Level;
+class GameManager;
+
+class MapManager
 {
 public:
-	MapManager();
-	MapManager(Entity* parent);
+	MapManager(GameManager* gameManager) {m_gameManager = gameManager;};
 
-	virtual void Init();
-	virtual void Update(float deltaTime);
-	virtual void Render();
+	void Init();
+	void Update(float deltaTime);
+	void Render();
+
+	Level* currentLevel; // point vers le current level
 
 
+
+
+protected:
+	void InitBackgroundSpriteMap();
+	void UpdateBackgroundSpriteMap(float deltaTime);
+	void RenderBackgroundSpriteMap();
 private:
-	//std::vector<CSimpleSprite> spritesMap;
-	//std::vector<CSimpleSprite> currentMapShow;
-	std::vector<VisualSprite> spritesMap;
-	int currentMapShow[2] {0,0};
-	//Transform transform;
-	//float sideScroll =-5;
+	std::vector<VisualSprite> backgroundSpritesMap;
+	int currentBackgroundShow[2]{ 0,0 };
+	// pour afficher les sprites avec un layer
+	std::list<VisualSprite> activeEntitiesSpriteList;
+	GameManager* m_gameManager;
 };
 

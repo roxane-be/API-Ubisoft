@@ -14,7 +14,7 @@
 
 // TODO: reference additional headers your program requires here
 #include "MainCharacter.h"
-#include "GameData.h"
+#include "GameManager.h"
 #include "Button.h"
 #include "UIGame.h"
 #include "MapManager.h"
@@ -26,3 +26,4 @@
 #include "Collision.h"
 #include "Item.h"
 #include "Component.h"
+#include "Level.h"

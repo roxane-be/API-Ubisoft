@@ -17,7 +17,7 @@ VisualSprite::VisualSprite(Entity* parent)
 	m_entity = parent;
 }
 
-void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, float scale,
+void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, float scale, int layer,
 	const char* fileNameAnimation)
 {
 	if (!std::filesystem::exists(fileName)
@@ -34,7 +34,7 @@ void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, flo
 	{
 		CreateAnimations(fileNameAnimation);
 	}
-
+	m_layer = layer;
 }
 
 void VisualSprite::CreateAnimations(const char* fileNameAnimation)
