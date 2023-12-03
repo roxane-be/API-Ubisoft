@@ -12,11 +12,6 @@ VisualSprite::VisualSprite()
 	sprite = nullptr;
 }
 
-VisualSprite::VisualSprite(Entity* parent)
-{
-	m_entity = parent;
-}
-
 void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, float scale, int layer,
 	const char* fileNameAnimation)
 {
@@ -42,7 +37,7 @@ void VisualSprite::CreateAnimations(const char* fileNameAnimation)
 	std::ifstream myFile(fileNameAnimation);
 
 	std::vector <std::vector<int>> tabAnim;
-	float speed;
+	float speed =0;
 	if (myFile)
 	{
 		myFile >> speed;

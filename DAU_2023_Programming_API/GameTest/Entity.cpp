@@ -9,17 +9,17 @@ void Entity::Init()
 
 void Entity::Update(float deltaTime)
 {
-	for (int i = 0; i < m_components.size(); i++)
+	for (const auto& component : m_components)
 	{
-		m_components[i]->Update(deltaTime);
+		component->Update(deltaTime);
 	}
 }
 
 void Entity::Render()
 {
-	for (int i = 0; i < m_components.size(); i++)
+	for (const auto& component : m_components)
 	{
-		m_components[i]->Render();
+		component->Render();
 	}
 }
 

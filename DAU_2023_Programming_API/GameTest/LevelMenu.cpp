@@ -15,10 +15,7 @@ void LevelMenu::Update(float deltaTime)
 
 void LevelMenu::Render()
 {
-	for (const auto& element : m_ButtonEntities)
-	{
-		element->Render();
-	}
+	
 }
 
 
@@ -26,11 +23,14 @@ void LevelMenu::CreateButton(const char* nameEntity, const char* textButton, Vec
 {
 
 	Entity* button = new Entity(nameEntity);
+	BlackBoard* blackBoard = new BlackBoard(button);
+	button->blackBoard =blackBoard;
 	button->GetTransform()->SetPosition(positionButton);
-	VisualSprite* componentVisualButtonPlay = new VisualSprite(button);
+	VisualSprite* componentVisualButtonPlay = new VisualSprite(button, blackBoard);
 	componentVisualButtonPlay->CreateSprite(".\\TestData\\UI\\Button.png", 1, 1);
+	blackBoard->SetLayerVisualSprite(componentVisualButtonPlay->GetLayer());
 	button->AddComponent(componentVisualButtonPlay);
-	Button* componentButtonPlay = new Button(button);
+	Button* componentButtonPlay = new Button(button,blackBoard);
 	componentButtonPlay->Init();
 	componentButtonPlay->SetText(textButton);
 	componentButtonPlay->SetOffsetTextPosition(Vector2f(-15, -5));

@@ -7,7 +7,11 @@ class Button : public Component
 {
 public:
 	Button() = default;
-	Button(Entity* parent) { m_entity = parent;  };
+	Button(Entity* parent, BlackBoard* _blackBoard)
+	{ 
+		m_entity = parent;  
+		m_blackBoard = _blackBoard;	
+	};
 
 	void Init();
 	void Update(float deltaTime);

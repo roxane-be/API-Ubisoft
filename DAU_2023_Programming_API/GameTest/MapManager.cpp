@@ -6,23 +6,36 @@
 #include <ctime>  
 #include <filesystem>
 #include "GameManager.h"
+#include "Entity.h"
+#include "VisualSprite.h"
 
 void MapManager::Init()
 {
 
-	
+
 }
 
 void MapManager::Update(float deltaTime)
 {
 
+
 }
+
+
+
 
 void MapManager::Render()
 {
-	
-	currentLevel->Render();
+	if (activeEntitiesSpriteList)
+	{
+		activeEntitiesSpriteList->sort(MapManager::CompareLayer);
+		for (const auto& element : *activeEntitiesSpriteList)
+			if (element != nullptr)
+				element->Render();
+	}
 }
+
+
 
 void MapManager::InitBackgroundSpriteMap()
 {

@@ -2,13 +2,14 @@
 #include "GameManager.h"
 #include "Entity.h"
 #include "Level.h"
+#include "LevelGame.h"
 #include "LevelMenu.h"
 
 GameManager::GameManager()
 {
 
 	m_levels.push_back(new LevelMenu(this)); // menu
-	m_levels.push_back(new Level(this)); // game
+	m_levels.push_back(new LevelGame(this)); // game
 	m_levels.push_back(new Level(this)); // shop
 
 }
@@ -25,12 +26,15 @@ void GameManager::Init()
 		m_ActiveEntityList = m_levels[currentLevel]->GetButtonEntities();
 		break;
 	case Game:
+		m_ActiveEntityList.push_back(m_levels[currentLevel]->mainCharacter);
 		break;
 	case Shop:
 		break;
 	default:
 		break;
 	}
+
+
 
 	////init Entity for Main Menu
 	//{
@@ -114,5 +118,8 @@ void GameManager::Update(float deltaTime)
 
 void GameManager::Render()
 {
-
+	for (const auto& element : m_ActiveEntityList)
+	{
+		element->Render();
+	}
 }

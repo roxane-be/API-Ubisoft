@@ -69,6 +69,7 @@
     <ClCompile Include="Character.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="BlackBoard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="Item.h">
       <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="BlackBoard.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">

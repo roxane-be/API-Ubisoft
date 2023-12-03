@@ -1,30 +1,4 @@
-﻿  stdafx.cpp
-  app.cpp
-  main.cpp
-  SimpleController.cpp
-  SimpleSound.cpp
-  SimpleSprite.cpp
-  Character.cpp
-  Collision.cpp
-  Component.cpp
-  Entity.cpp
-  Item.cpp
-  Level.cpp
-  LevelGame.cpp
-  LevelMenu.cpp
-  Vector2.cpp
-  GameManager.cpp
-  GameTest.cpp
-  MainCharacter.cpp
-  MapManager.cpp
-  stb_image.cpp
-  Button.cpp
-  Génération de code en cours...
-  Compilation en cours...
-  Transform.cpp
-  UIGame.cpp
-  VisualSprite.cpp
-  Génération de code en cours...
+﻿  MapManager.cpp
   GameTest.vcxproj -> C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
   C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
   1 fichier(s) copiÚ(s)

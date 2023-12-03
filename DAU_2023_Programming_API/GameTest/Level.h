@@ -16,10 +16,10 @@ public:
 	virtual void Render();
 
 	std::list<Entity*> GetButtonEntities() { return m_ButtonEntities; };
+	Entity* mainCharacter;
 protected:
 	GameManager* m_gameManager;
 	std::list<Entity*> m_ButtonEntities;
-
 	//split avec un vector enemi, bonus, objetc , (((waves)))..... 
 	//std::vector<Entity> m_EnemyEntities;
 	//std::vector<Entity> m_BonusEntities;

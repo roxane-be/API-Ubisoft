@@ -38,7 +38,7 @@ public:
 
 	Level* GetCurrentLevel() { return m_levels[currentLevel]; };
 	eCurrentLevel currentLevel = MainMenu;
-	std::list<Entity*> GetActiveEntity() { return m_ActiveEntityList; };
+	std::list<Entity*>* GetActiveEntity() { return &m_ActiveEntityList; };
 	//	Entity* m_mainCharacter; //pas forcément besoin dans le jeu
 private:
 

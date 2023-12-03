@@ -1,5 +1,6 @@
 #pragma once
 class Entity;
+class BlackBoard;
 class Component
 {
 public:
@@ -14,5 +15,6 @@ public:
 
 protected:
 	Entity* m_entity;
+	BlackBoard* m_blackBoard;
 };
 

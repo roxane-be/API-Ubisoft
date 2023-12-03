@@ -52,6 +52,7 @@ void Init()
 	gameManager.Init();
 	mapManager.Init();
 	mapManager.currentLevel = gameManager.GetCurrentLevel();
+	mapManager.activeEntitiesSpriteList = gameManager.GetActiveEntity();
 }
 
 //------------------------------------------------------------------------
@@ -64,10 +65,10 @@ void Update(float deltaTime)
 	{
 	gameManager.Init();
 		mapManager.currentLevel = gameManager.GetCurrentLevel();
-
+		
 	}
 
-	mapManager.Update(deltaTime);
+	//mapManager.Update(deltaTime);
 	gameManager.Update(deltaTime);
 
 
@@ -93,7 +94,7 @@ void Render()
 {
 
 	mapManager.Render();
-//	gameManager.Render();
+	//gameManager.Render();
 
 
 

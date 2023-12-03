@@ -20,6 +20,8 @@ public:
 	
 	void AddComponent(Component* component);
 	Transform* GetTransform() { return &transform; }
+	const std::list<Component*> GetComponents() {return m_components;};
+	BlackBoard* blackBoard;
 
 private:
 	Transform transform = Transform();
@@ -28,7 +30,7 @@ private:
 	//int m_life = 1;
 	//int m_damage = 1;
 	//Character* m_owner;
-	std::vector<Component*> m_components;
+	std::list<Component*> m_components;
 	//Component* componentStatus; // shortcut for perfo
 };
 

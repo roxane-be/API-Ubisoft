@@ -27,3 +27,6 @@
 #include "Item.h"
 #include "Component.h"
 #include "Level.h"
+#include "LevelGame.h"
+#include "LevelMenu.h"
+#include "BlackBoard.h"
