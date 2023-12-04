@@ -43,4 +43,5 @@ void LevelMenu::Play()
 {
 	m_gameManager->currentLevel = Game;
 	Init();
+	
 }

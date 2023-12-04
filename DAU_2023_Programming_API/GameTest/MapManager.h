@@ -6,7 +6,7 @@
 #include "BlackBoard.h"
 
 
-#define SpeedSideScroll -5.f
+#define SpeedSideScroll -8.f
 
 class Level;
 class GameManager;
@@ -14,7 +14,7 @@ class GameManager;
 class MapManager
 {
 public:
-	MapManager(GameManager* gameManager) {m_gameManager = gameManager;};
+	MapManager(GameManager* gameManager) { m_gameManager = gameManager; };
 
 	void Init();
 	void Update(float deltaTime);
@@ -26,13 +26,6 @@ public:
 
 	std::list<Entity*>* activeEntitiesSpriteList;
 
-
-
-protected:
-	void InitBackgroundSpriteMap();
-	void UpdateBackgroundSpriteMap(float deltaTime);
-	void RenderBackgroundSpriteMap();
-
 	static bool CompareLayer(const Entity* entity1, const Entity* entity2)
 	{
 		if (entity1->blackBoard && entity2->blackBoard)
@@ -43,9 +36,15 @@ protected:
 		return false;
 	};
 
+protected:
+	void InitBackgroundSpriteMap();
+	void UpdateBackgroundSpriteMap(float deltaTime);
+
+
+
 private:
-	std::vector<VisualSprite> backgroundSpritesMap;
-	int currentBackgroundShow[2]{ 0,0 };
+	std::vector<Entity*> backgroundList;
+	int currentMapShow[2]{ 0,0 };
 	// pour afficher les sprites avec un layer
 	GameManager* m_gameManager;
 };

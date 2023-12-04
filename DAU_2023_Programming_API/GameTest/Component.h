@@ -14,7 +14,7 @@ public:
 	const Entity* GetEntity() const { return m_entity; };
 
 protected:
-	Entity* m_entity;
-	BlackBoard* m_blackBoard;
+	Entity* m_entity = nullptr;
+	BlackBoard* m_blackBoard = nullptr;
 };
 

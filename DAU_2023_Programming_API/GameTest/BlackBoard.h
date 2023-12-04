@@ -13,7 +13,11 @@ public :
 	void SetLayerVisualSprite(int _layer) { m_layer = _layer;};
 	int GetLayervisualSprite() {return m_layer;};
 
+	Vector2f sizeSprite = Vector2f();
+	float scaleSprite =1;
+
 	private :
 	int m_layer =0; // var Visual Sprite
+
 };
 

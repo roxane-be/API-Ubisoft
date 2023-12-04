@@ -12,6 +12,7 @@ class VisualSprite : public Component
 {
 public:
 	VisualSprite();
+
 	VisualSprite(Entity* parent, BlackBoard* _blackBoard)
 	{
 		m_entity = parent;

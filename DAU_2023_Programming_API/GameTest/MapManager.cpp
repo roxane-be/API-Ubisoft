@@ -11,13 +11,14 @@
 
 void MapManager::Init()
 {
-
+	if (m_gameManager->currentLevel == eCurrentLevel::Game)
+		InitBackgroundSpriteMap();
 
 }
 
 void MapManager::Update(float deltaTime)
 {
-
+	UpdateBackgroundSpriteMap(deltaTime);
 
 }
 
@@ -32,6 +33,7 @@ void MapManager::Render()
 		for (const auto& element : *activeEntitiesSpriteList)
 			if (element != nullptr)
 				element->Render();
+
 	}
 }
 
@@ -39,12 +41,12 @@ void MapManager::Render()
 
 void MapManager::InitBackgroundSpriteMap()
 {
-	/*const std::string pathFile = ".\\TestData\\Map";
+	const std::string pathFile = ".\\TestData\\Map";
 	int nbElemenet = 0;
 
-	for (const auto& entry : std::filesystem::directory_iterator(pathFile)) {
+	for (const auto& entry : std::filesystem::directory_iterator(pathFile))
 		nbElemenet++;
-	}
+	backgroundList.resize(nbElemenet);
 
 	for (int i = 0; i < nbElemenet; i++)
 	{
@@ -52,42 +54,52 @@ void MapManager::InitBackgroundSpriteMap()
 		stringFile += std::to_string(i);
 		stringFile += ".png";
 		stringFile += "\0";
-
 		char* charFile = new char[stringFile.length() + 1];
 		std::strcpy(charFile, stringFile.c_str());
 
-		spritesMap.push_back(VisualSprite(m_entity));
-		spritesMap[spritesMap.size() - 1].CreateSprite(charFile, 1, 1, 0.8f);
+		Entity* backgroundMap = new Entity("BackGroundMap" + i);
+		BlackBoard* blackBoard = new BlackBoard(backgroundMap);
+		VisualSprite* componentVisualSpriteBackground = new VisualSprite(backgroundMap, blackBoard);
+		componentVisualSpriteBackground->CreateSprite(charFile, 1, 1, 0.8f, 0);
+		backgroundMap->AddComponent(componentVisualSpriteBackground);
+		blackBoard->sizeSprite = componentVisualSpriteBackground->GetSize();
+		blackBoard->scaleSprite = componentVisualSpriteBackground->GetScale();
+		backgroundMap->blackBoard = blackBoard;
 
+		backgroundMap->GetTransform()->SetPosition({ -500,-500 });
+		backgroundList[i] = backgroundMap;
+
+		m_gameManager->GetActiveEntity()->push_back(backgroundList[i]);
 	}
-	m_entity->GetTransform()->SetPosition(spritesMap[0].GetSize().x / 2 * spritesMap[0].GetScale(), spritesMap[0].GetSize().y / 2 * spritesMap[0].GetScale());
 	srand(time(0));
 
 	for (int i = 0; i < 2; i++)
 	{
-		currentMapShow[i] = rand() % spritesMap.size();
+		do
+		{
+			currentMapShow[i] = rand() % backgroundList.size();
+		} while (currentMapShow[i] == currentMapShow[i - 1]);
 
-	}*/
+	}
+	backgroundList[currentMapShow[0]]->GetTransform()->SetPosition(backgroundList[currentMapShow[0]]->blackBoard->sizeSprite.x / 2.f * backgroundList[currentMapShow[0]]->blackBoard->scaleSprite, backgroundList[currentMapShow[0]]->blackBoard->sizeSprite.y / 2.f * backgroundList[currentMapShow[0]]->blackBoard->scaleSprite);
+	backgroundList[currentMapShow[1]]->GetTransform()->SetPosition(backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->x + backgroundList[currentMapShow[0]]->blackBoard->sizeSprite.x * backgroundList[currentMapShow[0]]->blackBoard->scaleSprite, backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->y);
 }
 
 void MapManager::UpdateBackgroundSpriteMap(float deltaTime)
 {
-	/*m_entity->GetTransform()->SetPosition(m_entity->GetTransform()->GetPosition()->x + SpeedSideScroll, m_entity->GetTransform()->GetPosition()->y);
+	backgroundList[currentMapShow[0]]->GetTransform()->SetPosition(backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->x + SpeedSideScroll, backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->y);
+	backgroundList[currentMapShow[1]]->GetTransform()->SetPosition(backgroundList[currentMapShow[1]]->GetTransform()->GetPosition()->x + SpeedSideScroll, backgroundList[currentMapShow[1]]->GetTransform()->GetPosition()->y);
 
-	if (m_entity->GetTransform()->GetPosition()->x <= -spritesMap[currentMapShow[0]].GetSize().x * spritesMap[currentMapShow[0]].GetScale() / 2)
+	if (backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->x <= -backgroundList[currentMapShow[0]]->blackBoard->sizeSprite.x * backgroundList[currentMapShow[0]]->blackBoard->scaleSprite / 2)
 	{
-		currentMapShow[0] = currentMapShow[1];
-		currentMapShow[1] = rand() % spritesMap.size();
-		spritesMap[currentMapShow[0]].GetOffsetSpritePosition()->SetVector2f(0, 0);
-		spritesMap[currentMapShow[1]].GetOffsetSpritePosition()->SetVector2f(spritesMap[currentMapShow[0]].GetSize().x * spritesMap[currentMapShow[0]].GetScale(), 0);
-		m_entity->GetTransform()->SetPosition(spritesMap[currentMapShow[0]].GetSize().x / 2 * spritesMap[currentMapShow[0]].GetScale(), spritesMap[currentMapShow[0]].GetSize().y / 2 * spritesMap[currentMapShow[0]].GetScale());
-	}*/
-}
+		backgroundList[currentMapShow[0]]->GetTransform()->SetPosition({ -500,-500 });
 
-void MapManager::RenderBackgroundSpriteMap()
-{
-	/*spritesMap[currentMapShow[0]].GetOffsetSpritePosition()->SetVector2f(0, 0);
-	spritesMap[currentMapShow[0]].Render();
-	spritesMap[currentMapShow[1]].GetOffsetSpritePosition()->SetVector2f(spritesMap[currentMapShow[0]].GetSize().x * spritesMap[currentMapShow[0]].GetScale(), 0);
-	spritesMap[currentMapShow[1]].Render();*/
+		currentMapShow[0] = currentMapShow[1];
+		while (currentMapShow[0] == currentMapShow[1])
+		{
+			currentMapShow[1] = rand() % backgroundList.size();
+		}
+		backgroundList[currentMapShow[0]]->GetTransform()->SetPosition(backgroundList[currentMapShow[0]]->blackBoard->sizeSprite.x / 2.f * backgroundList[currentMapShow[0]]->blackBoard->scaleSprite, backgroundList[currentMapShow[0]]->blackBoard->sizeSprite.y / 2.f * backgroundList[currentMapShow[0]]->blackBoard->scaleSprite);
+		backgroundList[currentMapShow[1]]->GetTransform()->SetPosition(backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->x + backgroundList[currentMapShow[0]]->blackBoard->sizeSprite.x * backgroundList[currentMapShow[0]]->blackBoard->scaleSprite, backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->y);
+	}
 }

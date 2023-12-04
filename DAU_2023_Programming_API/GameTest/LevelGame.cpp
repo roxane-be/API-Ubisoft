@@ -13,7 +13,7 @@ void LevelGame::Init()
 		blackBoard->SetLayerVisualSprite(componentVisuelMainCharac->GetLayer());
 		mainCharacter->GetTransform()->SetPosition(Vector2f(150, 300));
 		mainCharacter->AddComponent(componentVisuelMainCharac);
-
+		mainCharacter->blackBoard =blackBoard;
 	}
 }
 
