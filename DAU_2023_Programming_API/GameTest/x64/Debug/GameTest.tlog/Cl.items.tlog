@@ -4,7 +4,6 @@ C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Ap
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\App\SimpleSound.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\SimpleSound.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\App\SimpleSprite.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\SimpleSprite.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\BlackBoard.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\BlackBoard.obj
-C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Character.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\Character.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Collision.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\Collision.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Component.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\Component.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\Entity.obj
@@ -15,11 +14,9 @@ C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Le
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Vector2.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\Vector2.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\GameManager.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\GameManager.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\GameTest.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\GameTest.obj
-C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\MainCharacter.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\MainCharacter.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\MapManager.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\MapManager.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\stb_image\stb_image.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\stb_image.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\stdafx.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\stdafx.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Button.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\Button.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Transform.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\Transform.obj
-C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\UIGame.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\UIGame.obj
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\VisualSprite.cpp;C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\x64\Debug\VisualSprite.obj

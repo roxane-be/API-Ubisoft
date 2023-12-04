@@ -67,8 +67,8 @@ void Update(float deltaTime)
 		mapManager.currentLevel = gameManager.GetCurrentLevel();
 		mapManager.Init();
 	}
-
-	mapManager.Update(deltaTime);
+	if (gameManager.currentLevel == Game)
+		mapManager.Update(deltaTime);
 	gameManager.Update(deltaTime);
 
 

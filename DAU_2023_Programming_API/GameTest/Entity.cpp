@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Entity.h"
-#include "Character.h"
 
 
 void Entity::Init()

@@ -7,6 +7,7 @@
 #include <list>
 
 class Level;
+class Entity;
 
 enum eCurrentLevel
 {
@@ -37,7 +38,7 @@ public:
 	//deviens le Game Manager
 
 	Level* GetCurrentLevel() { return m_levels[currentLevel]; };
-	eCurrentLevel currentLevel = Game;
+	eCurrentLevel currentLevel = MainMenu;
 	std::list<Entity*>* GetActiveEntity() { return &m_ActiveEntityList; };
 	//	Entity* m_mainCharacter; //pas forcément besoin dans le jeu
 private:

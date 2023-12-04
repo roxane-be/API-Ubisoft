@@ -21,15 +21,6 @@
     <ClCompile Include="stb_image\stb_image.cpp">
       <Filter>stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>UbiCode\Private\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="UIGame.cpp">
-      <Filter>UbiCode\Private\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="MainCharacter.cpp">
-      <Filter>UbiCode\Private\Gameplay</Filter>
-    </ClCompile>
     <ClCompile Include="MapManager.cpp">
       <Filter>UbiCode\Private\Other</Filter>
     </ClCompile>
@@ -66,10 +57,12 @@
     <ClCompile Include="Item.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Character.cpp">
+    <ClCompile Include="Button.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="BlackBoard.cpp" />
+    <ClCompile Include="BlackBoard.cpp">
+      <Filter>UbiCode\Private\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -96,15 +89,6 @@
     </ClInclude>
     <ClInclude Include="stb_image\stb_image.h">
       <Filter>stb_image</Filter>
-    </ClInclude>
-    <ClInclude Include="UIGame.h">
-      <Filter>UbiCode\Public\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>UbiCode\Public\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="MainCharacter.h">
-      <Filter>UbiCode\Public\Gameplay</Filter>
     </ClInclude>
     <ClInclude Include="MapManager.h">
       <Filter>UbiCode\Public\Other</Filter>
@@ -139,13 +123,15 @@
     <ClInclude Include="Entity.h">
       <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>UbiCode\Public\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="BlackBoard.h" />
+    <ClInclude Include="Button.h">
+      <Filter>UbiCode\Public\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BlackBoard.h">
+      <Filter>UbiCode\Public\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">
