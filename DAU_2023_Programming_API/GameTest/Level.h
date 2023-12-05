@@ -16,9 +16,9 @@ public:
 	virtual void Render();
 
 	std::list<Entity*> GetButtonEntities() { return m_ButtonEntities; };
-	Entity* mainCharacter;
+	Entity* mainCharacter = nullptr;
 protected:
-	GameManager* m_gameManager;
+	GameManager* m_gameManager = nullptr;
 	std::list<Entity*> m_ButtonEntities;
 	//split avec un vector enemi, bonus, objetc , (((waves)))..... 
 	//std::vector<Entity> m_EnemyEntities;

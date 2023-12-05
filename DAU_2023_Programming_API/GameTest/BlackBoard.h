@@ -5,6 +5,10 @@ class BlackBoard : public Component
 public :
 	BlackBoard() = default;
 	BlackBoard(Entity* parent)  { m_entity = parent;};
+	~BlackBoard()
+	{
+
+	}
 	//method
 	virtual void Init() override;
 	virtual void Update(float deltaTime) override;

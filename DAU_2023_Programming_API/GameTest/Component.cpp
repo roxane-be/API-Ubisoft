@@ -12,3 +12,8 @@ void Component::Update(float deltaTime)
 void Component::Render()
 {
 }
+
+void Component::Shutdown()
+{
+
+}

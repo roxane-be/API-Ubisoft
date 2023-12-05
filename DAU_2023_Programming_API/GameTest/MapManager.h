@@ -22,7 +22,7 @@ public:
 
 
 	//pour faire spawn les entités dispo dans le level
-	Level* currentLevel; // point vers le current level
+	Level* currentLevel = nullptr; // point vers le current level
 
 	std::list<Entity*>* activeEntitiesSpriteList;
 

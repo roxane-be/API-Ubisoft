@@ -12,10 +12,17 @@ public:
 		m_entity = parent;  
 		m_blackBoard = _blackBoard;	
 	};
+	~Button()
+	{
+		//delete text;
+	}
 
 	void Init();
 	void Update(float deltaTime);
 	void Render();
+
+	virtual void Shutdown() override;
+
 	void OnClick();
 	void SetText(const char* _text);
 	//Marge
@@ -26,9 +33,7 @@ public:
 	std::function<void()> ptrF;
 
 private:
-	//VisualSprite sprite;
 	const char* text = "Button";
-	//Transform transform = Transform();
 	Vector2f offsetPositionText = Vector2f();
 	Vector2f size = Vector2f(100,100);
 };

@@ -22,6 +22,17 @@ void Entity::Render()
 	}
 }
 
+void Entity::Shutdown()
+{
+
+	for (auto it = m_components.begin(); it != m_components.end();)
+	{
+		(*it)->Shutdown();
+		//delete* it;
+		it = m_components.erase(it);
+	}
+}
+
 void Entity::AddComponent(Component* component)
 {
 	m_components.push_back(component);

@@ -18,14 +18,18 @@ void GameManager::Init()
 {
 
 	m_levels[currentLevel]->Init();
-	m_ActiveEntityList.clear();
+	//m_ActiveEntityList.clear();
 
+		Shutdown();
 	switch (currentLevel)
 	{
 	case MainMenu:
+		m_ActiveEntityList.clear();
+
 		m_ActiveEntityList = m_levels[currentLevel]->GetButtonEntities();
 		break;
 	case Game:
+		m_ActiveEntityList.clear();
 		m_ActiveEntityList.push_back(m_levels[currentLevel]->mainCharacter);
 		break;
 	case Shop:
@@ -121,5 +125,17 @@ void GameManager::Render()
 	for (const auto& element : m_ActiveEntityList)
 	{
 		element->Render();
+	}
+}
+
+void GameManager::Shutdown()
+{
+	
+
+	for (auto it = m_ActiveEntityList.begin(); it != m_ActiveEntityList.end();)
+	{
+		(*it)->Shutdown();
+		//delete* it;
+		it = m_ActiveEntityList.erase(it);
 	}
 }

@@ -82,7 +82,7 @@ void Update(float deltaTime)
 
 	if (App::IsKeyPressed(VK_RETURN) || App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
-
+		gameManager.currentLevel = MainMenu;
 	}
 }
 

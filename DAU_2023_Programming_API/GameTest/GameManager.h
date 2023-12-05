@@ -25,6 +25,7 @@ public:
 	void Init();
 	void Update(float deltaTime);
 	void Render();
+	void Shutdown();
 
 	//MainCharacter* mainCharacter;
 	//static GameManager Instance;
@@ -52,5 +53,7 @@ private:
 	// Level Game
 	//Level Shop
 	//Level Menu
+
+
 };
 
