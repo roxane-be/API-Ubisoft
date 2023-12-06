@@ -4,24 +4,18 @@ class BlackBoard;
 class Component
 {
 public:
-	Component() = default;
-	Component(Entity* parent) : m_entity(parent) {}
-	~Component()
-	{
-	}
+	Component(Entity* parent = nullptr, BlackBoard* blackBoard = nullptr) : m_entity(parent), m_blackBoard(blackBoard) {}
+
 	//method
-	virtual void Init();
-	virtual void Update(float deltaTime);
-	virtual void Render();
-	virtual void Shutdown()
-	{
-		
-	}
+	virtual void Init() = 0;
+	virtual void Update(float deltaTime) = 0;
+	virtual void Render() = 0;
+	//virtual void Shutdown();
 
 	const Entity* GetEntity() const { return m_entity; };
 
 protected:
-	Entity* m_entity = nullptr;
-	BlackBoard* m_blackBoard = nullptr;
+	Entity* m_entity;
+	BlackBoard* m_blackBoard;
 };
 

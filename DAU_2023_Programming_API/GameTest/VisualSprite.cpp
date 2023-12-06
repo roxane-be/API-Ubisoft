@@ -98,6 +98,10 @@ void VisualSprite::SetAnimation(int id)
 		sprite->SetAnimation(id);
 }
 
+void VisualSprite::Init()
+{
+}
+
 void VisualSprite::Update(float deltaTime)
 {
 	if (!IsNull())

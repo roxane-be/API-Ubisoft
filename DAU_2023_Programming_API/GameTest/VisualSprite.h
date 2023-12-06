@@ -13,27 +13,22 @@ class VisualSprite : public Component
 public:
 	VisualSprite();
 
-	VisualSprite(Entity* parent, BlackBoard* _blackBoard)
-	{
-		m_entity = parent;
-		m_blackBoard = _blackBoard;
-	};
+	VisualSprite(Entity* parent, BlackBoard* _blackBoard) : Component(parent, _blackBoard) {};
 	~VisualSprite()
 	{
 		delete sprite;
 	}
+
+	virtual void Init() override;
+	virtual void Update(float deltaTime)override;
+	virtual void Render()override;
 
 	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f, int layer = 0,
 		const char* fileNameAnimation = "None\0");
 	void SetScaleSprite(float scale);
 	void SetAnimation(int id);
 
-	virtual void Update(float deltaTime);
-	virtual void Render();
 
-	virtual void Shutdown() override
-	{
-	};
 
 	Vector2f GetSize();
 	float GetScale();
