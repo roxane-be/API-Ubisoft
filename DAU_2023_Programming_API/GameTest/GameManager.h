@@ -7,6 +7,7 @@
 
 class Level;
 class Entity;
+class MapManager;
 
 enum eCurrentLevel
 {
@@ -32,6 +33,8 @@ public:
 	eCurrentLevel oldLevel = MainMenu;
 	std::list<Entity*>* GetActiveEntity() { return &m_ActiveEntityList; };
 	void SetLevel(eCurrentLevel newLevel);
+
+	MapManager* ptrMapManager{nullptr};
 private:
 
 	static std::map<const char*, std::string > m_stringFile;

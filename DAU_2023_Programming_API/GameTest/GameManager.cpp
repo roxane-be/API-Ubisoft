@@ -4,24 +4,32 @@
 #include "Level.h"
 #include "LevelGame.h"
 #include "LevelMenu.h"
+#include "MapManager.h"
 
 GameManager::GameManager()
 {
-
 	m_levels.push_back(new LevelMenu(this)); // menu
 	m_levels.push_back(new LevelGame(this)); // game
 	m_levels.push_back(new Level(this)); // shop
-
 }
 
 void GameManager::Init()
 {
 	m_levels[currentLevel]->Init();
 	m_levels[currentLevel]->GetAllEntityLevel(&m_ActiveEntityList);
+	ptrMapManager->currentLevel = GetCurrentLevel();
 }
 
 void GameManager::Update(float deltaTime)
 {
+	if (ptrMapManager->currentLevel != GetCurrentLevel())
+	{
+		ptrMapManager->Shutdown();
+		Shutdown();
+		ptrMapManager->currentLevel = GetCurrentLevel();
+		Init();
+		ptrMapManager->Init();
+	}
 	for (const auto element : (m_ActiveEntityList))
 	{
 		element->Update(deltaTime);

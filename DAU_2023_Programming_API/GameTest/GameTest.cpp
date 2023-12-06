@@ -22,9 +22,9 @@ MapManager mapManager(&gameManager);
 //------------------------------------------------------------------------
 void Init()
 {
+	gameManager.ptrMapManager = &mapManager;
 	gameManager.Init();
 	mapManager.Init();
-	mapManager.currentLevel = gameManager.GetCurrentLevel();
 }
 
 //------------------------------------------------------------------------
@@ -32,19 +32,9 @@ void Init()
 // This will be called at no greater frequency than the value of APP_MAX_FRAME_RATE
 //------------------------------------------------------------------------
 void Update(float deltaTime)
-{
-	if (mapManager.currentLevel != gameManager.GetCurrentLevel())
-	{
-		mapManager.Shutdown();
-		gameManager.Shutdown();
-		mapManager.currentLevel = gameManager.GetCurrentLevel();
-		gameManager.Init();
-		mapManager.Init();
-	}
-	if (gameManager.currentLevel == Game)
-		mapManager.Update(deltaTime);
+{	
+	mapManager.Update(deltaTime);
 	gameManager.Update(deltaTime);
-
 
 	//------------------------------------------------------------------------
 	// Sample Sound.
@@ -66,11 +56,7 @@ void Update(float deltaTime)
 //------------------------------------------------------------------------
 void Render()
 {
-
 	mapManager.Render();
-
-
-
 
 	//------------------------------------------------------------------------
 	// Example Line Drawing.
@@ -105,9 +91,4 @@ VisualSprite::DestroyMap();
 	// 
 	//------------------------------------------------------------------------
 
-	//std::ofstream saveFile(".\\TestData\\Save.txt");
-	//if (saveFile)
-	//{
-	//	saveFile << "pos player " << gd.mainCharacter->position.X << " et " << gd.mainCharacter->position.Y;
-	//}
 }
