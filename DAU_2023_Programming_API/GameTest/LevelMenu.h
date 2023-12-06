@@ -4,10 +4,7 @@ class LevelMenu : public Level
 {
 public:
 
-	LevelMenu(GameManager* gameManager) {
-		m_gameManager = gameManager;
-	};
-
+	LevelMenu(GameManager* gameManager = nullptr) : Level(gameManager){};
 
 	virtual void Init() override;
 	virtual void Update(float deltaTime)override;

@@ -7,11 +7,11 @@ class Button : public Component
 {
 public:
 	Button() = default;
-	Button(Entity* parent, BlackBoard* _blackBoard) : Component(parent,_blackBoard){};
+	Button(Entity* parent, BlackBoard* _blackBoard) : Component(parent, _blackBoard) {};
 
-	void Init();
-	void Update(float deltaTime);
-	void Render();
+	virtual void Init()override;
+	virtual void Update(float deltaTime)override;
+	virtual void Render()override;
 
 	void OnClick();
 	void SetText(const char* _text);
@@ -20,11 +20,11 @@ public:
 	void SetOffsetTextPosition(Vector2f _position);
 	Vector2f GetTextPosition() { return offsetPositionText; };
 
-	bool IsHovered();	
+	bool IsHovered();
 	std::function<void()> ptrF;
 
 private:
 	const char* text = "Button";
-	Vector2f offsetPositionText = Vector2f();
-	Vector2f size = Vector2f(100,100);
+	Vector2f offsetPositionText;
+	Vector2f size {100, 100};
 };

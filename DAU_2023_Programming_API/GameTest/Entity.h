@@ -4,8 +4,7 @@ class Component;
 class Entity
 {
 public:
-	Entity() = default;
-	Entity(const char* name) : m_name(name) {};
+	Entity(const char* name = nullptr) : m_name(name) {};
 
 	~Entity()
 	{
@@ -29,7 +28,7 @@ public:
 
 private:
 	Transform transform = Transform();
-	const char* m_name = "None";
+	const char* m_name;
 
 	std::list<Component*> m_components;
 	//Component* componentStatus; // shortcut for perfo

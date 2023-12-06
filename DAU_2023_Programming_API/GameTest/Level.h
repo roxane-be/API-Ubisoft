@@ -7,9 +7,7 @@ class Level
 {
 public:
 	Level() = default;
-	Level(GameManager* gameManager) {
-		m_gameManager = gameManager;
-	};
+	Level(GameManager* gameManager = nullptr) : m_gameManager(gameManager){};
 
 	virtual void Init();
 	virtual void Update(float deltaTime);
@@ -20,7 +18,7 @@ public:
 
 	Entity* mainCharacter = nullptr;
 protected:
-	GameManager* m_gameManager = nullptr;
+	GameManager* m_gameManager;
 	std::list<Entity*> m_ButtonEntities;
 	//split avec un vector enemi, bonus, objetc , (((waves)))..... 
 	//std::vector<Entity> m_EnemyEntities;

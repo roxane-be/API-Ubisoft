@@ -10,11 +10,6 @@
 std::map< std::string, const char* > VisualSprite::m_stringFile;
 
 
-VisualSprite::VisualSprite()
-{
-	sprite = nullptr;
-}
-
 void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, float scale, int layer,
 	const char* fileNameAnimation)
 {

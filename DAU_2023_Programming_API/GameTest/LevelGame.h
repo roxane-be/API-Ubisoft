@@ -3,9 +3,7 @@
 class LevelGame : public Level
 {
 public:
-	LevelGame(GameManager* gameManager) {
-		m_gameManager = gameManager;
-	};
+	LevelGame(GameManager* gameManager = nullptr) : Level(gameManager) {};
 
 	virtual void Init() override;
 	virtual void Update(float deltaTime)override;

@@ -11,9 +11,8 @@ enum eAnimationSprite
 class VisualSprite : public Component
 {
 public:
-	VisualSprite();
-
-	VisualSprite(Entity* parent, BlackBoard* _blackBoard) : Component(parent, _blackBoard) {};
+	VisualSprite(Entity* parent = nullptr, BlackBoard* _blackBoard =nullptr) : Component(parent, _blackBoard) {};
+	
 	~VisualSprite()
 	{
 		delete sprite;
@@ -53,7 +52,7 @@ public:
 
 private:
 	void CreateAnimations(const char* fileNameAnimation);
-	CSimpleSprite* sprite = nullptr;
+	CSimpleSprite* sprite{ nullptr };
 	Vector2f m_offsetSpritePosition = Vector2f();
 	//le Z, fond
 	int m_layer = 0;
