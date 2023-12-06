@@ -10,12 +10,12 @@ void LevelMenu::Init()
 
 void LevelMenu::Update(float deltaTime)
 {
-	
+
 }
 
 void LevelMenu::Render()
 {
-	
+
 }
 
 
@@ -24,15 +24,15 @@ void LevelMenu::CreateButton(const char* nameEntity, const char* textButton, Vec
 
 	Entity* button = new Entity(nameEntity);
 	BlackBoard* blackBoard = new BlackBoard(button);
-	button->blackBoard =blackBoard;
+	button->blackBoard = blackBoard;
 	button->GetTransform()->SetPosition(positionButton);
 	VisualSprite* componentVisualButtonPlay = new VisualSprite(button, blackBoard);
 
-	VisualSprite::m_stringFile[".\\TestData\\UI\\Button.png"]= ".\\TestData\\UI\\Button.png";
+	VisualSprite::m_stringFile[".\\TestData\\UI\\Button.png"] = ".\\TestData\\UI\\Button.png";
 	componentVisualButtonPlay->CreateSprite(VisualSprite::m_stringFile[VisualSprite::m_stringFile[".\\TestData\\UI\\Button.png"]], 1, 1);
 	blackBoard->SetLayerVisualSprite(componentVisualButtonPlay->GetLayer());
 	button->AddComponent(componentVisualButtonPlay);
-	Button* componentButtonPlay = new Button(button,blackBoard);
+	Button* componentButtonPlay = new Button(button, blackBoard);
 	componentButtonPlay->Init();
 	componentButtonPlay->SetText(textButton);
 	componentButtonPlay->SetOffsetTextPosition(Vector2f(-15, -5));
@@ -43,7 +43,5 @@ void LevelMenu::CreateButton(const char* nameEntity, const char* textButton, Vec
 
 void LevelMenu::Play()
 {
-
 	m_gameManager->SetLevel(Game);
-	
 }
