@@ -26,7 +26,7 @@ public:
 	//pour faire spawn les entités dispo dans le level
 	Level* currentLevel = nullptr; // point vers le current level
 
-	std::list<Entity*>* activeEntitiesSpriteList;
+	//std::list<Entity*>* activeEntitiesSpriteList;
 
 	static bool CompareLayer(const Entity* entity1, const Entity* entity2)
 	{

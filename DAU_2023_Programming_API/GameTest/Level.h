@@ -14,8 +14,11 @@ public:
 	virtual void Init();
 	virtual void Update(float deltaTime);
 	virtual void Render();
+	virtual void Shutdown();
 
-	std::list<Entity*> GetButtonEntities() { return m_ButtonEntities; };
+	void GetAllEntityLevel(std::list<Entity*>* _list);
+
+	//std::list<Entity*>* GetButtonEntities() { return &m_ButtonEntities; };
 	Entity* mainCharacter = nullptr;
 protected:
 	GameManager* m_gameManager = nullptr;

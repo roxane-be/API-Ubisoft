@@ -41,7 +41,7 @@ void LevelMenu::CreateButton(const char* nameEntity, const char* textButton, Vec
 
 void LevelMenu::Play()
 {
-	m_gameManager->currentLevel = Game;
-	Init();
+
+	m_gameManager->SetLevel(Game);
 	
 }

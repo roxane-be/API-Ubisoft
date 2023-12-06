@@ -18,25 +18,26 @@ void GameManager::Init()
 {
 
 	m_levels[currentLevel]->Init();
-	//m_ActiveEntityList.clear();
 
-		Shutdown();
-	switch (currentLevel)
-	{
-	case MainMenu:
-		m_ActiveEntityList.clear();
+	m_levels[currentLevel]->GetAllEntityLevel(m_ActiveEntityList);
 
-		m_ActiveEntityList = m_levels[currentLevel]->GetButtonEntities();
-		break;
-	case Game:
-		m_ActiveEntityList.clear();
-		m_ActiveEntityList.push_back(m_levels[currentLevel]->mainCharacter);
-		break;
-	case Shop:
-		break;
-	default:
-		break;
-	}
+	//m_ActiveEntityList->clear();
+	//switch (currentLevel)
+	//{
+	//case MainMenu:
+	//	m_levels[currentLevel]->Init();
+	//
+	//	//m_ActiveEntityList = m_levels[currentLevel]->GetButtonEntities();
+	//	m_levels[currentLevel]->GetAllEntityLevel(m_ActiveEntityList);
+	//	break;
+	//case Game:
+	//	
+	//	break;
+	//case Shop:
+	//	break;
+	//default:
+	//	break;
+	//}
 
 
 
@@ -114,15 +115,15 @@ void GameManager::Init()
 
 void GameManager::Update(float deltaTime)
 {
-		for (const auto& element : m_ActiveEntityList)
-		{
-			element->Update(deltaTime);
-		}
+	for (const auto& element : (*m_ActiveEntityList))
+	{
+		element->Update(deltaTime);
+	}
 }
 
 void GameManager::Render()
 {
-	for (const auto& element : m_ActiveEntityList)
+	for (const auto& element : (*m_ActiveEntityList))
 	{
 		element->Render();
 	}
@@ -130,12 +131,24 @@ void GameManager::Render()
 
 void GameManager::Shutdown()
 {
-	
+	//for (auto it = (*m_ActiveEntityList).begin(); it != (*m_ActiveEntityList).end();)
+	//{
+	//	delete* it;
+	//	it = (*m_ActiveEntityList).erase(it);
+	//}
 
-	for (auto it = m_ActiveEntityList.begin(); it != m_ActiveEntityList.end();)
-	{
-		(*it)->Shutdown();
-		//delete* it;
-		it = m_ActiveEntityList.erase(it);
+	auto it = (*m_ActiveEntityList).begin();
+	while (it != (*m_ActiveEntityList).end()) {
+		delete* it;
+		it = (*m_ActiveEntityList).erase(it);
 	}
+
+	m_levels[oldLevel]->Shutdown();
+
+}
+
+void GameManager::SetLevel(eCurrentLevel newLevel)
+{
+	oldLevel = currentLevel;
+	currentLevel = newLevel;
 }

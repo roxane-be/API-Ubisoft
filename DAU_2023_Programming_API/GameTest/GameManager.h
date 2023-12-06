@@ -39,15 +39,17 @@ public:
 	//deviens le Game Manager
 
 	Level* GetCurrentLevel() { return m_levels[currentLevel]; };
-	eCurrentLevel currentLevel = Game;
-	std::list<Entity*>* GetActiveEntity() { return &m_ActiveEntityList; };
-	//	Entity* m_mainCharacter; //pas forcément besoin dans le jeu
+	eCurrentLevel currentLevel = MainMenu;
+	eCurrentLevel oldLevel = MainMenu;
+	std::list<Entity*>* GetActiveEntity() { return m_ActiveEntityList; };
+	void SetLevel(eCurrentLevel newLevel);
 private:
 
 
-	std::list<Entity*> m_ActiveEntityList;
-
 	std::vector<Level*> m_levels;
+
+	std::list<Entity*>* m_ActiveEntityList = new std::list<Entity *>;
+
 	//std::vector<Level> 
 	//ou 
 	// Level Game
