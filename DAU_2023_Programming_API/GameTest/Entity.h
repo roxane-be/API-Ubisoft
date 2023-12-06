@@ -9,21 +9,13 @@ public:
 
 	~Entity()
 	{
-		for (auto it = m_components.begin(); it != m_components.end();)
+		for (auto component : m_components)
 		{
-			delete* it;
-			it = m_components.erase(it);
+			delete component;
 		}
+		m_components.clear();
 		delete blackBoard;
-
 	}
-	// To Character
-	//Entity(Character* owner, int life = 1, int damage =1);
-	//void TakeDamage(int damageToTake);
-	//void Death();
-	//Character* GetOwner();
-	//int GetLife();
-	//int GetDamage();
 
 	void Init();
 	void Update(float deltaTime);
@@ -38,10 +30,7 @@ public:
 private:
 	Transform transform = Transform();
 	const char* m_name = "None";
-	// To Character
-	//int m_life = 1;
-	//int m_damage = 1;
-	//Character* m_owner;
+
 	std::list<Component*> m_components;
 	//Component* componentStatus; // shortcut for perfo
 };

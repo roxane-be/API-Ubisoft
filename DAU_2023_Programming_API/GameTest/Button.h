@@ -20,10 +20,6 @@ public:
 	void Update(float deltaTime);
 	void Render();
 
-	virtual void Shutdown() override
-	{	
-		//Component::Shutdown();
-	}
 
 
 	void OnClick();

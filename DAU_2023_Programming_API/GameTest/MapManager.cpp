@@ -13,13 +13,12 @@ void MapManager::Init()
 {
 	if (m_gameManager->currentLevel == eCurrentLevel::Game)
 		InitBackgroundSpriteMap();
-
 }
 
 void MapManager::Update(float deltaTime)
 {
-	UpdateBackgroundSpriteMap(deltaTime);
-
+	if (!backgroundList.empty())
+		UpdateBackgroundSpriteMap(deltaTime);
 }
 
 
@@ -33,18 +32,11 @@ void MapManager::Render()
 		for (const auto& element : *m_gameManager->GetActiveEntity())
 			if (element != nullptr)
 				element->Render();
-
 	}
 }
 
 void MapManager::Shutdown()
 {
-
-	/*for (auto it = backgroundList.begin(); it != backgroundList.end();)
-	{
-		delete* it;
-		it = backgroundList.erase(it);
-	}*/
 	backgroundList.clear();
 }
 
@@ -56,7 +48,17 @@ void MapManager::InitBackgroundSpriteMap()
 	int nbElemenet = 0;
 
 	for (const auto& entry : std::filesystem::directory_iterator(pathFile))
-		nbElemenet++;
+	{
+		if (entry.is_regular_file() && VisualSprite::m_stringFile.find(entry.path().string()) == VisualSprite::m_stringFile.end())
+		{
+			std::string machin = entry.path().string();
+			char* charFile = new char[machin.length() + 1];
+			std::strcpy(charFile, machin.c_str());
+			VisualSprite::m_stringFile[machin] = charFile;
+
+		}
+			nbElemenet++;
+	}
 	backgroundList.resize(nbElemenet);
 
 	for (int i = 0; i < nbElemenet; i++)
@@ -65,13 +67,11 @@ void MapManager::InitBackgroundSpriteMap()
 		stringFile += std::to_string(i);
 		stringFile += ".png";
 		stringFile += "\0";
-		char* charFile = new char[stringFile.length() + 1];
-		std::strcpy(charFile, stringFile.c_str());
 
 		Entity* backgroundMap = new Entity("BackGroundMap" + i);
 		BlackBoard* blackBoard = new BlackBoard(backgroundMap);
 		VisualSprite* componentVisualSpriteBackground = new VisualSprite(backgroundMap, blackBoard);
-		componentVisualSpriteBackground->CreateSprite(charFile, 1, 1, 0.8f, 0);
+		componentVisualSpriteBackground->CreateSprite(VisualSprite::m_stringFile[stringFile], 1, 1, 0.8f, 0);
 		backgroundMap->AddComponent(componentVisualSpriteBackground);
 		blackBoard->sizeSprite = componentVisualSpriteBackground->GetSize();
 		blackBoard->scaleSprite = componentVisualSpriteBackground->GetScale();
@@ -79,9 +79,6 @@ void MapManager::InitBackgroundSpriteMap()
 
 		backgroundMap->GetTransform()->SetPosition({ -500,-500 });
 		backgroundList[i] = backgroundMap;
-
-		//activeEntitiesSpriteList->push_back(backgroundList[i]);
-		//(*activeEntitiesSpriteList).push_back(backgroundList[i]);
 		m_gameManager->GetActiveEntity()->push_back(backgroundList[i]);
 	}
 	srand(time(0));

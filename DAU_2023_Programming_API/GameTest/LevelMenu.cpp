@@ -27,7 +27,9 @@ void LevelMenu::CreateButton(const char* nameEntity, const char* textButton, Vec
 	button->blackBoard =blackBoard;
 	button->GetTransform()->SetPosition(positionButton);
 	VisualSprite* componentVisualButtonPlay = new VisualSprite(button, blackBoard);
-	componentVisualButtonPlay->CreateSprite(".\\TestData\\UI\\Button.png", 1, 1);
+
+	VisualSprite::m_stringFile[".\\TestData\\UI\\Button.png"]= ".\\TestData\\UI\\Button.png";
+	componentVisualButtonPlay->CreateSprite(VisualSprite::m_stringFile[VisualSprite::m_stringFile[".\\TestData\\UI\\Button.png"]], 1, 1);
 	blackBoard->SetLayerVisualSprite(componentVisualButtonPlay->GetLayer());
 	button->AddComponent(componentVisualButtonPlay);
 	Button* componentButtonPlay = new Button(button,blackBoard);

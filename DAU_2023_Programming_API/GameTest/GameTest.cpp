@@ -12,45 +12,17 @@
 //------------------------------------------------------------------------
 // Eample data....
 //------------------------------------------------------------------------
-//CSimpleSprite *testSprite;
 
 GameManager gameManager;
 MapManager mapManager(&gameManager);
 
-//GameManager GameManager::Instance;
 
 //------------------------------------------------------------------------
 // Called before first update. Do any initial setup here.
 //------------------------------------------------------------------------
 void Init()
 {
-
-	// create mainChar ***********************************
-	//{
-		//Entity* mainCharacter = new Entity;
-		//
-		//Component* componentStatus = new StatusComponent;
-		//Component* componentMainChar = new Character;
-		//Component* componentVisualMainChar = new VisualSprite;
-		////Component* componentVisualMainChar = new FX;
-		////Component* componentVisualMainChar = new Sound;
-		//
-		//componentStatus.init / load  // initalise les valeur 0  (speed, super sayanmode on/off, ...)
-		//
-		//	componentMainChar.init / load(componentStatus)
-		//	componentVisualMainChar.init / load
-		//
-		//	mainCharacter.m_components.push_back(componentMainChar);
-		//mainCharacter.m_components.push_back(componentVisualMainChar);
-		//
-		//
-		//m_GlobalEntities.push_back(mainCharacter);
-	//}
-	// ***************************************************
-
-
 	gameManager.Init();
-	//mapManager.activeEntitiesSpriteList = gameManager.GetActiveEntity();
 	mapManager.Init();
 	mapManager.currentLevel = gameManager.GetCurrentLevel();
 }
@@ -63,8 +35,8 @@ void Update(float deltaTime)
 {
 	if (mapManager.currentLevel != gameManager.GetCurrentLevel())
 	{
-		gameManager.Shutdown();
 		mapManager.Shutdown();
+		gameManager.Shutdown();
 		mapManager.currentLevel = gameManager.GetCurrentLevel();
 		gameManager.Init();
 		mapManager.Init();
@@ -96,7 +68,6 @@ void Render()
 {
 
 	mapManager.Render();
-	//gameManager.Render();
 
 
 
@@ -127,6 +98,8 @@ void Render()
 //------------------------------------------------------------------------
 void Shutdown()
 {
+
+VisualSprite::DestroyMap();
 	//------------------------------------------------------------------------
 	// Example Sprite Code....
 	// 

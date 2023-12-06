@@ -8,8 +8,6 @@ public:
 	Component(Entity* parent) : m_entity(parent) {}
 	~Component()
 	{
-		//delete m_entity;
-		//delete m_blackBoard;
 	}
 	//method
 	virtual void Init();

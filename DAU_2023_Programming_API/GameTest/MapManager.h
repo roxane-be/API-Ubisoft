@@ -47,7 +47,6 @@ protected:
 private:
 	std::vector<Entity*> backgroundList;
 	int currentMapShow[2]{ 0,0 };
-	// pour afficher les sprites avec un layer
 	GameManager* m_gameManager;
 };
 

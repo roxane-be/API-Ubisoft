@@ -18,7 +18,6 @@ public:
 
 	void GetAllEntityLevel(std::list<Entity*>* _list);
 
-	//std::list<Entity*>* GetButtonEntities() { return &m_ButtonEntities; };
 	Entity* mainCharacter = nullptr;
 protected:
 	GameManager* m_gameManager = nullptr;

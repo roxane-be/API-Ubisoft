@@ -7,6 +7,9 @@
 #include <fstream>
 #include <filesystem>
 
+std::map< std::string, const char* > VisualSprite::m_stringFile;
+
+
 VisualSprite::VisualSprite()
 {
 	sprite = nullptr;
