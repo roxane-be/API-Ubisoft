@@ -35,10 +35,6 @@ void Button::Render()
 	//App::DrawLine(transform.GetPosition().x - size.x, transform.GetPosition().y + size.y, transform.GetPosition().x - size.x, transform.GetPosition().y - size.y, r, g, b);
 }
 
-void Button::Shutdown()
-{
-	//delete text;
-}
 
 void Button::OnClick()
 {

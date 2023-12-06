@@ -6,17 +6,20 @@ class Component
 public:
 	Component() = default;
 	Component(Entity* parent) : m_entity(parent) {}
-	~Component() 
+	~Component()
 	{
-		delete m_entity;
-		delete m_blackBoard;
+		//delete m_entity;
+		//delete m_blackBoard;
 	}
 	//method
 	virtual void Init();
 	virtual void Update(float deltaTime);
 	virtual void Render();
-	virtual void Shutdown();
-	
+	virtual void Shutdown()
+	{
+		
+	}
+
 	const Entity* GetEntity() const { return m_entity; };
 
 protected:

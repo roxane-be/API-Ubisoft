@@ -9,13 +9,12 @@ public:
 
 	~Entity()
 	{
-		delete m_name;
+		for (auto it = m_components.begin(); it != m_components.end();)
+		{
+			delete* it;
+			it = m_components.erase(it);
+		}
 		delete blackBoard;
-		//for (auto it = m_components.begin(); it != m_components.end();)
-		//{
-		//	delete* it;
-		//	it = m_components.erase(it);
-		//}
 
 	}
 	// To Character

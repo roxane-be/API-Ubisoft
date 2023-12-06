@@ -20,7 +20,7 @@ public:
 	};
 	~VisualSprite()
 	{
-		//delete sprite;
+		delete sprite;
 	}
 
 	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f, int layer = 0,
@@ -33,7 +33,6 @@ public:
 
 	virtual void Shutdown() override
 	{
-		delete sprite;
 	};
 
 	Vector2f GetSize();

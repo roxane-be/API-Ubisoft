@@ -14,14 +14,17 @@ public:
 	};
 	~Button()
 	{
-		//delete text;
 	}
 
 	void Init();
 	void Update(float deltaTime);
 	void Render();
 
-	virtual void Shutdown() override;
+	virtual void Shutdown() override
+	{	
+		//Component::Shutdown();
+	}
+
 
 	void OnClick();
 	void SetText(const char* _text);

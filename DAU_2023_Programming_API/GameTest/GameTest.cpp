@@ -50,9 +50,9 @@ void Init()
 
 
 	gameManager.Init();
+	mapManager.activeEntitiesSpriteList = gameManager.GetActiveEntity();
 	mapManager.Init();
 	mapManager.currentLevel = gameManager.GetCurrentLevel();
-	mapManager.activeEntitiesSpriteList = gameManager.GetActiveEntity();
 }
 
 //------------------------------------------------------------------------
@@ -63,11 +63,13 @@ void Update(float deltaTime)
 {
 	if (mapManager.currentLevel != gameManager.GetCurrentLevel())
 	{
+		//mapManager.Shutdown();
+		//gameManager.Shutdown();
 		gameManager.Init();
 		mapManager.currentLevel = gameManager.GetCurrentLevel();
 		mapManager.Init();
 	}
-	if (gameManager.currentLevel == Game)
+	else if (gameManager.currentLevel == Game)
 		mapManager.Update(deltaTime);
 	gameManager.Update(deltaTime);
 

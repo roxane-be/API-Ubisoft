@@ -37,6 +37,16 @@ void MapManager::Render()
 	}
 }
 
+void MapManager::Shutdown()
+{
+
+	for (auto it = (*activeEntitiesSpriteList).begin(); it !=(*activeEntitiesSpriteList).end();)
+	{
+		delete* it;
+		it = activeEntitiesSpriteList->erase(it);
+	}
+}
+
 
 
 void MapManager::InitBackgroundSpriteMap()
@@ -69,7 +79,9 @@ void MapManager::InitBackgroundSpriteMap()
 		backgroundMap->GetTransform()->SetPosition({ -500,-500 });
 		backgroundList[i] = backgroundMap;
 
-		m_gameManager->GetActiveEntity()->push_back(backgroundList[i]);
+		activeEntitiesSpriteList->push_back(backgroundList[i]);
+		//(*activeEntitiesSpriteList).push_back(backgroundList[i]);
+		//m_gameManager->GetActiveEntity()->push_back(backgroundList[i]);
 	}
 	srand(time(0));
 

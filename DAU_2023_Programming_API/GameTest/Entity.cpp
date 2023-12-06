@@ -27,8 +27,7 @@ void Entity::Shutdown()
 
 	for (auto it = m_components.begin(); it != m_components.end();)
 	{
-		(*it)->Shutdown();
-		//delete* it;
+		delete* it;
 		it = m_components.erase(it);
 	}
 }

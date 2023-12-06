@@ -13,7 +13,3 @@ void Component::Render()
 {
 }
 
-void Component::Shutdown()
-{
-
-}

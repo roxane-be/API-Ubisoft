@@ -20,6 +20,8 @@ public:
 	void Update(float deltaTime);
 	void Render();
 
+	void Shutdown();
+
 
 	//pour faire spawn les entités dispo dans le level
 	Level* currentLevel = nullptr; // point vers le current level
