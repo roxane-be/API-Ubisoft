@@ -27,30 +27,3 @@ void LevelMenu::Render()
 
 }
 
-
-void LevelMenu::CreateButton(const char* nameEntity, const char* textButton, Vector2f positionButton, std::function<void()> ptrF)
-{
-
-	Entity* button = new Entity(nameEntity);
-	BlackBoard* blackBoard = new BlackBoard(button);
-	button->blackBoard = blackBoard;
-	button->GetTransform()->SetPosition(positionButton);
-	VisualSprite* componentVisualButtonPlay = new VisualSprite(button, blackBoard);
-
-	VisualSprite::m_stringFile[".\\TestData\\UI\\Button.png"] = ".\\TestData\\UI\\Button.png";
-	componentVisualButtonPlay->CreateSprite(VisualSprite::m_stringFile[VisualSprite::m_stringFile[".\\TestData\\UI\\Button.png"]], 1, 1);
-	blackBoard->SetLayerVisualSprite(componentVisualButtonPlay->GetLayer());
-	button->AddComponent(componentVisualButtonPlay);
-	Button* componentButtonPlay = new Button(button, blackBoard);
-	componentButtonPlay->Init();
-	componentButtonPlay->SetText(textButton);
-	componentButtonPlay->SetOffsetTextPosition(Vector2f(-15, -5));
-	componentButtonPlay->ptrF = ptrF;
-	button->AddComponent(componentButtonPlay);
-	m_ButtonEntities.push_back(button);
-}
-
-void LevelMenu::Play()
-{
-	m_gameManager->SetLevel(Game);
-}

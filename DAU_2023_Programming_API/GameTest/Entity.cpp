@@ -78,7 +78,8 @@ void Entity::LoadComponentButton(Entity& _entity, std::ifstream& myFile)
 	float y = std::stof(line);
 	component->SetOffsetTextPosition(Vector2f(x, y));
 
-	component->ptrF = []() {exit(0); };
+	myFile >> line;
+	component->ptrF = GameManager::functionMap[line];
 	_entity.AddComponent(component);
 }
 

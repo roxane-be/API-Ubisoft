@@ -6,11 +6,19 @@
 #include "LevelMenu.h"
 #include "MapManager.h"
 
+
+std::map<std::string, std::function<void()>> GameManager::functionMap;
+
+
 GameManager::GameManager()
 {
 	m_levels.push_back(new LevelMenu(this)); // menu
 	m_levels.push_back(new LevelGame(this)); // game
 	m_levels.push_back(new Level(this)); // shop
+
+	functionMap["ButtonPlay"] = std::bind(&GameManager::PlayGame, this);
+	functionMap["ButtonShop"] = []() {};
+	functionMap["ButtonQuit"] = []() {exit(0); };
 }
 
 void GameManager::Init()
@@ -64,4 +72,9 @@ void GameManager::SetLevel(eCurrentLevel newLevel)
 {
 	oldLevel = currentLevel;
 	currentLevel = newLevel;
+}
+
+void GameManager::PlayGame()
+{
+	SetLevel(Game);
 }

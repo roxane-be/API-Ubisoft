@@ -4,6 +4,8 @@
 #include <list>
 #include <map>
 #include <string>
+#include <functional>
+
 
 class Level;
 class Entity;
@@ -35,11 +37,13 @@ public:
 	void SetLevel(eCurrentLevel newLevel);
 
 	MapManager* ptrMapManager{nullptr};
+
+	//static GameManager Instance;
+	static std::map<std::string, std::function<void()>> functionMap;
 private:
 
-	static std::map<const char*, std::string > m_stringFile;
 	std::vector<Level*> m_levels;
 	std::list<Entity*> m_ActiveEntityList =  std::list<Entity *>();
-
+	void PlayGame();
 };
 
