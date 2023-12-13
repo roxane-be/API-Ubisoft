@@ -32,7 +32,7 @@ void Init()
 // This will be called at no greater frequency than the value of APP_MAX_FRAME_RATE
 //------------------------------------------------------------------------
 void Update(float deltaTime)
-{	
+{
 	mapManager.Update(deltaTime);
 	gameManager.Update(deltaTime);
 
@@ -47,7 +47,15 @@ void Update(float deltaTime)
 	if (App::IsKeyPressed(VK_RETURN) || App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
 		gameManager.currentLevel = MainMenu;
+
 	}
+
+	if (App::IsKeyPressed(VK_CONTROL))
+	{
+		gameManager.currentLevel = Game;
+	}
+
+
 }
 
 //------------------------------------------------------------------------
@@ -85,7 +93,7 @@ void Render()
 void Shutdown()
 {
 
-VisualSprite::DestroyMap();
+	VisualSprite::DestroyMap();
 	//------------------------------------------------------------------------
 	// Example Sprite Code....
 	// 

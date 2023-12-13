@@ -1,0 +1,13 @@
+Entity 
+ButtonShop
+200
+400
+VisualSprite
+.\\TestData\\UI\\Button.png
+1
+1
+1
+Button
+Shop
+-15
+-5

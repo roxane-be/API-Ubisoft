@@ -14,7 +14,7 @@ public:
 	virtual void Render()override;
 
 	void OnClick();
-	void SetText(const char* _text);
+	void SetText(std::string _text);
 
 	//Marge
 	void SetOffsetTextPosition(Vector2f _position);
@@ -24,7 +24,7 @@ public:
 	std::function<void()> ptrF;
 
 private:
-	const char* text = "Button";
+	std::string text = "Button";
 	Vector2f offsetPositionText;
 	Vector2f size {100, 100};
 };

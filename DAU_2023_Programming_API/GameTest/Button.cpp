@@ -16,7 +16,7 @@ void Button::Update(float deltaTime)
 
 void Button::Render()
 {
-	App::Print(offsetPositionText.x + m_entity->GetTransform()->GetPosition()->x, offsetPositionText.y + m_entity->GetTransform()->GetPosition()->y, text);
+	App::Print(offsetPositionText.x + m_entity->GetTransform()->GetPosition()->x, offsetPositionText.y + m_entity->GetTransform()->GetPosition()->y, text.c_str());
 
 	float r = 1.0f;
 	float g = 0.0f;
@@ -29,7 +29,7 @@ void Button::OnClick()
 	ptrF();
 }
 
-void Button::SetText(const char* _text)
+void Button::SetText(std::string _text)
 {
 	text = _text;
 }

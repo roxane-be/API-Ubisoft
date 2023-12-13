@@ -1,10 +1,11 @@
 #pragma once
+#include <fstream>
 
 class Component;
 class Entity
 {
 public:
-	Entity(const char* name = nullptr) : m_name(name) {};
+	Entity(std::string name = "") : m_name(name) {};
 
 	~Entity()
 	{
@@ -26,9 +27,17 @@ public:
 	const std::list<Component*> GetComponents() { return m_components; };
 	BlackBoard* blackBoard = nullptr;
 
+	void Load(Entity* entity, std::string pathFile);
+protected:
+	void LoadComponentButton(Entity& _entity, std::ifstream& myFile);
+	void LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile);
+	//load name entity, this position et create blackboard
+	void LoadEntity(Entity& _entity, std::ifstream& myFile);
+
+
 private:
 	Transform transform = Transform();
-	const char* m_name;
+	std::string m_name;
 
 	std::list<Component*> m_components;
 	//Component* componentStatus; // shortcut for perfo

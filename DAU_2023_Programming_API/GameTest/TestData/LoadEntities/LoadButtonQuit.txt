@@ -1,0 +1,13 @@
+Entity 
+ButtonQuit
+200
+200
+VisualSprite
+.\\TestData\\UI\\Button.png
+1
+1
+1
+Button
+Quit
+-15
+-5
