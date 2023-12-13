@@ -1,4 +1,11 @@
-﻿  GameTest.cpp
+﻿  Entity.cpp
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(101,103): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(101,94): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(102,43): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(125,116): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(125,103): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(125,94): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(127,43): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
   GameTest.vcxproj -> C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
   C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
   1 fichier(s) copiÚ(s)

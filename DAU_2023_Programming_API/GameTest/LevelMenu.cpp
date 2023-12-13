@@ -6,7 +6,6 @@ void LevelMenu::Init()
 {
 	const std::string pathFile = ".\\TestData\\LoadEntities\\LevelMenu";
 
-
 	for (const auto& entry : std::filesystem::directory_iterator(pathFile))
 	{
 		if (entry.is_regular_file())
@@ -16,11 +15,6 @@ void LevelMenu::Init()
 			m_ButtonEntities.push_back(entity);
 		}
 	}
-
-	
-	//CreateButton("ButtonPlay", "Play", Vector2f(200, 600), std::bind(&LevelMenu::Play, this));
-	//CreateButton("ButtonShop", "Shop", Vector2f(200, 400), []() {});
-	//CreateButton("ButtonQuit", "Quit", Vector2f(200, 200), []() {exit(0); });
 }
 
 void LevelMenu::Update(float deltaTime)

@@ -31,6 +31,7 @@ public:
 protected:
 	void LoadComponentButton(Entity& _entity, std::ifstream& myFile);
 	void LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile);
+	void LoadComponentVisualSpriteAndAnimation(Entity& _entity, std::ifstream& myFile);
 	//load name entity, this position et create blackboard
 	void LoadEntity(Entity& _entity, std::ifstream& myFile);
 

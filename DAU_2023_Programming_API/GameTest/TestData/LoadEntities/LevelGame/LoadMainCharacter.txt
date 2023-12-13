@@ -1,0 +1,11 @@
+Entity 
+MainCharacter
+150
+300
+VisualSpriteAndAnimation
+.\\TestData\\Player\\spritesheet.png
+8
+1
+1
+1
+.\\TestData\\Player\\spritesheet.txt

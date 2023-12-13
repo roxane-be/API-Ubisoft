@@ -23,7 +23,7 @@ public:
 	virtual void Render()override;
 
 	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f, int layer = 0,
-		const char* fileNameAnimation = "None\0");
+		std::string = "None");
 	void SetScaleSprite(float scale);
 	void SetAnimation(int id);
 
@@ -51,7 +51,7 @@ public:
 	static std::map< std::string, const char* > m_stringFile;
 
 private:
-	void CreateAnimations(const char* fileNameAnimation);
+	void CreateAnimations(std::string fileNameAnimation);
 	CSimpleSprite* sprite{ nullptr };
 	Vector2f m_offsetSpritePosition = Vector2f();
 	//le Z, fond

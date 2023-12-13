@@ -11,7 +11,7 @@ std::map< std::string, const char* > VisualSprite::m_stringFile;
 
 
 void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, float scale, int layer,
-	const char* fileNameAnimation)
+	std::string fileNameAnimation)
 {
 	if (!std::filesystem::exists(fileName)
 		|| !std::filesystem::is_regular_file(fileName))
@@ -30,7 +30,7 @@ void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, flo
 	m_layer = layer;
 }
 
-void VisualSprite::CreateAnimations(const char* fileNameAnimation)
+void VisualSprite::CreateAnimations(std::string fileNameAnimation)
 {
 	std::ifstream myFile(fileNameAnimation);
 
