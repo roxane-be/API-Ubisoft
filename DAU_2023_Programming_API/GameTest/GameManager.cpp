@@ -2,8 +2,6 @@
 #include "GameManager.h"
 #include "Entity.h"
 #include "Level.h"
-#include "LevelGame.h"
-#include "LevelMenu.h"
 #include "MapManager.h"
 
 

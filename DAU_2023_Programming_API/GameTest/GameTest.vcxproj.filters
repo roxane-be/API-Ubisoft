@@ -42,12 +42,6 @@
     <ClCompile Include="Level.cpp">
       <Filter>UbiCode\Private\Level</Filter>
     </ClCompile>
-    <ClCompile Include="LevelMenu.cpp">
-      <Filter>UbiCode\Private\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelGame.cpp">
-      <Filter>UbiCode\Private\Level</Filter>
-    </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
@@ -110,12 +104,6 @@
       <Filter>UbiCode\Public\Other</Filter>
     </ClInclude>
     <ClInclude Include="Level.h">
-      <Filter>UbiCode\Public\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelMenu.h">
-      <Filter>UbiCode\Public\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelGame.h">
       <Filter>UbiCode\Public\Level</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">

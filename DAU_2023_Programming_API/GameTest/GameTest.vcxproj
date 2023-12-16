@@ -190,8 +190,6 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Level.h" />
-    <ClInclude Include="LevelGame.h" />
-    <ClInclude Include="LevelMenu.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="MapManager.h" />
@@ -215,8 +213,6 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Level.cpp" />
-    <ClCompile Include="LevelGame.cpp" />
-    <ClCompile Include="LevelMenu.cpp" />
     <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameTest.cpp" />
