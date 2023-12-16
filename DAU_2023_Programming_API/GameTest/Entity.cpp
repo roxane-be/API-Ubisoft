@@ -5,6 +5,7 @@
 #include <functional>
 #include <sstream>
 #include <iostream>
+#include <cassert>
 
 void Entity::Init()
 {
@@ -58,9 +59,19 @@ void Entity::Load(Entity* entity, std::string pathFile)
 			{
 				LoadComponentVisualSpriteAndAnimation(*entity, myFile);
 			}
+			else if (line == "Behavior")
+			{
+			LoadComponentBehavior(*entity, myFile);
+			}
 		}
 
 	}
+}
+
+void Entity::LoadComponentBehavior(Entity& _entity, std::ifstream& myFile)
+{
+	Behavior* component= new Behavior(&_entity, _entity.blackBoard);
+	_entity.AddComponent(component);
 }
 
 void Entity::LoadComponentButton(Entity& _entity, std::ifstream& myFile)

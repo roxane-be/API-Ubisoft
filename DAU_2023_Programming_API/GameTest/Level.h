@@ -16,10 +16,14 @@ public:
 
 	void GetAllEntityLevel(std::list<Entity*>* _list);
 
-	Entity* mainCharacter = nullptr;
+	//Entity* mainCharacter = nullptr;
 protected:
 	GameManager* m_gameManager;
-	std::list<Entity*> m_ButtonEntities;
+	//std::list<Entity*> m_ButtonEntities;
+	//std::list<Entity*> m_EnemiesEntities;
+
+	std::list<Entity*> m_entitiesList;
+
 	//split avec un vector enemi, bonus, objetc , (((waves)))..... 
 	//std::vector<Entity> m_EnemyEntities;
 	//std::vector<Entity> m_BonusEntities;

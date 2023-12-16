@@ -12,8 +12,8 @@ std::map<std::string, std::function<void()>> GameManager::functionMap;
 
 GameManager::GameManager()
 {
-	m_levels.push_back(new LevelMenu(this)); // menu
-	m_levels.push_back(new LevelGame(this)); // game
+	m_levels.push_back(new Level(this)); // menu
+	m_levels.push_back(new Level(this)); // game
 	m_levels.push_back(new Level(this)); // shop
 
 	functionMap["ButtonPlay"] = std::bind(&GameManager::PlayGame, this);
@@ -42,6 +42,22 @@ void GameManager::Update(float deltaTime)
 	{
 		element->Update(deltaTime);
 	}
+
+	
+
+	////delete entity
+	//for (auto entity : m_EntitiesToDelete)
+	//{
+	//	if (entity != nullptr)
+	//	{
+	//		m_ActiveEntityList.remove(entity);
+	//		delete entity;
+	//		entity = nullptr;
+	//	}
+	//}
+	//m_EntitiesToDelete.clear();
+
+
 }
 
 void GameManager::Render()
@@ -54,6 +70,8 @@ void GameManager::Render()
 
 void GameManager::Shutdown()
 {
+
+
 	for (auto entity : m_ActiveEntityList)
 	{
 		if (entity != nullptr)
@@ -63,14 +81,13 @@ void GameManager::Shutdown()
 		}
 	}
 	m_ActiveEntityList.clear();
+	m_EntitiesToDelete.clear();
 
-	m_levels[oldLevel]->Shutdown();
 
 }
 
 void GameManager::SetLevel(eCurrentLevel newLevel)
 {
-	oldLevel = currentLevel;
 	currentLevel = newLevel;
 }
 

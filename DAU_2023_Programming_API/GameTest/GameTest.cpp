@@ -13,8 +13,8 @@
 // Eample data....
 //------------------------------------------------------------------------
 
-GameManager gameManager;
-MapManager mapManager(&gameManager);
+GameManager GameManager::Instance;
+MapManager mapManager(&GameManager::Instance);
 
 
 //------------------------------------------------------------------------
@@ -22,8 +22,8 @@ MapManager mapManager(&gameManager);
 //------------------------------------------------------------------------
 void Init()
 {
-	gameManager.ptrMapManager = &mapManager;
-	gameManager.Init();
+	GameManager::Instance.ptrMapManager = &mapManager;
+	GameManager::Instance.Init();
 	mapManager.Init();
 }
 
@@ -34,7 +34,7 @@ void Init()
 void Update(float deltaTime)
 {
 	mapManager.Update(deltaTime);
-	gameManager.Update(deltaTime);
+	GameManager::Instance.Update(deltaTime);
 
 	//------------------------------------------------------------------------
 	// Sample Sound.
@@ -46,13 +46,13 @@ void Update(float deltaTime)
 
 	if (App::IsKeyPressed(VK_RETURN) || App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
-		gameManager.currentLevel = MainMenu;
+		GameManager::Instance.currentLevel = MainMenu;
 
 	}
 
 	if (App::IsKeyPressed(VK_CONTROL))
 	{
-		gameManager.currentLevel = Game;
+		GameManager::Instance.currentLevel = Game;
 	}
 
 

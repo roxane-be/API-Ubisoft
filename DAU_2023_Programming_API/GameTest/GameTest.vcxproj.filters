@@ -63,6 +63,7 @@
     <ClCompile Include="BlackBoard.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Behavior.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -132,6 +133,7 @@
     <ClInclude Include="BlackBoard.h">
       <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Behavior.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">

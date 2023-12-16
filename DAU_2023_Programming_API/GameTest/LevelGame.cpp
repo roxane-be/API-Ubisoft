@@ -17,10 +17,15 @@ void LevelGame::Init()
 	//	mainCharacter->blackBoard = blackBoard;
 	//}
 
+	//Entity* entity = new Entity();
+	//entity->Load(entity, ".\\TestData\\LoadEntities\\LevelGame\\LoadEnemie.txt");
+	//m_EnemiesEntities.push_back(entity);
+	//
+	// mainCharacter = new Entity();
+	// mainCharacter->Load(mainCharacter, ".\\TestData\\LoadEntities\\LevelGame\\LoadMainCharacter.txt");
+	
 
-			Entity* entity = new Entity();
-			entity->Load(entity, ".\\TestData\\LoadEntities\\LevelGame\\LoadMainCharacter.txt");
-			mainCharacter = entity;
+
 
 }
 
@@ -30,5 +35,5 @@ void LevelGame::Update(float deltaTime)
 
 void LevelGame::Render()
 {
-	mainCharacter->Render();
+	//mainCharacter->Render();
 }

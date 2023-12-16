@@ -31,19 +31,19 @@ public:
 
 
 	Level* GetCurrentLevel() { return m_levels[currentLevel]; };
-	eCurrentLevel currentLevel = MainMenu;
-	eCurrentLevel oldLevel = MainMenu;
+	eCurrentLevel currentLevel = Game;
 	std::list<Entity*>* GetActiveEntity() { return &m_ActiveEntityList; };
 	void SetLevel(eCurrentLevel newLevel);
-
+	void AddEntityToDelete(Entity* _entity) {m_EntitiesToDelete.push_back(_entity); };
 	MapManager* ptrMapManager{nullptr};
 
-	//static GameManager Instance;
+	static GameManager Instance;
 	static std::map<std::string, std::function<void()>> functionMap;
 private:
 
 	std::vector<Level*> m_levels;
 	std::list<Entity*> m_ActiveEntityList =  std::list<Entity *>();
+	std::list<Entity*> m_EntitiesToDelete = std::list<Entity*>();
 	void PlayGame();
 };
 

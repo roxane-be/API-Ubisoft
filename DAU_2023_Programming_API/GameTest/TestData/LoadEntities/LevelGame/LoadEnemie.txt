@@ -1,0 +1,11 @@
+Entity 
+Enemy
+1500
+300
+VisualSprite
+.\\TestData\\Player\\spritesheet.png
+8
+1
+1
+1
+Behavior

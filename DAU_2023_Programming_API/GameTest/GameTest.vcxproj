@@ -183,6 +183,7 @@
     <ClInclude Include="App\SimpleController.h" />
     <ClInclude Include="App\SimpleSound.h" />
     <ClInclude Include="App\SimpleSprite.h" />
+    <ClInclude Include="Behavior.h" />
     <ClInclude Include="BlackBoard.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Component.h" />
@@ -207,6 +208,7 @@
     <ClCompile Include="App\SimpleController.cpp" />
     <ClCompile Include="App\SimpleSound.cpp" />
     <ClCompile Include="App\SimpleSprite.cpp" />
+    <ClCompile Include="Behavior.cpp" />
     <ClCompile Include="BlackBoard.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Component.cpp" />
