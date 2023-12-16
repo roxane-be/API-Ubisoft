@@ -43,17 +43,17 @@ void GameManager::Update(float deltaTime)
 
 	
 
-	////delete entity
-	//for (auto entity : m_EntitiesToDelete)
-	//{
-	//	if (entity != nullptr)
-	//	{
-	//		m_ActiveEntityList.remove(entity);
-	//		delete entity;
-	//		entity = nullptr;
-	//	}
-	//}
-	//m_EntitiesToDelete.clear();
+	//delete entity
+	for (auto entity : m_EntitiesToDelete)
+	{
+		if (entity != nullptr)
+		{
+			m_ActiveEntityList.remove(entity);
+			delete entity;
+			entity = nullptr;
+		}
+	}
+	m_EntitiesToDelete.clear();
 
 
 }
