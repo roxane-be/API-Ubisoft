@@ -1,5 +1,0 @@
-5
-\\LoadEnemies\\LoadEnemieBase.txt
-\\LoadEnemies\\LoadEnemieBase.txt
-\\LoadEnemies\\LoadEnemieBase.txt
-\\LoadEnemies\\LoadEnemieBase.txt

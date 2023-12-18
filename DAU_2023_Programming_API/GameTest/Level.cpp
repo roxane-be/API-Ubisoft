@@ -42,7 +42,6 @@ void Level::Init()
 				Entity* entity = new Entity();
 				entity->Load(entity, pathLoad);
 				m_entitiesList.push_back(entity);
-
 			}
 		}
 	}
@@ -55,9 +54,10 @@ void Level::Update(float deltaTime)
 	{
 		std::string pathFile = ".\\TestData\\LoadEntities\\LevelGame";
 		std::string pathLoad = pathFile;
-		pathLoad += "\\LoadWave.txt";
+		pathLoad += "\\LoadWave\\LoadWave";
+		pathLoad += std::to_string(currentWave);
+		pathLoad += ".txt";
 		LoadWaveEnemies(pathLoad, pathFile, m_gameManager->GetActiveEntity());
-		timeWave = 5;
 	}
 
 }
@@ -87,9 +87,9 @@ void Level::LoadWaveEnemies(std::string _pathLoad,std::string _pathFile, std::li
 		std::string line;
 		myFile >> line;
 		timeWave = std::stof(line);
+			currentWave++;
 		do
 		{
-
 			myFile >> line;
 			_pathLoad = _pathFile;
 			_pathLoad += line;
