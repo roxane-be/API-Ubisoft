@@ -24,6 +24,9 @@ protected:
 
 	std::list<Entity*> m_entitiesList;
 
+	float timeWave = 0;
+	void LoadWaveEnemies(std::string _pathLoad, std::string _pathFile, std::list<Entity*>* _entityList);
+
 	//split avec un vector enemi, bonus, objetc , (((waves)))..... 
 	//std::vector<Entity> m_EnemyEntities;
 	//std::vector<Entity> m_BonusEntities;

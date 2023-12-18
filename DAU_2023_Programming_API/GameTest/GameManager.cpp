@@ -36,6 +36,8 @@ void GameManager::Update(float deltaTime)
 		Init();
 		ptrMapManager->Init();
 	}
+
+	GetCurrentLevel()->Update(deltaTime);
 	for (const auto element : (m_ActiveEntityList))
 	{
 		element->Update(deltaTime);

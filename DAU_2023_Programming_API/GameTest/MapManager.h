@@ -41,7 +41,7 @@ public:
 protected:
 	void InitBackgroundSpriteMap();
 	void UpdateBackgroundSpriteMap(float deltaTime);
-
+	void LoadWaveEnemies(std::string _pathLoad, std::string _pathFile);
 
 
 private:

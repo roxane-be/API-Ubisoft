@@ -1,0 +1,12 @@
+Entity 
+Enemy
+1500
+345
+VisualSpriteAndAnimation
+.\\TestData\\Enemies\\spritesheetEnemiesBase.png
+8
+1
+1
+0
+.\\TestData\\Enemies\\spritesheetEnemiesBase.txt
+Behavior

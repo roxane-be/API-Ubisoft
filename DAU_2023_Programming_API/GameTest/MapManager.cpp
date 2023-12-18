@@ -71,10 +71,11 @@ void MapManager::InitBackgroundSpriteMap()
 		Entity* backgroundMap = new Entity("BackGroundMap" + i);
 		BlackBoard* blackBoard = new BlackBoard(backgroundMap);
 		VisualSprite* componentVisualSpriteBackground = new VisualSprite(backgroundMap, blackBoard);
-		componentVisualSpriteBackground->CreateSprite(VisualSprite::m_stringFile[stringFile], 1, 1, 0.8f, 0);
+		componentVisualSpriteBackground->CreateSprite(VisualSprite::m_stringFile[stringFile], 1, 1, 0.8f, -1);
 		backgroundMap->AddComponent(componentVisualSpriteBackground);
 		blackBoard->sizeSprite = componentVisualSpriteBackground->GetSize();
 		blackBoard->scaleSprite = componentVisualSpriteBackground->GetScale();
+		blackBoard->SetLayerVisualSprite(-1);
 		backgroundMap->blackBoard = blackBoard;
 
 		backgroundMap->GetTransform()->SetPosition({ -500,-500 });

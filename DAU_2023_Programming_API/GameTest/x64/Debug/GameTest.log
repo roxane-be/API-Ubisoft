@@ -1,4 +1,12 @@
-﻿  GameManager.cpp
+﻿  app.cpp
+  main.cpp
+  SimpleController.cpp
+  SimpleSound.cpp
+  SimpleSprite.cpp
+  Behavior.cpp
+  BlackBoard.cpp
+  Button.cpp
+  Génération de code en cours...
   GameTest.vcxproj -> C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
   C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
   1 fichier(s) copiÚ(s)

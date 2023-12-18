@@ -50,10 +50,10 @@ void Update(float deltaTime)
 
 	}
 
-	if (App::IsKeyPressed(VK_CONTROL))
+	/*if (App::IsKeyPressed(VK_CONTROL))
 	{
 		GameManager::Instance.currentLevel = Game;
-	}
+	}*/
 
 
 }
