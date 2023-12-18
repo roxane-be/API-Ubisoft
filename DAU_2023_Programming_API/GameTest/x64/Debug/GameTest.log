@@ -1,11 +1,11 @@
 ﻿  Level.cpp
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Level.cpp(29,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Level.cpp(31,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
   (compiler le fichier source '/Level.cpp')
   
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Level.cpp(52,23): warning C4244: '-=' : conversion de 'double' en 'float', perte possible de données
+C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Level.cpp(54,23): warning C4244: '-=' : conversion de 'double' en 'float', perte possible de données
   (compiler le fichier source '/Level.cpp')
   
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Level.cpp(98,56): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Level.cpp(100,56): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   (compiler le fichier source '/Level.cpp')
   
   GameTest.vcxproj -> C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe

@@ -11,6 +11,8 @@
 void Level::Init()
 {
 	m_entitiesList.clear();
+	timeWave = 0;
+	currentWave = 0;
 
 	std::string pathFile;
 	switch (GameManager::Instance.currentLevel)
