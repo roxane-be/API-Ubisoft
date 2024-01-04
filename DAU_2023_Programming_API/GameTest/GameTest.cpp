@@ -33,8 +33,9 @@ void Init()
 //------------------------------------------------------------------------
 void Update(float deltaTime)
 {
-	mapManager.Update(deltaTime);
-	GameManager::Instance.Update(deltaTime);
+float deltaTimeGame = deltaTime*0.001;
+	mapManager.Update(deltaTimeGame);
+	GameManager::Instance.Update(deltaTimeGame);
 
 	//------------------------------------------------------------------------
 	// Sample Sound.

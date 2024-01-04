@@ -44,6 +44,10 @@ void Level::Init()
 				Entity* entity = new Entity();
 				entity->Load(entity, pathLoad);
 				m_entitiesList.push_back(entity);
+				if (entry.path().string().find("MainCharacter") != std::string::npos)
+				{
+					GameManager::Instance.mainCharacter = entity;
+				}
 			}
 		}
 	}
@@ -51,7 +55,7 @@ void Level::Init()
 
 void Level::Update(float deltaTime)
 {
-	timeWave -= deltaTime*0.001;
+	timeWave -= deltaTime;
 	if (timeWave <0)
 	{
 		std::string pathFile = ".\\TestData\\LoadEntities\\LevelGame";

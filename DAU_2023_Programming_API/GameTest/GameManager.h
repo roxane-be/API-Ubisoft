@@ -36,6 +36,7 @@ public:
 	void SetLevel(eCurrentLevel newLevel);
 	void AddEntityToDelete(Entity* _entity) {m_EntitiesToDelete.push_back(_entity); };
 	MapManager* ptrMapManager{nullptr};
+	Entity* mainCharacter{ nullptr };
 
 	static GameManager Instance;
 	static std::map<std::string, std::function<void()>> functionMap;

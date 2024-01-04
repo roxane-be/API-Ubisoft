@@ -100,7 +100,7 @@ void VisualSprite::Init()
 void VisualSprite::Update(float deltaTime)
 {
 	if (!IsNull())
-		sprite->Update(deltaTime);
+		sprite->Update(deltaTime/0.001);
 }
 
 void VisualSprite::Render()
