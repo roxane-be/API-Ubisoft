@@ -5,6 +5,14 @@
 class GameManager;
 class Level
 {
+
+public : 
+public:
+	struct Wave
+	{
+		float time;
+		std::list <std::string> pathEnemyToLoad;
+	};
 public:
 	Level() = default;
 	Level(GameManager* gameManager = nullptr) : m_gameManager(gameManager){};
@@ -26,7 +34,11 @@ protected:
 
 	float timeWave = 0;
 	int currentWave =0;
-	void LoadWaveEnemies(std::string _pathLoad, std::string _pathFile, std::list<Entity*>* _entityList);
+	void LoadWaves(std::string _pathFolder, std::string _pathFile);
+	void LoadEnemy(std::string _pathFolder);
+	void LoadNewWave(std::list<Entity*>* _entityList);
+	std::list<Wave*> sWaves;
+	std::vector<Entity> m_EnemyEntitiesList;
 
 	//split avec un vector enemi, bonus, objetc , (((waves)))..... 
 	//std::vector<Entity> m_EnemyEntities;
@@ -34,6 +46,6 @@ protected:
 	//std::vector<Entity> m_ObjectEntities;
 	//std::list<Entity*> m_UIEntities;
 
-
+	
 };
 
