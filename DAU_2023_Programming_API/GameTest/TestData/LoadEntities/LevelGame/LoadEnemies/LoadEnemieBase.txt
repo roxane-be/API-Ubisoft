@@ -11,3 +11,12 @@ VisualSpriteAndAnimation
 0
 .\\TestData\\Enemies\\spritesheetEnemiesBase.txt
 Behavior
+Collision
+-35
+55
+65
+55
+65
+-150
+-35
+-150

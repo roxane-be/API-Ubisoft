@@ -13,11 +13,11 @@ void Entity::Init()
 
 void Entity::Update(float deltaTime)
 {
- 	for (const auto component : m_components)
+	for (const auto component : m_components)
 	{
 		component->Update(deltaTime);
 	}
-      }
+}
 
 void Entity::Render()
 {
@@ -49,7 +49,7 @@ void Entity::Load(Entity* entity, std::string pathFile)
 			}
 			else if (line == "Button")
 			{
-				LoadComponentButton(*entity,myFile);
+				LoadComponentButton(*entity, myFile);
 			}
 			else if (line == "VisualSprite")
 			{
@@ -61,7 +61,11 @@ void Entity::Load(Entity* entity, std::string pathFile)
 			}
 			else if (line == "Behavior")
 			{
-			LoadComponentBehavior(*entity, myFile);
+				LoadComponentBehavior(*entity, myFile);
+			}
+			else if (line == "Collision")
+			{
+				LoadComponentCollision(*entity, myFile);
 			}
 		}
 
@@ -70,14 +74,14 @@ void Entity::Load(Entity* entity, std::string pathFile)
 
 void Entity::LoadComponentBehavior(Entity& _entity, std::ifstream& myFile)
 {
-	Behavior* component= new Behavior(&_entity, _entity.blackBoard);
+	Behavior* component = new Behavior(&_entity, _entity.blackBoard);
 	_entity.AddComponent(component);
 }
 
 void Entity::LoadComponentButton(Entity& _entity, std::ifstream& myFile)
 {
 	std::string line;
-	
+
 
 	Button* component = new Button(&_entity, _entity.blackBoard);
 	component->Init();
@@ -140,6 +144,21 @@ void Entity::LoadComponentVisualSpriteAndAnimation(Entity& _entity, std::ifstrea
 	_entity.AddComponent(component);
 }
 
+void Entity::LoadComponentCollision(Entity& _entity, std::ifstream& myFile)
+{
+	Collision* component = new Collision(&_entity, _entity.blackBoard);
+	std::string line;
+	for (int i = 0; i < 4; i++)
+	{
+		myFile >> line;
+		float x = std::stof(line);
+		myFile >> line;
+		float y = std::stof(line);
+		component->m_points.push_back(Vector2f(x,y));
+	}
+	_entity.AddComponent(component);
+}
+
 void Entity::LoadEntity(Entity& _entity, std::ifstream& myFile)
 {
 	std::string line;
@@ -149,7 +168,7 @@ void Entity::LoadEntity(Entity& _entity, std::ifstream& myFile)
 
 	int collision = std::stof(line);
 
-	_entity =  Entity(name,(eCollision)collision );
+	_entity = Entity(name, (eCollision)collision);
 	myFile >> line;
 	float x = std::stof(line);
 	myFile >> line;

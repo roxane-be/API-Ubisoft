@@ -10,3 +10,12 @@ VisualSpriteAndAnimation
 1
 1
 .\\TestData\\Player\\spritesheet.txt
+Collision
+-65
+65
+45
+65
+45
+-150
+-65
+-150

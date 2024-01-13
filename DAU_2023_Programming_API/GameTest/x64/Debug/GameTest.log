@@ -1,40 +1,4 @@
-﻿  app.cpp
-  main.cpp
-  SimpleController.cpp
-  SimpleSound.cpp
-  SimpleSprite.cpp
-  Behavior.cpp
-  BlackBoard.cpp
-  Collision.cpp
-  Component.cpp
-  Entity.cpp
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(113,103): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  (compiler le fichier source '/Entity.cpp')
-  
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(113,94): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  (compiler le fichier source '/Entity.cpp')
-  
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(114,43): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  (compiler le fichier source '/Entity.cpp')
-  
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(137,116): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  (compiler le fichier source '/Entity.cpp')
-  
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(137,103): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  (compiler le fichier source '/Entity.cpp')
-  
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(137,94): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  (compiler le fichier source '/Entity.cpp')
-  
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(139,43): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  (compiler le fichier source '/Entity.cpp')
-  
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(150,16): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
-  (compiler le fichier source '/Entity.cpp')
-  
-  stb_image.cpp
-  Button.cpp
-  Génération de code en cours...
+﻿  Collision.cpp
   GameTest.vcxproj -> C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
   C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
   1 fichier(s) copiÚ(s)
