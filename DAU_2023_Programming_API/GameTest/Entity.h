@@ -6,6 +6,13 @@ class Entity
 {
 public:
 	Entity(std::string name = "") : m_name(name) {};
+	Entity(const Entity& other)
+	{
+		transform = other.transform;
+		m_name = other.m_name;
+		m_components = other.m_components;
+		blackBoard = other.blackBoard;
+	}
 
 	~Entity()
 	{

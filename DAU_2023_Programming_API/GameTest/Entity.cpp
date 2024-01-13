@@ -13,11 +13,11 @@ void Entity::Init()
 
 void Entity::Update(float deltaTime)
 {
-	for (const auto component : m_components)
+ 	for (const auto component : m_components)
 	{
 		component->Update(deltaTime);
 	}
-}
+      }
 
 void Entity::Render()
 {

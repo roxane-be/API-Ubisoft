@@ -59,8 +59,13 @@ void Level::Init()
 		{
 			LoadWaves(entry.path().string(), pathFile);
 		}
-
+		if (entry.path().string().find("LoadEnemies") != std::string::npos)
+		{
+			LoadEnemy(entry.path().string());
+		}
 	}
+
+
 	LoadNewWave(&m_entitiesList);
 
 }
@@ -68,9 +73,10 @@ void Level::Init()
 void Level::Update(float deltaTime)
 {
 	timeWave -= deltaTime;
-	if (timeWave <0)
+	if (timeWave < 0)
 	{
 		LoadNewWave(m_gameManager->GetActiveEntity());
+		return;
 	}
 
 }
@@ -111,8 +117,6 @@ void Level::LoadWaves(std::string _pathFolder, std::string _pathFile)
 				std::string path = _pathFile;
 				path += line;
 				waveTemp->pathEnemyToLoad.push_back(path);
-
-
 			} while (!myFile.eof());
 			sWaves.push_back(waveTemp);
 		}
@@ -122,6 +126,21 @@ void Level::LoadWaves(std::string _pathFolder, std::string _pathFile)
 
 void Level::LoadEnemy(std::string _pathFolder)
 {
+
+	for (const auto& entry : std::filesystem::directory_iterator(_pathFolder))
+	{
+		std::string pathfiletoLoad = entry.path().string();
+		std::ifstream myFile(pathfiletoLoad);
+		if (myFile)
+		{
+
+			Entity* entityEnemy = new Entity();
+			entityEnemy->Load(entityEnemy, pathfiletoLoad);
+			
+
+			m_EnemyEntitiesList.push_back(*entityEnemy);
+		}
+	}
 }
 
 void Level::LoadNewWave(std::list<Entity*>* _entityList)
@@ -129,6 +148,7 @@ void Level::LoadNewWave(std::list<Entity*>* _entityList)
 	srand(time(0));
 	std::list<Wave*>::iterator it = sWaves.begin();
 	currentWave = rand() % sWaves.size();
+	currentWave =5;
 	std::advance(it, currentWave);
 	if (it != sWaves.end())
 	{
@@ -138,12 +158,14 @@ void Level::LoadNewWave(std::list<Entity*>* _entityList)
 	{
 		assert(false);
 	}
-	for (const auto path : (*it)->pathEnemyToLoad)
+	for (const auto element : (*it)->pathEnemyToLoad)
 	{
-		Entity* entity = new Entity();
-		entity->Load(entity, path);
+		Entity* entity = new Entity(m_EnemyEntitiesList[0]);
 		entity->GetTransform()->SetPosition((rand() % 1000) + 1000, entity->GetTransform()->GetPosition()->y);
 		_entityList->push_back(entity);
+
 	}
+
+
 }
 
