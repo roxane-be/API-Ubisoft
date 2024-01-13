@@ -1,5 +1,6 @@
 Entity 
 ButtonShop
+0
 200
 400
 VisualSprite

@@ -4,14 +4,22 @@
 class Component;
 class Entity
 {
+	enum eCollision
+	{
+		None,
+		MainCharacter,
+		EnemyGround,
+	};
+	
 public:
-	Entity(std::string name = "") : m_name(name) {};
+	Entity(std::string name = "", eCollision typeCollision = None) : m_name(name), m_typeCollision(typeCollision) {};
 	Entity(const Entity& other)
 	{
 		transform = other.transform;
 		m_name = other.m_name;
 		m_components = other.m_components;
 		blackBoard = other.blackBoard;
+		m_typeCollision = other.m_typeCollision;
 	}
 
 	~Entity()
@@ -47,6 +55,7 @@ protected:
 private:
 	Transform transform = Transform();
 	std::string m_name;
+	eCollision m_typeCollision;
 
 	std::list<Component*> m_components;
 	//Component* componentStatus; // shortcut for perfo
