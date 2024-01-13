@@ -38,6 +38,7 @@ protected:
 	void LoadEnemy(std::string _pathFolder);
 	void LoadNewWave(std::list<Entity*>* _entityList);
 	std::list<Wave*> sWaves;
+	//bug
 	std::vector<Entity> m_EnemyEntitiesList;
 
 	//split avec un vector enemi, bonus, objetc , (((waves)))..... 

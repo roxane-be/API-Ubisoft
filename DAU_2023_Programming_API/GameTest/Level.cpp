@@ -59,10 +59,11 @@ void Level::Init()
 		{
 			LoadWaves(entry.path().string(), pathFile);
 		}
-		if (entry.path().string().find("LoadEnemies") != std::string::npos)
+		//bug 
+		/*if (entry.path().string().find("LoadEnemies") != std::string::npos)
 		{
 			LoadEnemy(entry.path().string());
-		}
+		}*/
 	}
 
 
@@ -76,7 +77,6 @@ void Level::Update(float deltaTime)
 	if (timeWave < 0)
 	{
 		LoadNewWave(m_gameManager->GetActiveEntity());
-		return;
 	}
 
 }
@@ -124,6 +124,7 @@ void Level::LoadWaves(std::string _pathFolder, std::string _pathFile)
 
 }
 
+//bug
 void Level::LoadEnemy(std::string _pathFolder)
 {
 
@@ -148,7 +149,6 @@ void Level::LoadNewWave(std::list<Entity*>* _entityList)
 	srand(time(0));
 	std::list<Wave*>::iterator it = sWaves.begin();
 	currentWave = rand() % sWaves.size();
-	currentWave =5;
 	std::advance(it, currentWave);
 	if (it != sWaves.end())
 	{
@@ -158,14 +158,17 @@ void Level::LoadNewWave(std::list<Entity*>* _entityList)
 	{
 		assert(false);
 	}
+
+
 	for (const auto element : (*it)->pathEnemyToLoad)
 	{
-		Entity* entity = new Entity(m_EnemyEntitiesList[0]);
+		Entity* entity = new Entity();
+		entity->Load(entity, element);
+		//bug
+		//Entity* entity = new Entity(m_EnemyEntitiesList[0]);
 		entity->GetTransform()->SetPosition((rand() % 1000) + 1000, entity->GetTransform()->GetPosition()->y);
 		_entityList->push_back(entity);
 
 	}
-
-
 }
 
