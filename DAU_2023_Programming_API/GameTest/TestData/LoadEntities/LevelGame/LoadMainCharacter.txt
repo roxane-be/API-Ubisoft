@@ -2,7 +2,7 @@ Entity
 MainCharacter
 1
 150
-300
+345
 VisualSpriteAndAnimation
 .\\TestData\\Player\\spritesheet.png
 8
