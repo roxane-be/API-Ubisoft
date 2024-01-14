@@ -168,7 +168,7 @@ void Entity::LoadEntity(Entity& _entity, std::ifstream& myFile)
 
 	int collision = std::stof(line);
 
-	_entity = Entity(name, (eCollision)collision);
+	_entity = Entity(name, (eTypeCollision)collision);
 	myFile >> line;
 	float x = std::stof(line);
 	myFile >> line;

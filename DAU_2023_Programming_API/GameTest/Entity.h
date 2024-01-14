@@ -4,7 +4,8 @@
 class Component;
 class Entity
 {
-	enum eCollision
+public:
+	enum eTypeCollision
 	{
 		None,
 		MainCharacter,
@@ -12,7 +13,7 @@ class Entity
 	};
 	
 public:
-	Entity(std::string name = "", eCollision typeCollision = None) : m_name(name), m_typeCollision(typeCollision) {};
+	Entity(std::string name = "", eTypeCollision typeCollision = None) : m_name(name), m_typeCollision(typeCollision) {};
 	Entity(const Entity& other)
 	{
 		transform = other.transform;
@@ -42,6 +43,8 @@ public:
 	const std::list<Component*> GetComponents() { return m_components; };
 	BlackBoard* blackBoard = nullptr;
 
+	eTypeCollision GetTypeCollision() {return m_typeCollision;};
+
 	void Load(Entity* entity, std::string pathFile);
 protected:
 	void LoadComponentBehavior(Entity& _entity, std::ifstream& myFile);
@@ -56,7 +59,7 @@ protected:
 private:
 	Transform transform = Transform();
 	std::string m_name;
-	eCollision m_typeCollision;
+	eTypeCollision m_typeCollision;
 
 	std::list<Component*> m_components;
 	//Component* componentStatus; // shortcut for perfo

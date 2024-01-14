@@ -11,6 +11,8 @@ public:
 	virtual void Update(float deltaTime)override;
 	virtual void Render()override;
 
+	void isCollide();
+
 public:
 
 	std::vector<Vector2f> m_points;
