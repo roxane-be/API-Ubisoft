@@ -7,9 +7,6 @@
 #include "App/app.h"
 
 
-
-
-
 void Level::Init()
 {
 	m_entitiesList.clear();
@@ -60,12 +57,11 @@ void Level::Init()
 			LoadWaves(entry.path().string(), pathFile);
 		}
 		//bug 
-		/*if (entry.path().string().find("LoadEnemies") != std::string::npos)
+		if (entry.path().string().find("LoadEnemies") != std::string::npos)
 		{
-			LoadEnemy(entry.path().string());
-		}*/
+			LoadEnemies(entry.path().string());
+		}
 	}
-
 
 	LoadNewWave(&m_entitiesList);
 
@@ -76,7 +72,7 @@ void Level::Update(float deltaTime)
 	timeWave -= deltaTime;
 	if (timeWave < 0)
 	{
-		LoadNewWave(m_gameManager->GetActiveEntity());
+		LoadNewWave(m_gameManager->GetActiveEntitiesList());
 	}
 
 }
@@ -90,7 +86,7 @@ void Level::Shutdown()
 {
 }
 
-void Level::GetAllEntityLevel(std::list<Entity*>* _list)
+void Level::GetAllEntitiesLevel(std::list<Entity*>* _list)
 {
 	for (const auto element : (m_entitiesList))
 	{
@@ -124,22 +120,27 @@ void Level::LoadWaves(std::string _pathFolder, std::string _pathFile)
 
 }
 
-//bug
-void Level::LoadEnemy(std::string _pathFolder)
+void Level::LoadEnemies(std::string _pathFolder)
 {
 
 	for (const auto& entry : std::filesystem::directory_iterator(_pathFolder))
 	{
-		std::string pathfiletoLoad = entry.path().string();
-		std::ifstream myFile(pathfiletoLoad);
-		if (myFile)
+		if (entry.is_regular_file())
 		{
+			std::string pathfiletoLoad = entry.path().string();
+			std::filesystem::path fileExt = entry.path().extension();
+			if (fileExt == std::filesystem::path(".txt"))
+			{
+				std::ifstream myFile(pathfiletoLoad);
+				if (myFile)
+				{
 
-			Entity* entityEnemy = new Entity();
-			entityEnemy->Load(entityEnemy, pathfiletoLoad);
-			
+					Entity* entityEnemy = new Entity();
+					entityEnemy->Load(entityEnemy, pathfiletoLoad);
 
-			m_EnemyEntitiesList.push_back(*entityEnemy);
+					m_EnemyEntitiesMap[pathfiletoLoad] = entityEnemy;
+				}
+			}
 		}
 	}
 }
@@ -162,10 +163,9 @@ void Level::LoadNewWave(std::list<Entity*>* _entityList)
 
 	for (const auto element : (*it)->pathEnemyToLoad)
 	{
-		Entity* entity = new Entity();
-		entity->Load(entity, element);
-		//bug
-		//Entity* entity = new Entity(m_EnemyEntitiesList[0]);
+
+		Entity* baseEntity = m_EnemyEntitiesMap[element];
+		Entity* entity = new Entity(*baseEntity);  // copy
 		entity->GetTransform()->SetPosition((rand() % 1000) + 1000, entity->GetTransform()->GetPosition()->y);
 		_entityList->push_back(entity);
 

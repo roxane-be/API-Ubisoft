@@ -22,7 +22,7 @@ GameManager::GameManager()
 void GameManager::Init()
 {
 	m_levels[currentLevel]->Init();
-	m_levels[currentLevel]->GetAllEntityLevel(&m_ActiveEntityList);
+	m_levels[currentLevel]->GetAllEntitiesLevel(&m_ActiveEntitiesList);
 	ptrMapManager->currentLevel = GetCurrentLevel();
 }
 
@@ -38,7 +38,7 @@ void GameManager::Update(float deltaTime)
 	}
 
 	GetCurrentLevel()->Update(deltaTime);
-	for (const auto element : (m_ActiveEntityList))
+	for (const auto element : (m_ActiveEntitiesList))
 	{
 		element->Update(deltaTime);
 	}
@@ -50,7 +50,7 @@ void GameManager::Update(float deltaTime)
 
 void GameManager::Render()
 {
-	for (const auto element : (m_ActiveEntityList))
+	for (const auto element : (m_ActiveEntitiesList))
 	{
 		element->Render();
 	}
@@ -61,7 +61,7 @@ void GameManager::Render()
 	{
 		if (entity != nullptr)
 		{
-			m_ActiveEntityList.remove(entity);
+			m_ActiveEntitiesList.remove(entity);
 			delete entity;
 			entity = nullptr;
 		}
@@ -74,7 +74,7 @@ void GameManager::Shutdown()
 {
 
 
-	for (auto entity : m_ActiveEntityList)
+	for (auto entity : m_ActiveEntitiesList)
 	{
 		if (entity != nullptr)
 		{
@@ -82,7 +82,7 @@ void GameManager::Shutdown()
 			entity = nullptr;
 		}
 	}
-	m_ActiveEntityList.clear();
+	m_ActiveEntitiesList.clear();
 	m_EntitiesToDelete.clear();
 
 

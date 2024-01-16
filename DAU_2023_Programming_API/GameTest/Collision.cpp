@@ -29,6 +29,19 @@ void Collision::Render()
 	App::DrawLine(pos.x + m_points[3].x, pos.y + m_points[3].y, pos.x + m_points[0].x, pos.y + m_points[0].y, 0, 1, 1);
 }
 
+Component* Collision::Clone(Entity* resultEntity)
+{
+	Collision* collision = new Collision();
+
+	//*collision = *this;
+	collision->m_points = this->m_points;
+
+	collision->m_entity = resultEntity;
+	collision->m_blackBoard = resultEntity->blackBoard; 
+
+	return collision;
+}
+
 void Collision::isCollide()
 {
 }

@@ -24,3 +24,14 @@ void Behavior::OutsideScreen()
 		GameManager::Instance.AddEntityToDelete(m_entity);
 	}
 }
+
+Component* Behavior::Clone(Entity* resultEntity)
+{
+	Behavior* behavior = new Behavior();
+	//*behavior = *this  // deep copy
+
+	behavior->m_entity = resultEntity;
+	behavior->m_blackBoard = resultEntity->blackBoard;
+
+	return behavior;
+}

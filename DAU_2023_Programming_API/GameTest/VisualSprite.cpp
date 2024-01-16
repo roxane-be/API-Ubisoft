@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "VisualSprite.h"
 #include "App/app.h"
-#include "App/SimpleSprite.h"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -17,7 +16,7 @@ void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, flo
 		|| !std::filesystem::is_regular_file(fileName))
 		return;
 
-
+	m_fileName = fileName;
 	sprite = App::CreateSprite(fileName, columns, rows);
 	sprite->SetPosition(0.f, 0.f);
 	SetScaleSprite(scale);
@@ -110,4 +109,24 @@ void VisualSprite::Render()
 		sprite->SetPosition(m_entity->GetTransform()->GetPosition()->x + m_offsetSpritePosition.x, m_entity->GetTransform()->GetPosition()->y + m_offsetSpritePosition.y);
 		sprite->Draw();
 	}
+}
+
+
+Component* VisualSprite::Clone(Entity* resultEntity)
+{
+	VisualSprite* visualSprite = new VisualSprite();
+
+	*visualSprite = *this;
+	visualSprite->sprite = App::CreateSprite(m_fileName, 1, 1); 
+	*(visualSprite->sprite) = *(this->sprite);
+
+	visualSprite->m_entity = resultEntity;
+	visualSprite->m_blackBoard = resultEntity->blackBoard;
+
+	// no need because the auto copy is ok for now (and lack some clone func in CSimpleSprite we can't change)
+	//visualSprite->CreateSprite(m_fileName, columns, rows, sprite->GetScale, m_layer, line);
+
+	resultEntity->blackBoard->SetLayerVisualSprite(m_layer);
+
+	return visualSprite;
 }

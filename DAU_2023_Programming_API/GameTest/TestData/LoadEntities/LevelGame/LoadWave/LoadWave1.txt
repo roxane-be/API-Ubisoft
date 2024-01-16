@@ -1,3 +1,3 @@
 3
-\\LoadEnemies\\LoadEnemieBase.txt
-\\LoadEnemies\\LoadEnemieBase.txt
+\LoadEnemies\LoadEnemieBase.txt
+\LoadEnemies\LoadEnemieBase.txt

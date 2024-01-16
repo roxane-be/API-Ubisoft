@@ -1,5 +1,6 @@
 #pragma once
 #include <fstream>
+#include "BlackBoard.h"
 
 class Component;
 class Entity
@@ -17,10 +18,16 @@ public:
 	Entity(const Entity& other)
 	{
 		transform = other.transform;
-		m_name = other.m_name;
-		m_components = other.m_components;
-		blackBoard = other.blackBoard;
+		m_name = other.m_name + std::string(" Cloned");
 		m_typeCollision = other.m_typeCollision;
+
+		blackBoard = static_cast<BlackBoard*>(other.blackBoard->Clone(this));  // copy
+
+		for (const auto component : other.m_components)
+		{
+			Component* newComponent = component->Clone(this);  // copy
+			m_components.push_back(newComponent);
+		}
 	}
 
 	~Entity()
@@ -37,6 +44,7 @@ public:
 	void Update(float deltaTime);
 	void Render();
 	void Shutdown();
+
 
 	void AddComponent(Component* component);
 	Transform* GetTransform() { return &transform; }

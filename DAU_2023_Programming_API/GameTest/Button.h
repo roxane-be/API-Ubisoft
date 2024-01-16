@@ -13,6 +13,8 @@ public:
 	virtual void Update(float deltaTime)override;
 	virtual void Render()override;
 
+	virtual Component* Clone(Entity* resultEntity) override;
+
 	void OnClick();
 	void SetText(std::string _text);
 

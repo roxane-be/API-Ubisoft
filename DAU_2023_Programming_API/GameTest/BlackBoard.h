@@ -11,6 +11,8 @@ public:
 	virtual void Update(float deltaTime) override;
 	virtual void Render() override;
 
+	virtual Component* Clone(Entity* resultEntity) override;
+
 	void SetLayerVisualSprite(int _layer) { m_layer = _layer; };
 	int GetLayervisualSprite() { return m_layer; };
 

@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <tchar.h>
 
-
+//#include "App/SimpleSprite.h"
 
 // TODO: reference additional headers your program requires here
 #include "GameManager.h"
@@ -18,7 +18,7 @@
 #include "MapManager.h"
 #include "Transform.h"
 #include "Vector2.h"
-#include "VisualSprite.h"
+//#include "VisualSprite.h"
 #include "Entity.h"
 #include "Collision.h"
 #include "Item.h"

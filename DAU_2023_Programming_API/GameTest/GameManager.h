@@ -32,7 +32,7 @@ public:
 
 	Level* GetCurrentLevel() { return m_levels[currentLevel]; };
 	eCurrentLevel currentLevel = Game;
-	std::list<Entity*>* GetActiveEntity() { return &m_ActiveEntityList; };
+	std::list<Entity*>* GetActiveEntitiesList() { return &m_ActiveEntitiesList; };
 	void SetLevel(eCurrentLevel newLevel);
 	void AddEntityToDelete(Entity* _entity) {m_EntitiesToDelete.push_back(_entity); };
 	MapManager* ptrMapManager{nullptr};
@@ -43,7 +43,7 @@ public:
 private:
 
 	std::vector<Level*> m_levels;
-	std::list<Entity*> m_ActiveEntityList =  std::list<Entity *>();
+	std::list<Entity*> m_ActiveEntitiesList =  std::list<Entity *>();
 	std::list<Entity*> m_EntitiesToDelete = std::list<Entity*>();
 	void PlayGame();
 };

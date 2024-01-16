@@ -26,10 +26,10 @@ void MapManager::Update(float deltaTime)
 
 void MapManager::Render()
 {
-	if (m_gameManager->GetActiveEntity())
+	if (m_gameManager->GetActiveEntitiesList())
 	{
-		m_gameManager->GetActiveEntity()->sort(MapManager::CompareLayer);
-		for (const auto& element : *m_gameManager->GetActiveEntity())
+		m_gameManager->GetActiveEntitiesList()->sort(MapManager::CompareLayer);
+		for (const auto& element : *m_gameManager->GetActiveEntitiesList())
 			if (element != nullptr)
 				element->Render();
 	}
@@ -80,7 +80,7 @@ void MapManager::InitBackgroundSpriteMap()
 
 		backgroundMap->GetTransform()->SetPosition({ -500,-500 });
 		backgroundList[i] = backgroundMap;
-		m_gameManager->GetActiveEntity()->push_back(backgroundList[i]);
+		m_gameManager->GetActiveEntitiesList()->push_back(backgroundList[i]);
 	}
 	srand(time(0));
 

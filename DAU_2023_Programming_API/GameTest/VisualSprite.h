@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 
+
 class CSimpleSprite;
 class BlackBoard;
 enum eAnimationSprite
@@ -21,6 +22,9 @@ public:
 	virtual void Init() override;
 	virtual void Update(float deltaTime)override;
 	virtual void Render()override;
+
+	virtual Component* Clone(Entity* resultEntity) override;
+
 
 	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f, int layer = 0,
 		std::string = "None");
@@ -52,6 +56,8 @@ public:
 
 private:
 	void CreateAnimations(std::string fileNameAnimation);
+
+	const char* m_fileName{ nullptr };
 	CSimpleSprite* sprite{ nullptr };
 	Vector2f m_offsetSpritePosition = Vector2f();
 	//le Z, fond
