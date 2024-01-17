@@ -30,20 +30,11 @@
     <ClCompile Include="Vector2.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="VisualSprite.cpp">
-      <Filter>UbiCode\Private\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>UbiCode\Private\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="GameManager.cpp">
       <Filter>UbiCode\Private\Other</Filter>
     </ClCompile>
     <ClCompile Include="Level.cpp">
       <Filter>UbiCode\Private\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
@@ -51,13 +42,30 @@
     <ClCompile Include="Item.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>UbiCode\Private\Engine</Filter>
+    <ClCompile Include="Behavior.cpp">
+      <Filter>UbiCode\Private\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorAI.cpp">
+      <Filter>UbiCode\Private\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorPlayer.cpp">
+      <Filter>UbiCode\Private\Gameplay</Filter>
     </ClCompile>
     <ClCompile Include="BlackBoard.cpp">
-      <Filter>UbiCode\Private\Engine</Filter>
+      <Filter>UbiCode\Private\Engine\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Behavior.cpp" />
+    <ClCompile Include="Button.cpp">
+      <Filter>UbiCode\Private\Engine\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>UbiCode\Private\Engine\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="VisualSprite.cpp">
+      <Filter>UbiCode\Private\Engine\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>UbiCode\Private\Engine\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -94,20 +102,11 @@
     <ClInclude Include="Vector2.h">
       <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="VisualSprite.h">
-      <Filter>UbiCode\Public\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>UbiCode\Public\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>UbiCode\Public\Other</Filter>
     </ClInclude>
     <ClInclude Include="Level.h">
       <Filter>UbiCode\Public\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>UbiCode\Public\Engine</Filter>
@@ -115,13 +114,30 @@
     <ClInclude Include="Item.h">
       <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Behavior.h">
+      <Filter>UbiCode\Public\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorAI.h">
+      <Filter>UbiCode\Public\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorPlayer.h">
+      <Filter>UbiCode\Public\Gameplay</Filter>
+    </ClInclude>
     <ClInclude Include="Button.h">
-      <Filter>UbiCode\Public\Engine</Filter>
+      <Filter>UbiCode\Public\Engine\Component</Filter>
     </ClInclude>
     <ClInclude Include="BlackBoard.h">
-      <Filter>UbiCode\Public\Engine</Filter>
+      <Filter>UbiCode\Public\Engine\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Behavior.h" />
+    <ClInclude Include="Collision.h">
+      <Filter>UbiCode\Public\Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>UbiCode\Public\Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="VisualSprite.h">
+      <Filter>UbiCode\Public\Engine\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">
@@ -168,6 +184,12 @@
     </Filter>
     <Filter Include="UbiCode\Private\Level">
       <UniqueIdentifier>{45db106a-a79f-45b6-aea2-bf49982c527e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Private\Engine\Component">
+      <UniqueIdentifier>{f7df2fa4-62f0-448d-a433-4c75922ad343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Public\Engine\Component">
+      <UniqueIdentifier>{12ce9eac-dca6-4193-8da1-92775ec6cf36}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

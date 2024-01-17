@@ -36,27 +36,20 @@ void Level::Init()
 		{
 			std::string pathLoad = entry.path().string();
 
-			/*if (entry.path().string().find("LoadWave") != std::string::npos)
+			Entity* entity = new Entity();
+			entity->Load(entity, pathLoad);
+			m_entitiesList.push_back(entity);
+			if (entry.path().string().find("MainCharacter") != std::string::npos)
 			{
-				LoadWaveEnemies(pathLoad, pathFile);
+				GameManager::Instance.mainCharacter = entity;
 			}
-			else*/
-			{
-				Entity* entity = new Entity();
-				entity->Load(entity, pathLoad);
-				m_entitiesList.push_back(entity);
-				if (entry.path().string().find("MainCharacter") != std::string::npos)
-				{
-					GameManager::Instance.mainCharacter = entity;
-				}
-			}
+			 
 		}
 		//check if a folder is a Load Wave
 		if (entry.path().string().find("LoadWave") != std::string::npos)
 		{
 			LoadWaves(entry.path().string(), pathFile);
 		}
-		//bug 
 		if (entry.path().string().find("LoadEnemies") != std::string::npos)
 		{
 			LoadEnemies(entry.path().string());
