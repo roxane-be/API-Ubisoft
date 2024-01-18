@@ -60,9 +60,9 @@ void Entity::Load(Entity* entity, std::string pathFile)
 			{
 				LoadComponentVisualSpriteAndAnimation(*entity, myFile);
 			}
-			else if (line == "Behavior")
+			else if (line == "BehaviorAI")
 			{
-				LoadComponentBehavior(*entity, myFile);
+				LoadComponentBehaviorAI(*entity, myFile);
 			}
 			else if (line == "Collision")
 			{
@@ -73,9 +73,9 @@ void Entity::Load(Entity* entity, std::string pathFile)
 	}
 }
 
-void Entity::LoadComponentBehavior(Entity& _entity, std::ifstream& myFile)
+void Entity::LoadComponentBehaviorAI(Entity& _entity, std::ifstream& myFile)
 {
-	Behavior* component = new Behavior(&_entity, _entity.blackBoard);
+	BehaviorAI* component = new BehaviorAI(&_entity, _entity.blackBoard);
 	_entity.AddComponent(component);
 }
 

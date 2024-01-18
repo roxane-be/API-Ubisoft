@@ -46,7 +46,7 @@ public:
 
 	void Load(Entity* entity, std::string pathFile);
 protected:
-	void LoadComponentBehavior(Entity& _entity, std::ifstream& myFile);
+	void LoadComponentBehaviorAI(Entity& _entity, std::ifstream& myFile);
 	void LoadComponentButton(Entity& _entity, std::ifstream& myFile);
 	void LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile);
 	void LoadComponentVisualSpriteAndAnimation(Entity& _entity, std::ifstream& myFile);

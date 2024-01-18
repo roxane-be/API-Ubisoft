@@ -7,13 +7,14 @@ public:
 	//Behavior() = default;
 	Behavior(Entity* parent = nullptr, BlackBoard* blackBoard = nullptr) : Component(parent, blackBoard) {};
 
-	virtual void Init()override;
-	virtual void Update(float deltaTime)override;
-	virtual void Render()override;
+	virtual void Init() =0;
+	virtual void Update(float deltaTime)=0;
+	virtual void Render()=0;
 
-	virtual Component* Clone(Entity* resultEntity) override;
+	virtual Component* Clone(Entity* resultEntity) =0;
 
-	protected :
+protected:
 	void OutsideScreen();
+
 };
 

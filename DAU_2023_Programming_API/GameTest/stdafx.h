@@ -26,4 +26,6 @@
 #include "Level.h"
 #include "BlackBoard.h"
 #include "Behavior.h"
+#include "BehaviorAI.h"
+#include "BehaviorPlayer.h"
 #include "FunctionLibrary.h"

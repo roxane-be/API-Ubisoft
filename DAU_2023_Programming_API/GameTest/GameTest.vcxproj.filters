@@ -160,9 +160,6 @@
     <Filter Include="UbiCode\Public">
       <UniqueIdentifier>{67e6c095-077b-4b2b-a53a-ac6e82569373}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UbiCode\Public\GUI">
-      <UniqueIdentifier>{efddee8c-ffe6-41d4-8259-556a87f27a64}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UbiCode\Public\Gameplay">
       <UniqueIdentifier>{f2dbb03b-7bfb-4e23-929b-4d21bc155cc7}</UniqueIdentifier>
     </Filter>
@@ -192,6 +189,9 @@
     </Filter>
     <Filter Include="UbiCode\Public\Engine\Component">
       <UniqueIdentifier>{12ce9eac-dca6-4193-8da1-92775ec6cf36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Public\Gameplay\GUI">
+      <UniqueIdentifier>{efddee8c-ffe6-41d4-8259-556a87f27a64}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

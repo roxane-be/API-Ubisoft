@@ -37,7 +37,6 @@ public:
 
 	virtual Component* Clone(Entity* resultEntity) override;
 
-	bool isColliding();
 
 	Vector2f GetSizeCollision()
 	{

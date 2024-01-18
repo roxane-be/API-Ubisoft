@@ -1,4 +1,25 @@
-﻿  Collision.cpp
+﻿  Entity.cpp
+C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(118,103): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  (compiler le fichier source '/Entity.cpp')
+  
+C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(118,94): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  (compiler le fichier source '/Entity.cpp')
+  
+C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(119,43): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  (compiler le fichier source '/Entity.cpp')
+  
+C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(142,116): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  (compiler le fichier source '/Entity.cpp')
+  
+C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(142,103): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  (compiler le fichier source '/Entity.cpp')
+  
+C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(142,94): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  (compiler le fichier source '/Entity.cpp')
+  
+C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(144,43): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  (compiler le fichier source '/Entity.cpp')
+  
   GameTest.vcxproj -> C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
   C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
   1 fichier(s) copiÚ(s)

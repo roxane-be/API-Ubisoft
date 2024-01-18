@@ -9,7 +9,7 @@ VisualSpriteAndAnimation
 1
 0
 .\\TestData\\Enemies\\spritesheetEnemiesBase.txt
-Behavior
+BehaviorAI
 Collision
 ENEMYGROUND
 -35
