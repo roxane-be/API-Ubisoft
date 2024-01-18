@@ -9,6 +9,13 @@ VisualSpriteAndAnimation
 1
 0
 .\\TestData\\Enemies\\spritesheetEnemiesBase.txt
+VisualSpriteAndAnimation
+.\\TestData\\Enemies\\spritesheetArmAI.png
+8
+1
+1
+0
+.\\TestData\\Enemies\\spritesheetArmAI.txt
 BehaviorAI
 Collision
 ENEMYGROUND

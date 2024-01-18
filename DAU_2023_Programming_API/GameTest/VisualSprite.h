@@ -4,14 +4,19 @@
 
 class CSimpleSprite;
 class BlackBoard;
-enum eAnimationSprite
-{
-	ANIM_WALK = 0,
-};
 
 class VisualSprite : public Component
 {
 public:
+
+	enum eAnimationSprite
+	{
+		ANIM_WALK,
+		ANIM_ATTACK,
+		ANIM_DEATH
+	};
+
+
 	VisualSprite(Entity* parent = nullptr) : Component(parent) {};
 	
 	~VisualSprite()

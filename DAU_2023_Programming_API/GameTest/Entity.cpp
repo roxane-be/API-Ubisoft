@@ -140,7 +140,7 @@ void Entity::LoadComponentVisualSpriteAndAnimation(Entity& _entity, std::ifstrea
 	VisualSprite* component = new VisualSprite(&_entity);
 	myFile >> line;
 	component->CreateSprite(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows, scale, layer, line);
-	component->SetAnimation(eAnimationSprite::ANIM_WALK);
+	component->SetAnimation(VisualSprite::eAnimationSprite::ANIM_WALK);
 	_entity.blackBoard->SetLayerVisualSprite(layer);
 	_entity.AddComponent(component);
 }

@@ -44,7 +44,6 @@ void VisualSprite::CreateAnimations(std::string fileNameAnimation)
 		while (!myFile.eof()) {
 			tabAnim.push_back(std::vector<int>(0, 0));
 			myFile >> line;
-			int enumAnim = line[0] - '0';
 			myFile >> line;
 			int frameBegin = std::stoi(line);
 			myFile >> line;

@@ -32,5 +32,17 @@ Collision::eCollisionResponses FunctionLibrary::ConvertStringToEnumCollisionResp
 
 }
 
+VisualSprite::eAnimationSprite FunctionLibrary::ConvertStringToEnumAnimationSprite(std::string str)
+{
+	if (str == "ANIM_ATTACK")
+		return VisualSprite::eAnimationSprite::ANIM_ATTACK;
+	else if (str == "ANIM_WALK")
+		return VisualSprite::eAnimationSprite::ANIM_WALK;
+	else if (str == "ANIM_DEATH")
+		return VisualSprite::eAnimationSprite::ANIM_DEATH;
+
+	assert(false);
+}
+
 
 

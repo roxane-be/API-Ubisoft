@@ -24,7 +24,7 @@ void Collision::Update(float deltaTime)
 		{
 			if (isColliding(entity))
 			{
-				assert(false);
+				//assert(false);
 			}
 		}
 	}
