@@ -58,7 +58,7 @@ Component* Button::Clone(Entity* resultEntity)
 {
 	assert(false); // should not me used currently
 
-	Button* button = new Button(resultEntity, resultEntity->blackBoard);
+	Button* button = new Button(resultEntity);
 
 	return button;
 }

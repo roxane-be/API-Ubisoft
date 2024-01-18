@@ -4,7 +4,7 @@
 class BehaviorAI : public Behavior
 {
 	public : 
-		BehaviorAI(Entity* parent = nullptr, BlackBoard* blackBoard = nullptr) : Behavior(parent, blackBoard) {};
+		BehaviorAI(Entity* parent = nullptr) : Behavior(parent) {};
 
 		virtual void Init()override;
 		virtual void Update(float deltaTime)override;

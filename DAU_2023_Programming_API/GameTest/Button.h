@@ -7,7 +7,7 @@ class Button : public Component
 {
 public:
 	Button() = default;
-	Button(Entity* parent, BlackBoard* _blackBoard) : Component(parent, _blackBoard) {};
+	Button(Entity* parent) : Component(parent) {};
 
 	virtual void Init()override;
 	virtual void Update(float deltaTime)override;

@@ -5,7 +5,7 @@ class Behavior : public Component
 {
 public:
 	//Behavior() = default;
-	Behavior(Entity* parent = nullptr, BlackBoard* blackBoard = nullptr) : Component(parent, blackBoard) {};
+	Behavior(Entity* parent = nullptr) : Component(parent) {};
 
 	virtual void Init() =0;
 	virtual void Update(float deltaTime)=0;

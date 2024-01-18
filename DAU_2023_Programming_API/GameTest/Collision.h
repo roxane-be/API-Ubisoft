@@ -29,7 +29,7 @@ public:
 		BLOCK,
 	};
 public:
-	Collision(Entity* parent = nullptr, BlackBoard* _blackboard = nullptr) : Component(parent, _blackboard) {};
+	Collision(Entity* parent = nullptr) : Component(parent) {};
 
 	virtual void Init() override;
 	virtual void Update(float deltaTime)override;
@@ -47,7 +47,7 @@ public:
 
 public:
 
-	Collision::eCollisionObjectResponses m_typeCollision;
+	Collision::eCollisionObjectResponses m_typeCollision = NONE;
 
 	
 	std::map<Collision::eCollisionObjectResponses, Collision::eCollisionResponses> collisionPresets =

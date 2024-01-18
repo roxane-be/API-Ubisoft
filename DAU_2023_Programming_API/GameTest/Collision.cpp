@@ -53,7 +53,7 @@ Component* Collision::Clone(Entity* resultEntity)
 	collision->collisionPresets = this->collisionPresets;
 
 	collision->m_entity = resultEntity;
-	collision->m_blackBoard = resultEntity->blackBoard;
+	collision->m_entity->blackBoard = resultEntity->blackBoard;
 	collision->m_entity->blackBoard->rectCollision = &m_points;
 	collision->m_entity->blackBoard->m_typeCollision = collision->m_typeCollision;
 

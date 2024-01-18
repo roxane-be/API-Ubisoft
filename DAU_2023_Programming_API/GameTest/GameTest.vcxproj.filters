@@ -43,13 +43,13 @@
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Behavior.cpp">
-      <Filter>UbiCode\Private\Gameplay</Filter>
+      <Filter>UbiCode\Private\Engine\Component\Gameplay</Filter>
     </ClCompile>
     <ClCompile Include="BehaviorAI.cpp">
-      <Filter>UbiCode\Private\Gameplay</Filter>
+      <Filter>UbiCode\Private\Engine\Component\Gameplay</Filter>
     </ClCompile>
     <ClCompile Include="BehaviorPlayer.cpp">
-      <Filter>UbiCode\Private\Gameplay</Filter>
+      <Filter>UbiCode\Private\Engine\Component\Gameplay</Filter>
     </ClCompile>
     <ClCompile Include="BlackBoard.cpp">
       <Filter>UbiCode\Private\Engine\Component</Filter>
@@ -66,7 +66,9 @@
     <ClCompile Include="Collision.cpp">
       <Filter>UbiCode\Private\Engine\Component</Filter>
     </ClCompile>
-    <ClCompile Include="FunctionLibrary.cpp" />
+    <ClCompile Include="FunctionLibrary.cpp">
+      <Filter>UbiCode\Private\Other</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -116,13 +118,13 @@
       <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Behavior.h">
-      <Filter>UbiCode\Public\Gameplay</Filter>
+      <Filter>UbiCode\Public\Engine\Component\Gameplay</Filter>
     </ClInclude>
     <ClInclude Include="BehaviorAI.h">
-      <Filter>UbiCode\Public\Gameplay</Filter>
+      <Filter>UbiCode\Public\Engine\Component\Gameplay</Filter>
     </ClInclude>
     <ClInclude Include="BehaviorPlayer.h">
-      <Filter>UbiCode\Public\Gameplay</Filter>
+      <Filter>UbiCode\Public\Engine\Component\Gameplay</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>UbiCode\Public\Engine\Component</Filter>
@@ -139,7 +141,9 @@
     <ClInclude Include="VisualSprite.h">
       <Filter>UbiCode\Public\Engine\Component</Filter>
     </ClInclude>
-    <ClInclude Include="FunctionLibrary.h" />
+    <ClInclude Include="FunctionLibrary.h">
+      <Filter>UbiCode\Public\Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">
@@ -154,17 +158,8 @@
     <Filter Include="UbiCode\Private">
       <UniqueIdentifier>{7c5a0c93-2f62-4097-92ca-6486023b014a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UbiCode\Private\GUI">
-      <UniqueIdentifier>{ca8861a8-02be-43c8-85ac-51e87780d981}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UbiCode\Public">
       <UniqueIdentifier>{67e6c095-077b-4b2b-a53a-ac6e82569373}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UbiCode\Public\Gameplay">
-      <UniqueIdentifier>{f2dbb03b-7bfb-4e23-929b-4d21bc155cc7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UbiCode\Private\Gameplay">
-      <UniqueIdentifier>{d4075ca4-3dbf-412e-ab12-e47588aca55e}</UniqueIdentifier>
     </Filter>
     <Filter Include="UbiCode\Public\Engine">
       <UniqueIdentifier>{08615949-3db3-4086-92c5-9fbe9dff1566}</UniqueIdentifier>
@@ -190,8 +185,11 @@
     <Filter Include="UbiCode\Public\Engine\Component">
       <UniqueIdentifier>{12ce9eac-dca6-4193-8da1-92775ec6cf36}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UbiCode\Public\Gameplay\GUI">
-      <UniqueIdentifier>{efddee8c-ffe6-41d4-8259-556a87f27a64}</UniqueIdentifier>
+    <Filter Include="UbiCode\Private\Engine\Component\Gameplay">
+      <UniqueIdentifier>{d4075ca4-3dbf-412e-ab12-e47588aca55e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UbiCode\Public\Engine\Component\Gameplay">
+      <UniqueIdentifier>{f2dbb03b-7bfb-4e23-929b-4d21bc155cc7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

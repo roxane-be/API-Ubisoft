@@ -121,12 +121,12 @@ Component* VisualSprite::Clone(Entity* resultEntity)
 	*(visualSprite->sprite) = *(this->sprite);
 
 	visualSprite->m_entity = resultEntity;
-	visualSprite->m_blackBoard = resultEntity->blackBoard;
+	visualSprite->m_entity->blackBoard = resultEntity->blackBoard;
 
 	// no need because the auto copy is ok for now (and lack some clone func in CSimpleSprite we can't change)
 	//visualSprite->CreateSprite(m_fileName, columns, rows, sprite->GetScale, m_layer, line);
 
-	resultEntity->blackBoard->SetLayerVisualSprite(m_layer);
+	visualSprite->m_entity->blackBoard->SetLayerVisualSprite(m_layer);
 
 	return visualSprite;
 }

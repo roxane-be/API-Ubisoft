@@ -12,7 +12,7 @@ enum eAnimationSprite
 class VisualSprite : public Component
 {
 public:
-	VisualSprite(Entity* parent = nullptr, BlackBoard* _blackBoard =nullptr) : Component(parent, _blackBoard) {};
+	VisualSprite(Entity* parent = nullptr) : Component(parent) {};
 	
 	~VisualSprite()
 	{

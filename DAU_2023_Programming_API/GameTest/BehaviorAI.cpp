@@ -23,7 +23,6 @@ Component* BehaviorAI::Clone(Entity* resultEntity)
 	//*behavior = *this  // deep copy
 
 	behavior->m_entity = resultEntity;
-	behavior->m_blackBoard = resultEntity->blackBoard;
 
 	return behavior;
 }

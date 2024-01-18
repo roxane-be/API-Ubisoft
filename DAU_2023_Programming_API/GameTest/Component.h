@@ -4,7 +4,7 @@ class BlackBoard;
 class Component
 {
 public:
-	Component(Entity* parent = nullptr, BlackBoard* blackBoard = nullptr) : m_entity(parent), m_blackBoard(blackBoard) {}
+	Component(Entity* parent = nullptr) : m_entity(parent) {}
 
 	//method
 	virtual void Init() = 0;
@@ -16,6 +16,5 @@ public:
 
 protected:
 	Entity* m_entity;
-	BlackBoard* m_blackBoard;
 };
 

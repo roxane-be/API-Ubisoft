@@ -75,7 +75,7 @@ void Entity::Load(Entity* entity, std::string pathFile)
 
 void Entity::LoadComponentBehaviorAI(Entity& _entity, std::ifstream& myFile)
 {
-	BehaviorAI* component = new BehaviorAI(&_entity, _entity.blackBoard);
+	BehaviorAI* component = new BehaviorAI(&_entity);
 	_entity.AddComponent(component);
 }
 
@@ -84,7 +84,7 @@ void Entity::LoadComponentButton(Entity& _entity, std::ifstream& myFile)
 	std::string line;
 
 
-	Button* component = new Button(&_entity, _entity.blackBoard);
+	Button* component = new Button(&_entity);
 	component->Init();
 	myFile >> line;
 	component->SetText(line);
@@ -114,7 +114,7 @@ void Entity::LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile)
 	myFile >> line;
 	float layer = std::stof(line);
 
-	VisualSprite* component = new VisualSprite(&_entity, _entity.blackBoard);
+	VisualSprite* component = new VisualSprite(&_entity);
 	component->CreateSprite(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows, layer);
 	_entity.blackBoard->SetLayerVisualSprite(layer);
 	_entity.AddComponent(component);
@@ -137,7 +137,7 @@ void Entity::LoadComponentVisualSpriteAndAnimation(Entity& _entity, std::ifstrea
 	myFile >> line;
 	float layer = std::stof(line);
 
-	VisualSprite* component = new VisualSprite(&_entity, _entity.blackBoard);
+	VisualSprite* component = new VisualSprite(&_entity);
 	myFile >> line;
 	component->CreateSprite(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows, scale, layer, line);
 	component->SetAnimation(eAnimationSprite::ANIM_WALK);
@@ -147,7 +147,7 @@ void Entity::LoadComponentVisualSpriteAndAnimation(Entity& _entity, std::ifstrea
 
 void Entity::LoadComponentCollision(Entity& _entity, std::ifstream& myFile)
 {
-	Collision* component = new Collision(&_entity, _entity.blackBoard);
+	Collision* component = new Collision(&_entity);
 	std::string line;
 	myFile >> line;
 	auto typeCollision = FunctionLibrary::ConvertStringToEnumCollisionObjectResponses(line);
