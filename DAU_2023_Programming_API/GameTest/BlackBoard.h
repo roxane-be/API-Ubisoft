@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+#include "Collision.h"
 class BlackBoard : public Component
 {
 public:
@@ -18,6 +19,10 @@ public:
 
 	Vector2f sizeSprite;
 	float scaleSprite{ 1 };
+
+	const std::vector<Vector2f>* rectCollision ;
+
+	Collision::eCollisionObjectResponses m_typeCollision;
 
 private:
 	int m_layer {0}; // var Visual Sprite

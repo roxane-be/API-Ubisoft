@@ -1,25 +1,17 @@
 #pragma once
 #include <fstream>
 #include "BlackBoard.h"
+#include "Collision.h"
 
 class Component;
 class Entity
 {
 public:
-	enum eTypeCollision
-	{
-		None,
-		MainCharacter,
-		EnemyGround,
-	};
-	
-public:
-	Entity(std::string name = "", eTypeCollision typeCollision = None) : m_name(name), m_typeCollision(typeCollision) {};
+	Entity(std::string name = "") : m_name(name) {};
 	Entity(const Entity& other)
 	{
 		transform = other.transform;
 		m_name = other.m_name + std::string(" Cloned");
-		m_typeCollision = other.m_typeCollision;
 
 		blackBoard = static_cast<BlackBoard*>(other.blackBoard->Clone(this));  // copy
 
@@ -51,7 +43,6 @@ public:
 	const std::list<Component*> GetComponents() { return m_components; };
 	BlackBoard* blackBoard = nullptr;
 
-	eTypeCollision GetTypeCollision() {return m_typeCollision;};
 
 	void Load(Entity* entity, std::string pathFile);
 protected:
@@ -67,8 +58,6 @@ protected:
 private:
 	Transform transform = Transform();
 	std::string m_name;
-	eTypeCollision m_typeCollision;
-
 	std::list<Component*> m_components;
 	//Component* componentStatus; // shortcut for perfo
 };

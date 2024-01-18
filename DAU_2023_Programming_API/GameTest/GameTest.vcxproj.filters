@@ -66,6 +66,7 @@
     <ClCompile Include="Collision.cpp">
       <Filter>UbiCode\Private\Engine\Component</Filter>
     </ClCompile>
+    <ClCompile Include="FunctionLibrary.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -138,6 +139,7 @@
     <ClInclude Include="VisualSprite.h">
       <Filter>UbiCode\Public\Engine\Component</Filter>
     </ClInclude>
+    <ClInclude Include="FunctionLibrary.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">

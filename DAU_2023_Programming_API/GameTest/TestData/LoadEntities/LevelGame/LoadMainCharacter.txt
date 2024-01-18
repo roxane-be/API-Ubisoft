@@ -1,6 +1,5 @@
 Entity 
 MainCharacter
-1
 150
 345
 VisualSpriteAndAnimation
@@ -11,6 +10,7 @@ VisualSpriteAndAnimation
 1
 .\\TestData\\Player\\spritesheet.txt
 Collision
+MAINCHARACTER
 -65
 65
 45
@@ -19,3 +19,9 @@ Collision
 -150
 -65
 -150
+MAINCHARACTER
+IGNORE
+ENEMYGROUND
+BLOCK
+WEAPONS
+IGNORE

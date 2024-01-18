@@ -1,6 +1,5 @@
 Entity 
 Enemy
-2
 1500
 345
 VisualSpriteAndAnimation
@@ -12,6 +11,7 @@ VisualSpriteAndAnimation
 .\\TestData\\Enemies\\spritesheetEnemiesBase.txt
 Behavior
 Collision
+ENEMYGROUND
 -35
 55
 65
@@ -20,3 +20,9 @@ Collision
 -150
 -35
 -150
+MAINCHARACTER
+BLOCK
+ENEMYGROUND
+IGNORE
+WEAPONS
+IGNORE

@@ -5,6 +5,7 @@
 #include <functional>
 #include <sstream>
 #include <iostream>
+#include <map>
 #include <cassert>
 
 void Entity::Init()
@@ -148,14 +149,36 @@ void Entity::LoadComponentCollision(Entity& _entity, std::ifstream& myFile)
 {
 	Collision* component = new Collision(&_entity, _entity.blackBoard);
 	std::string line;
+	myFile >> line;
+	auto typeCollision = FunctionLibrary::ConvertStringToEnumCollisionObjectResponses(line);
+	component->m_typeCollision = typeCollision;
+
 	for (int i = 0; i < 4; i++)
 	{
 		myFile >> line;
 		float x = std::stof(line);
 		myFile >> line;
 		float y = std::stof(line);
-		component->m_points.push_back(Vector2f(x,y));
+		component->m_points.push_back(Vector2f(x, y));
 	}
+	for (int i = 0; i < component->collisionPresets.size(); i++)
+	{
+		myFile >> line;
+		auto key = FunctionLibrary::ConvertStringToEnumCollisionObjectResponses(line);
+		myFile >> line;
+		auto value = FunctionLibrary::ConvertStringToEnumCollisionResponses(line);
+
+		auto it = component->collisionPresets.find(key);
+
+		if (it != component->collisionPresets.end()) {
+			component->collisionPresets[key] = value;
+		}
+		else
+			assert(false);
+
+	}
+	_entity.blackBoard->m_typeCollision = component->m_typeCollision;
+	_entity.blackBoard->rectCollision = &component->m_points;
 	_entity.AddComponent(component);
 }
 
@@ -164,11 +187,8 @@ void Entity::LoadEntity(Entity& _entity, std::ifstream& myFile)
 	std::string line;
 	myFile >> line;
 	std::string name = line;
-	myFile >> line;
 
-	int collision = std::stof(line);
-
-	_entity = Entity(name, (eTypeCollision)collision);
+	_entity = Entity(name);
 	myFile >> line;
 	float x = std::stof(line);
 	myFile >> line;
