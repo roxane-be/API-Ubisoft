@@ -33,7 +33,7 @@ Component* BehaviorAI::Clone(Entity* resultEntity)
 
 void BehaviorAI::oui()
 {
-	if (FunctionLibrary::RaycastObject2D(*m_entity->GetTransform()->GetPosition(), *GameManager::Instance.mainCharacter->GetTransform()->GetPosition(), 180.f))
+	if (FunctionLibrary::RaycastObject2D(*m_entity->GetTransform()->GetPosition(), *GameManager::Instance.mainCharacter->GetTransform()->GetPosition(), 170.f))
 	{
 		m_entity->blackBoard->currentAnimation = VisualSprite::eAnimationSprite::ANIM_ATTACK;
 	}
