@@ -13,7 +13,8 @@ public:
 	{
 		ANIM_WALK,
 		ANIM_ATTACK,
-		ANIM_DEATH
+		ANIM_DEATH,
+		TPOSE,
 	};
 
 
@@ -34,7 +35,7 @@ public:
 	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f, int layer = 0,
 		std::string = "None");
 	void SetScaleSprite(float scale);
-	void SetAnimation(int id);
+	void SetAnimation(eAnimationSprite id);
 
 
 
@@ -67,6 +68,7 @@ private:
 	Vector2f m_offsetSpritePosition = Vector2f();
 	//le Z, fond
 	int m_layer = 0;
+	eAnimationSprite currentAnimation = TPOSE;
 };
 
 

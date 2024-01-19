@@ -64,6 +64,10 @@ void Entity::Load(Entity* entity, std::string pathFile)
 			{
 				LoadComponentBehaviorAI(*entity, myFile);
 			}
+			else if (line == "BehaviorPlayer")
+			{
+				LoadComponentBehaviorPlayer(*entity, myFile);
+			}
 			else if (line == "Collision")
 			{
 				LoadComponentCollision(*entity, myFile);
@@ -76,6 +80,12 @@ void Entity::Load(Entity* entity, std::string pathFile)
 void Entity::LoadComponentBehaviorAI(Entity& _entity, std::ifstream& myFile)
 {
 	BehaviorAI* component = new BehaviorAI(&_entity);
+	_entity.AddComponent(component);
+}
+
+void Entity::LoadComponentBehaviorPlayer(Entity& _entity, std::ifstream& myFile)
+{
+	BehaviorPlayer* component = new BehaviorPlayer(&_entity);
 	_entity.AddComponent(component);
 }
 
@@ -141,6 +151,7 @@ void Entity::LoadComponentVisualSpriteAndAnimation(Entity& _entity, std::ifstrea
 	myFile >> line;
 	component->CreateSprite(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows, scale, layer, line);
 	component->SetAnimation(VisualSprite::eAnimationSprite::ANIM_WALK);
+	_entity.blackBoard->currentAnimation = VisualSprite::eAnimationSprite::ANIM_WALK;
 	_entity.blackBoard->SetLayerVisualSprite(layer);
 	_entity.AddComponent(component);
 }

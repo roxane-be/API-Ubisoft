@@ -12,7 +12,7 @@ VisualSpriteAndAnimation
 VisualSpriteAndAnimation
 .\\TestData\\Enemies\\spritesheetArmAI.png
 8
-1
+2
 1
 0
 .\\TestData\\Enemies\\spritesheetArmAI.txt

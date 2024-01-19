@@ -34,7 +34,7 @@ void VisualSprite::CreateAnimations(std::string fileNameAnimation)
 	std::ifstream myFile(fileNameAnimation);
 
 	std::vector <std::vector<int>> tabAnim;
-	float speed =0;
+	float speed = 0;
 	if (myFile)
 	{
 		myFile >> speed;
@@ -85,10 +85,15 @@ void VisualSprite::SetScaleSprite(float scale)
 		sprite->SetScale(scale);
 }
 
-void VisualSprite::SetAnimation(int id)
+void VisualSprite::SetAnimation(eAnimationSprite id)
 {
 	if (!IsNull())
-		sprite->SetAnimation(id);
+	{
+		sprite->SetAnimation((int)id);
+		currentAnimation = id;
+		m_entity->blackBoard->currentAnimation = id;
+	}
+
 }
 
 void VisualSprite::Init()
@@ -98,7 +103,9 @@ void VisualSprite::Init()
 void VisualSprite::Update(float deltaTime)
 {
 	if (!IsNull())
-		sprite->Update(deltaTime/0.001);
+		sprite->Update(deltaTime / 0.001);
+	if (currentAnimation != m_entity->blackBoard->currentAnimation)
+		SetAnimation(m_entity->blackBoard->currentAnimation);
 }
 
 void VisualSprite::Render()
@@ -116,16 +123,18 @@ Component* VisualSprite::Clone(Entity* resultEntity)
 	VisualSprite* visualSprite = new VisualSprite();
 
 	*visualSprite = *this;
-	visualSprite->sprite = App::CreateSprite(m_fileName, 1, 1); 
+	visualSprite->sprite = App::CreateSprite(m_fileName, 1, 1);
 	*(visualSprite->sprite) = *(this->sprite);
 
 	visualSprite->m_entity = resultEntity;
 	visualSprite->m_entity->blackBoard = resultEntity->blackBoard;
+	visualSprite->m_entity->blackBoard->currentAnimation = m_entity->blackBoard->currentAnimation;
+	visualSprite->m_entity->blackBoard->SetLayerVisualSprite(m_layer);
+	visualSprite->currentAnimation = currentAnimation;
 
 	// no need because the auto copy is ok for now (and lack some clone func in CSimpleSprite we can't change)
 	//visualSprite->CreateSprite(m_fileName, columns, rows, sprite->GetScale, m_layer, line);
 
-	visualSprite->m_entity->blackBoard->SetLayerVisualSprite(m_layer);
 
 	return visualSprite;
 }

@@ -24,6 +24,8 @@ public:
 
 	Collision::eCollisionObjectResponses m_typeCollision;
 
+	VisualSprite::eAnimationSprite currentAnimation = VisualSprite::eAnimationSprite::TPOSE;
+
 private:
 	int m_layer {0}; // var Visual Sprite
 

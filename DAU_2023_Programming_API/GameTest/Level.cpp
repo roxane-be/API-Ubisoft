@@ -43,7 +43,7 @@ void Level::Init()
 			{
 				GameManager::Instance.mainCharacter = entity;
 			}
-			 
+
 		}
 		//check if a folder is a Load Wave
 		if (entry.path().string().find("LoadWave") != std::string::npos)
@@ -55,17 +55,21 @@ void Level::Init()
 			LoadEnemies(entry.path().string());
 		}
 	}
-
+	if (GameManager::Instance.currentLevel == Game)
 	LoadNewWave(&m_entitiesList);
 
 }
 
 void Level::Update(float deltaTime)
 {
-	timeWave -= deltaTime;
-	if (timeWave < 0)
+	if (GameManager::Instance.currentLevel == Game)
 	{
-		LoadNewWave(m_gameManager->GetActiveEntitiesList());
+
+		timeWave -= deltaTime;
+		if (timeWave < 0)
+		{
+			LoadNewWave(m_gameManager->GetActiveEntitiesList());
+		}
 	}
 
 }

@@ -19,10 +19,11 @@ VisualSpriteAndAnimation
 VisualSpriteAndAnimation
 .\\TestData\\Player\\spritesheetArm.png
 8
-1
+2
 1
 1
 .\\TestData\\Player\\spritesheetArm.txt
+BehaviorPlayer
 Collision
 MAINCHARACTER
 -65

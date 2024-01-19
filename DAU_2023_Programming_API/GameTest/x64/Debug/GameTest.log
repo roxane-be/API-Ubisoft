@@ -1,3 +1,7 @@
-﻿  GameTest.vcxproj -> C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
+﻿  VisualSprite.cpp
+C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\VisualSprite.cpp(106,28): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  (compiler le fichier source '/VisualSprite.cpp')
+  
+  GameTest.vcxproj -> C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
   C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
   1 fichier(s) copiÚ(s)
