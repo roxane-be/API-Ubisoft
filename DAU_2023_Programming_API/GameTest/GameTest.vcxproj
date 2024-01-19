@@ -177,6 +177,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationSprite.h" />
     <ClInclude Include="App\app.h" />
     <ClInclude Include="App\AppSettings.h" />
     <ClInclude Include="App\main.h" />
@@ -204,6 +205,7 @@
     <ClInclude Include="VisualSprite.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationSprite.cpp" />
     <ClCompile Include="App\app.cpp" />
     <ClCompile Include="App\main.cpp" />
     <ClCompile Include="App\SimpleController.cpp" />

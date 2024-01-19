@@ -35,6 +35,6 @@ void BehaviorAI::oui()
 {
 	if (FunctionLibrary::RaycastObject2D(*m_entity->GetTransform()->GetPosition(), *GameManager::Instance.mainCharacter->GetTransform()->GetPosition(), 170.f))
 	{
-		m_entity->blackBoard->currentAnimation = VisualSprite::eAnimationSprite::ANIM_ATTACK;
+		m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_ATTACK;
 	}
 }

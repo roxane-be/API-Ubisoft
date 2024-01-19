@@ -9,15 +9,6 @@ class VisualSprite : public Component
 {
 public:
 
-	enum eAnimationSprite
-	{
-		ANIM_WALK,
-		ANIM_ATTACK,
-		ANIM_DEATH,
-		TPOSE,
-	};
-
-
 	VisualSprite(Entity* parent = nullptr) : Component(parent) {};
 	
 	~VisualSprite()
@@ -32,10 +23,8 @@ public:
 	virtual Component* Clone(Entity* resultEntity) override;
 
 
-	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f, int layer = 0,
-		std::string = "None");
+	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f, int layer = 0);
 	void SetScaleSprite(float scale);
-	void SetAnimation(eAnimationSprite id);
 
 
 
@@ -60,15 +49,13 @@ public:
 
 	static std::map< std::string, const char* > m_stringFile;
 
-private:
-	void CreateAnimations(std::string fileNameAnimation);
+protected:
 
 	const char* m_fileName{ nullptr };
 	CSimpleSprite* sprite{ nullptr };
 	Vector2f m_offsetSpritePosition = Vector2f();
 	//le Z, fond
 	int m_layer = 0;
-	eAnimationSprite currentAnimation = TPOSE;
 };
 
 

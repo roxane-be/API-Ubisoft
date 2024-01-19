@@ -69,6 +69,7 @@
     <ClCompile Include="FunctionLibrary.cpp">
       <Filter>UbiCode\Private\Other</Filter>
     </ClCompile>
+    <ClCompile Include="AnimationSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="FunctionLibrary.h">
       <Filter>UbiCode\Public\Other</Filter>
     </ClInclude>
+    <ClInclude Include="AnimationSprite.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NextAPI">

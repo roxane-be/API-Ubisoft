@@ -2,14 +2,14 @@ Entity
 Enemy
 1500
 345
-VisualSpriteAndAnimation
+AnimationSprite
 .\\TestData\\Enemies\\spritesheetEnemiesBase.png
 8
 1
 1
 0
 .\\TestData\\Enemies\\spritesheetEnemiesBase.txt
-VisualSpriteAndAnimation
+AnimationSprite
 .\\TestData\\Enemies\\spritesheetArmAI.png
 8
 2

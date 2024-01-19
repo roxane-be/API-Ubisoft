@@ -56,9 +56,9 @@ void Entity::Load(Entity* entity, std::string pathFile)
 			{
 				LoadComponentVisualSprite(*entity, myFile);
 			}
-			else if (line == "VisualSpriteAndAnimation")
+			else if (line == "AnimationSprite")
 			{
-				LoadComponentVisualSpriteAndAnimation(*entity, myFile);
+				LoadComponentAnimationSprite(*entity, myFile);
 			}
 			else if (line == "BehaviorAI")
 			{
@@ -130,7 +130,7 @@ void Entity::LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile)
 	_entity.AddComponent(component);
 }
 
-void Entity::LoadComponentVisualSpriteAndAnimation(Entity& _entity, std::ifstream& myFile)
+void Entity::LoadComponentAnimationSprite(Entity& _entity, std::ifstream& myFile)
 {
 	std::string line;
 	myFile >> line;
@@ -147,11 +147,11 @@ void Entity::LoadComponentVisualSpriteAndAnimation(Entity& _entity, std::ifstrea
 	myFile >> line;
 	float layer = std::stof(line);
 
-	VisualSprite* component = new VisualSprite(&_entity);
+	AnimationSprite* component = new AnimationSprite(&_entity);
 	myFile >> line;
-	component->CreateSprite(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows, scale, layer, line);
-	component->SetAnimation(VisualSprite::eAnimationSprite::ANIM_WALK);
-	_entity.blackBoard->currentAnimation = VisualSprite::eAnimationSprite::ANIM_WALK;
+	component->CreateAnimations(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows,line , scale, layer);
+	component->SetAnimation(AnimationSprite::eAnimationSprite::ANIM_WALK);
+	_entity.blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_WALK;
 	_entity.blackBoard->SetLayerVisualSprite(layer);
 	_entity.AddComponent(component);
 }

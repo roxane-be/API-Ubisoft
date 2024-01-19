@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "Collision.h"
+#include "AnimationSprite.h"
 class BlackBoard : public Component
 {
 public:
@@ -24,7 +25,8 @@ public:
 
 	Collision::eCollisionObjectResponses m_typeCollision;
 
-	VisualSprite::eAnimationSprite currentAnimation = VisualSprite::eAnimationSprite::TPOSE;
+	AnimationSprite::eAnimationSprite currentAnimation = AnimationSprite::eAnimationSprite::TPOSE;
+	//AnimationSprite::eAnimationSprite currentAnimation = AnimationSprite::eAnimationSprite::TPOSE;
 
 private:
 	int m_layer {0}; // var Visual Sprite
