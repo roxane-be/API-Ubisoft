@@ -10,7 +10,7 @@ void BehaviorPlayer::Update(float deltaTime)
 {
 	if (App::IsKeyPressed(VK_TAB))
 	{
-		m_entity->blackBoard->currentAnimation = AnimationSprite::ANIM_ATTACK;
+		m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_ATTACK;
 
 	}
 }

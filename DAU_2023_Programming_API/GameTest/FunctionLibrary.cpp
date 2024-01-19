@@ -44,6 +44,16 @@ AnimationSprite::eAnimationSprite FunctionLibrary::ConvertStringToEnumAnimationS
 	assert(false);
 }
 
+bool FunctionLibrary::ConvertStringToBoolean(std::string str)
+{
+	if (str == "false")
+		return false;
+	else if (str == "true")
+		return true;
+
+	assert(false);
+}
+
 bool FunctionLibrary::RaycastObject2D(Vector2f _origin, Vector2f _object, float distance)
 {
 	Vector2f direction = _object - _origin;

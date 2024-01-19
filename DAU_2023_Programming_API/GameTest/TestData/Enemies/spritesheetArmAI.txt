@@ -1,7 +1,12 @@
-0.1
 ANIM_WALK
+0.1
 0 7
+true
 ANIM_ATTACK
-8 14
+0.1
+8 10
+false
 ANIM_DEATH
+0.1
 0 7
+false

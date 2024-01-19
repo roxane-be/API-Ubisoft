@@ -1,7 +1,5 @@
 #pragma once
 #include "VisualSprite.h"
-class CSimpleSprite;
-
 
 class AnimationSprite : public VisualSprite
 {
@@ -25,9 +23,11 @@ public:
 
 	void SetAnimation(eAnimationSprite id);
 
-	unsigned int GetFrame()  const {return sprite->GetFrame();};
+	unsigned int GetFrame()  const;
 
 protected:
+
+	std::map< eAnimationSprite, bool> m_animationLooping;
 
 	eAnimationSprite currentAnimation = TPOSE;
 

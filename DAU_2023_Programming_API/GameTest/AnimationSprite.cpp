@@ -22,37 +22,42 @@ void AnimationSprite::SetAnimation(eAnimationSprite id)
 	}
 }
 
+unsigned int AnimationSprite::GetFrame() const
+{
+	return sprite->GetFrame(); 
+}
+
 void AnimationSprite::CreateAnimations(const char* fileName, int columns, int rows, std::string fileNameAnimation, float scale, int layer)
 {
-
 	CreateSprite(fileName, columns, rows, scale, layer);
 
 	std::ifstream myFile(fileNameAnimation);
 
-	std::vector <std::vector<int>> tabAnim;
-	float speed = 0;
 	if (myFile)
 	{
-		myFile >> speed;
 		std::string line;
-		int count = 0;
 
-		while (!myFile.eof()) {
-			tabAnim.push_back(std::vector<int>(0, 0));
+		while (!myFile.eof())
+		{
+			std::vector <int> tabAnim;
+			float speed;
 			myFile >> line;
+			AnimationSprite::eAnimationSprite animEnum = FunctionLibrary::ConvertStringToEnumAnimationSprite(line);
+			myFile >> speed;
 			myFile >> line;
 			int frameBegin = std::stoi(line);
 			myFile >> line;
 			int frameEnd = std::stoi(line);
 			for (int i = frameBegin; i != frameEnd + 1; i++)
 			{
-				tabAnim[count].push_back(i);
+				tabAnim.push_back(i);
 			}
-			count++;
+			sprite->CreateAnimation((int)animEnum, speed, tabAnim);
+			myFile >> line;
+			m_animationLooping[animEnum] = FunctionLibrary::ConvertStringToBoolean(line);
+
 		}
 	}
-	for (int i = 0; i < tabAnim.size(); i++)
-		sprite->CreateAnimation(i, speed, tabAnim[i]);
 }
 
 Component* AnimationSprite::Clone(Entity* resultEntity)
