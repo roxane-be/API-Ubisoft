@@ -12,7 +12,7 @@ class BehaviorAI : public Behavior
 
 		virtual Component* Clone(Entity* resultEntity) override;
 
-
+		void oui();
 
 };
 

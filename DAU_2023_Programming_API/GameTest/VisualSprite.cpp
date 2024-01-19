@@ -130,7 +130,7 @@ Component* VisualSprite::Clone(Entity* resultEntity)
 	visualSprite->m_entity->blackBoard = resultEntity->blackBoard;
 	visualSprite->m_entity->blackBoard->currentAnimation = m_entity->blackBoard->currentAnimation;
 	visualSprite->m_entity->blackBoard->SetLayerVisualSprite(m_layer);
-	visualSprite->currentAnimation = currentAnimation;
+	visualSprite->currentAnimation = currentAnimation;	
 
 	// no need because the auto copy is ok for now (and lack some clone func in CSimpleSprite we can't change)
 	//visualSprite->CreateSprite(m_fileName, columns, rows, sprite->GetScale, m_layer, line);

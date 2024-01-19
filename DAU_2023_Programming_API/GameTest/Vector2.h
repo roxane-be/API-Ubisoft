@@ -7,6 +7,10 @@ public:
 	Vector2f GetVector2f() { return Vector2f(x, y); }
 	void SetVector2f(float x, float y) { this->x = x; this->y = y; } 
 
+	Vector2f operator-(const Vector2f& other) const {
+		return Vector2f(x - other.x, y - other.y);
+	}
+
 	float x;
 	float y;
 

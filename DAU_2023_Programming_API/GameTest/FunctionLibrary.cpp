@@ -44,5 +44,14 @@ VisualSprite::eAnimationSprite FunctionLibrary::ConvertStringToEnumAnimationSpri
 	assert(false);
 }
 
+bool FunctionLibrary::RaycastObject2D(Vector2f _origin, Vector2f _object, float distance)
+{
+	Vector2f direction = _object - _origin;
+
+	float distanceToObj = std::sqrt(direction.x * direction.x + direction.y * direction.y);
+
+	return distanceToObj <= distance;
+}
+
 
 
