@@ -13,7 +13,6 @@ void AnimationSprite::Update(float deltaTime)
 
 	else if (!m_animationLoopingMap[currentAnimation] && GetFrame() == m_lastFrameMap[currentAnimation])
 	{
-		//SetFrame(m_firtFrameMap[currentAnimation]);
 		SetAnimation(ANIM_WALK);
 	}
 }
@@ -24,7 +23,7 @@ void AnimationSprite::SetAnimation(eAnimationSprite id)
 {
 	if (!IsNull())
 	{
-		sprite->SetAnimation((int)id);
+		sprite->SetAnimation((int)id, true);
 		currentAnimation = id;
 		m_entity->blackBoard->currentAnimation = id;
 	}
@@ -35,10 +34,6 @@ unsigned int AnimationSprite::GetFrame() const
 	return sprite->GetFrame(); 
 }
 
-void AnimationSprite::SetFrame(unsigned int _frame)
-{
-	sprite->SetFrame(_frame);
-}
 
 void AnimationSprite::CreateAnimations(const char* fileName, int columns, int rows, std::string fileNameAnimation, float scale, int layer)
 {
@@ -68,7 +63,6 @@ void AnimationSprite::CreateAnimations(const char* fileName, int columns, int ro
 			sprite->CreateAnimation((int)animEnum, speed, tabAnim);
 			myFile >> line;
 			m_animationLoopingMap[animEnum] = FunctionLibrary::ConvertStringToBoolean(line);
-			m_firtFrameMap[animEnum] = frameBegin;
 			m_lastFrameMap[animEnum] = frameEnd;
 
 		}
@@ -89,7 +83,6 @@ Component* AnimationSprite::Clone(Entity* resultEntity)
 	animationSprite->m_entity->blackBoard->SetLayerVisualSprite(m_layer);
 	animationSprite->currentAnimation = currentAnimation;
 	animationSprite->m_animationLoopingMap = m_animationLoopingMap;
-	animationSprite->m_firtFrameMap = m_firtFrameMap;
 	animationSprite->m_lastFrameMap = m_lastFrameMap;
 
 	return animationSprite;
