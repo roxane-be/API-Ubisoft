@@ -24,10 +24,13 @@ public:
 	void SetAnimation(eAnimationSprite id);
 
 	unsigned int GetFrame()  const;
+	void SetFrame(unsigned int _frame) ;
 
 protected:
 
-	std::map< eAnimationSprite, bool> m_animationLooping;
+	std::map< eAnimationSprite, bool> m_animationLoopingMap;
+	std::map< eAnimationSprite, int> m_firtFrameMap;
+	std::map< eAnimationSprite, int> m_lastFrameMap;
 
 	eAnimationSprite currentAnimation = TPOSE;
 

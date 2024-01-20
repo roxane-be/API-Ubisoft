@@ -12,7 +12,10 @@ class BehaviorAI : public Behavior
 
 		virtual Component* Clone(Entity* resultEntity) override;
 
-		void oui();
+		bool CheckDistanceWithPlayer();
+
+	protected :
+	bool doOnceAttack = false;
 
 };
 

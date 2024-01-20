@@ -8,7 +8,7 @@ void BehaviorPlayer::Init()
 
 void BehaviorPlayer::Update(float deltaTime)
 {
-	if (App::IsKeyPressed(VK_TAB))
+	if (App::IsKeyPressed(VK_TAB) && m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_WALK)
 	{
 		m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_ATTACK;
 

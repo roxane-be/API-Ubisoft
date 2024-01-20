@@ -3,7 +3,7 @@ ANIM_WALK
 0 7
 true
 ANIM_ATTACK
-0.1
+0.3
 8 10
 false
 ANIM_DEATH

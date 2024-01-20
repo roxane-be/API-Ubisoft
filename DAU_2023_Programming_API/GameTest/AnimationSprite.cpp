@@ -1,13 +1,21 @@
 #include "stdafx.h"
 #include "AnimationSprite.h"
 #include "App/app.h"
+#include "cassert"
 
 
 void AnimationSprite::Update(float deltaTime)
 {
 	VisualSprite::Update(deltaTime);
+
 	if (currentAnimation != m_entity->blackBoard->currentAnimation)
 		SetAnimation(m_entity->blackBoard->currentAnimation);
+
+	else if (!m_animationLoopingMap[currentAnimation] && GetFrame() == m_lastFrameMap[currentAnimation])
+	{
+		//SetFrame(m_firtFrameMap[currentAnimation]);
+		SetAnimation(ANIM_WALK);
+	}
 }
 
 
@@ -25,6 +33,11 @@ void AnimationSprite::SetAnimation(eAnimationSprite id)
 unsigned int AnimationSprite::GetFrame() const
 {
 	return sprite->GetFrame(); 
+}
+
+void AnimationSprite::SetFrame(unsigned int _frame)
+{
+	sprite->SetFrame(_frame);
 }
 
 void AnimationSprite::CreateAnimations(const char* fileName, int columns, int rows, std::string fileNameAnimation, float scale, int layer)
@@ -54,7 +67,9 @@ void AnimationSprite::CreateAnimations(const char* fileName, int columns, int ro
 			}
 			sprite->CreateAnimation((int)animEnum, speed, tabAnim);
 			myFile >> line;
-			m_animationLooping[animEnum] = FunctionLibrary::ConvertStringToBoolean(line);
+			m_animationLoopingMap[animEnum] = FunctionLibrary::ConvertStringToBoolean(line);
+			m_firtFrameMap[animEnum] = frameBegin;
+			m_lastFrameMap[animEnum] = frameEnd;
 
 		}
 	}
@@ -73,6 +88,9 @@ Component* AnimationSprite::Clone(Entity* resultEntity)
 	animationSprite->m_entity->blackBoard->currentAnimation = m_entity->blackBoard->currentAnimation;
 	animationSprite->m_entity->blackBoard->SetLayerVisualSprite(m_layer);
 	animationSprite->currentAnimation = currentAnimation;
+	animationSprite->m_animationLoopingMap = m_animationLoopingMap;
+	animationSprite->m_firtFrameMap = m_firtFrameMap;
+	animationSprite->m_lastFrameMap = m_lastFrameMap;
 
 	return animationSprite;
 

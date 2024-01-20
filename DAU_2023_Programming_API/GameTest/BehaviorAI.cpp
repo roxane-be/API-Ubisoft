@@ -12,7 +12,11 @@ void BehaviorAI::Update(float deltaTime)
 	//check if entity is outside the screen 
 	OutsideScreen();
 	//
-	oui();
+	if (CheckDistanceWithPlayer() && !doOnceAttack)
+	{
+		m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_ATTACK;
+		doOnceAttack = true;
+	}
 
 }
 
@@ -31,10 +35,7 @@ Component* BehaviorAI::Clone(Entity* resultEntity)
 	return behavior;
 }
 
-void BehaviorAI::oui()
+bool BehaviorAI::CheckDistanceWithPlayer()
 {
-	if (FunctionLibrary::RaycastObject2D(*m_entity->GetTransform()->GetPosition(), *GameManager::Instance.mainCharacter->GetTransform()->GetPosition(), 170.f))
-	{
-		m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_ATTACK;
-	}
+	return FunctionLibrary::RaycastObject2D(*m_entity->GetTransform()->GetPosition(), *GameManager::Instance.mainCharacter->GetTransform()->GetPosition(), 170.f);
 }
