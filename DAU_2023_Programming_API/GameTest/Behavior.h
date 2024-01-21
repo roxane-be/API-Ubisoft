@@ -18,7 +18,7 @@ public:
 	virtual void Death() = 0;
 	virtual void Damage() = 0;
 protected:
-	void OutsideScreen();
+	virtual void OutsideScreen() = 0;
 	bool CheckDistanceWithEntity(Entity* other, float distance);
 	bool doOnceAttack = false;
 

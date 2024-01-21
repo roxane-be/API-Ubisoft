@@ -16,7 +16,7 @@ void BehaviorPlayer::Update(float deltaTime)
 	}
 	if (doOnceAttack)
 	{
-		timingAttack -= deltaTime; 
+		timingAttack -= deltaTime;
 		if (timingAttack <= 0)
 		{
 			timingAttack = TIMING_ATTACK;
@@ -36,18 +36,31 @@ void BehaviorPlayer::OnCollision(Entity* other)
 	{
 		other->blackBoard->ptrFDamage();
 	}
+	//Damage();
 }
 
 void BehaviorPlayer::Damage()
 {
+	m_entity->GetTransform()->SetPosition(m_entity->GetTransform()->GetPosition()->x - 200.f, m_entity->GetTransform()->GetPosition()->y);
+	OutsideScreen();
 }
 
 void BehaviorPlayer::Death()
 {
+	GameManager::Instance.SetLevel(MainMenu);
 }
 
 Component* BehaviorPlayer::Clone(Entity* resultEntity)
 {
 	assert(false);
 	return nullptr;
+}
+
+void BehaviorPlayer::OutsideScreen()
+{
+	if (m_entity->GetTransform()->GetPosition()->x <= 0)
+	{
+		m_entity->GetTransform()->SetPosition(APP_VIRTUAL_WIDTH / 2, m_entity->GetTransform()->GetPosition()->y);
+		m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_DEATH;
+	}
 }

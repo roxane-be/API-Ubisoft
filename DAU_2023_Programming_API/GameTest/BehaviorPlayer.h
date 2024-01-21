@@ -19,6 +19,7 @@ public :
 
 	protected: 
 	float timingAttack = TIMING_ATTACK;
+	virtual void OutsideScreen() override;
 
 
 };
