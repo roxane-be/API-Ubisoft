@@ -26,7 +26,10 @@ public:
 	Collision::eCollisionObjectResponses m_typeCollision;
 
 	AnimationSprite::eAnimationSprite currentAnimation = AnimationSprite::eAnimationSprite::TPOSE;
-	//AnimationSprite::eAnimationSprite currentAnimation = AnimationSprite::eAnimationSprite::TPOSE;
+	
+	std::function<void(Entity*)> ptrFOnCollision;
+	std::function<void()> ptrFDeath;
+	std::function<void()> ptrFDamage;
 
 private:
 	int m_layer {0}; // var Visual Sprite

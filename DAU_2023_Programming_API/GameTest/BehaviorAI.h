@@ -12,10 +12,12 @@ class BehaviorAI : public Behavior
 
 		virtual Component* Clone(Entity* resultEntity) override;
 
-		bool CheckDistanceWithPlayer();
+		virtual void OnCollision(Entity* other) override;
+
+		virtual void Damage() override;
+		virtual void Death() override;
 
 	protected :
-	bool doOnceAttack = false;
 
 };
 

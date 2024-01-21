@@ -9,3 +9,8 @@ void Behavior::OutsideScreen()
 		GameManager::Instance.AddEntityToDelete(m_entity);
 	}
 }
+
+bool Behavior::CheckDistanceWithEntity(Entity* other, float distance)
+{
+	return FunctionLibrary::RaycastObject2D(*m_entity->GetTransform()->GetPosition(), *other->GetTransform()->GetPosition(), distance);
+}

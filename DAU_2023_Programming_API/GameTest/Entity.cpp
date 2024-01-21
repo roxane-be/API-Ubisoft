@@ -80,19 +80,24 @@ void Entity::Load(Entity* entity, std::string pathFile)
 void Entity::LoadComponentBehaviorAI(Entity& _entity, std::ifstream& myFile)
 {
 	BehaviorAI* component = new BehaviorAI(&_entity);
+	_entity.blackBoard->ptrFOnCollision = std::bind(&BehaviorAI::OnCollision, component, std::placeholders::_1);
+	_entity.blackBoard->ptrFDeath = std::bind(&BehaviorAI::Death, component);
+	_entity.blackBoard->ptrFDamage = std::bind(&BehaviorAI::Damage, component);
 	_entity.AddComponent(component);
 }
 
 void Entity::LoadComponentBehaviorPlayer(Entity& _entity, std::ifstream& myFile)
 {
 	BehaviorPlayer* component = new BehaviorPlayer(&_entity);
+	_entity.blackBoard->ptrFOnCollision = std::bind(&BehaviorPlayer::OnCollision, component, std::placeholders::_1);
+	_entity.blackBoard->ptrFDeath = std::bind(&BehaviorPlayer::Death, component);
+	_entity.blackBoard->ptrFDamage = std::bind(&BehaviorPlayer::Damage, component);
 	_entity.AddComponent(component);
 }
 
 void Entity::LoadComponentButton(Entity& _entity, std::ifstream& myFile)
 {
 	std::string line;
-
 
 	Button* component = new Button(&_entity);
 	component->Init();

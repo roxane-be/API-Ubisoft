@@ -44,18 +44,6 @@ void GameManager::Update(float deltaTime)
 	}
 
 	
-
-
-}
-
-void GameManager::Render()
-{
-	for (const auto element : (m_ActiveEntitiesList))
-	{
-		element->Render();
-	}
-
-
 	//delete entity
 	for (auto entity : m_EntitiesToDelete)
 	{
@@ -67,6 +55,18 @@ void GameManager::Render()
 		}
 	}
 	m_EntitiesToDelete.clear();
+
+}
+
+void GameManager::Render()
+{
+	for (const auto element : (m_ActiveEntitiesList))
+	{
+		element->Render();
+	}
+
+
+	
 
 }
 

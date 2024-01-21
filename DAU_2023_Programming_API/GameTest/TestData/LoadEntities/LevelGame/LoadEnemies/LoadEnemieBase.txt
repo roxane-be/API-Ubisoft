@@ -5,7 +5,7 @@ Enemy
 AnimationSprite
 .\\TestData\\Enemies\\spritesheetEnemiesBase.png
 8
-1
+2
 1
 0
 .\\TestData\\Enemies\\spritesheetEnemiesBase.txt

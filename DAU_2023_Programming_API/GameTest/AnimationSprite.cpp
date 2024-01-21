@@ -13,8 +13,14 @@ void AnimationSprite::Update(float deltaTime)
 
 	else if (!m_animationLoopingMap[currentAnimation] && GetFrame() == m_lastFrameMap[currentAnimation])
 	{
-		SetAnimation(ANIM_WALK);
+		if (currentAnimation == ANIM_DEATH)
+		{
+			m_entity->blackBoard->ptrFDeath();
+		}
+		else
+			SetAnimation(ANIM_WALK);
 	}
+
 }
 
 
@@ -31,7 +37,7 @@ void AnimationSprite::SetAnimation(eAnimationSprite id)
 
 unsigned int AnimationSprite::GetFrame() const
 {
-	return sprite->GetFrame(); 
+	return sprite->GetFrame();
 }
 
 
@@ -79,9 +85,9 @@ Component* AnimationSprite::Clone(Entity* resultEntity)
 
 	animationSprite->m_entity = resultEntity;
 	animationSprite->m_entity->blackBoard = resultEntity->blackBoard;
-	animationSprite->m_entity->blackBoard->currentAnimation = m_entity->blackBoard->currentAnimation;
+	animationSprite->m_entity->blackBoard->currentAnimation = ANIM_WALK;
 	animationSprite->m_entity->blackBoard->SetLayerVisualSprite(m_layer);
-	animationSprite->currentAnimation = currentAnimation;
+	animationSprite->currentAnimation = ANIM_WALK;
 	animationSprite->m_animationLoopingMap = m_animationLoopingMap;
 	animationSprite->m_lastFrameMap = m_lastFrameMap;
 

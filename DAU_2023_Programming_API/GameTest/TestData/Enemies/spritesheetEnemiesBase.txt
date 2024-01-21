@@ -8,5 +8,5 @@ ANIM_ATTACK
 false
 ANIM_DEATH
 0.08
-0 7
+8 12
 false
