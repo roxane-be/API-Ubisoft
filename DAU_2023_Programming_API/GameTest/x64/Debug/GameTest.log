@@ -1,11 +1,4 @@
-﻿  AnimationSprite.cpp
-  SimpleController.cpp
-  MapManager.cpp
-C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\MapManager.cpp(85,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  (compiler le fichier source '/MapManager.cpp')
-  
-  stb_image.cpp
-  Génération de code en cours...
+﻿  Collision.cpp
   GameTest.vcxproj -> C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
   C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
   1 fichier(s) copiÚ(s)

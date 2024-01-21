@@ -12,6 +12,7 @@ void BehaviorPlayer::Update(float deltaTime)
 	if (!doOnceAttack && App::IsKeyPressed(VK_TAB) && m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_WALK)
 	{
 		m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_ATTACK;
+		doOnceAttack = true;
 	}
 	if (doOnceAttack)
 	{
@@ -31,10 +32,9 @@ void BehaviorPlayer::Render()
 void BehaviorPlayer::OnCollision(Entity* other)
 {
 	if (m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_ATTACK
-		&& !doOnceAttack)
+		&& doOnceAttack)
 	{
 		other->blackBoard->ptrFDamage();
-		doOnceAttack = true;
 	}
 }
 
