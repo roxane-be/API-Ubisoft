@@ -1,6 +1,5 @@
 Entity 
 ButtonQuit
-0
 200
 200
 VisualSprite

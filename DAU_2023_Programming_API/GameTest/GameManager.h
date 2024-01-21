@@ -31,7 +31,7 @@ public:
 
 
 	Level* GetCurrentLevel() { return m_levels[currentLevel]; };
-	eCurrentLevel currentLevel = Game;
+	eCurrentLevel currentLevel = MainMenu;
 	std::list<Entity*>* GetActiveEntitiesList() { return &m_ActiveEntitiesList; };
 	void SetLevel(eCurrentLevel newLevel);
 	void AddEntityToDelete(Entity* _entity) {m_EntitiesToDelete.push_back(_entity); };
