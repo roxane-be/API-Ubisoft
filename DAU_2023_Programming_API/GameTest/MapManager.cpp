@@ -33,6 +33,15 @@ void MapManager::Render()
 			if (element != nullptr)
 				element->Render();
 	}
+
+	if (GameManager::Instance.currentLevel == Game)
+	{
+		 std::string enemiesKills = std::to_string( GameManager::Instance.GetEnemiesKill());
+		char* charFile = new char[enemiesKills.length() + 1];
+		std::strcpy(charFile, enemiesKills.c_str());
+		App::Print(500, 700, charFile, 1, 0, 0);
+	}
+
 }
 
 void MapManager::Shutdown()

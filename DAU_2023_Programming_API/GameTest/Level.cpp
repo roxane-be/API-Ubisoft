@@ -56,7 +56,7 @@ void Level::Init()
 		}
 	}
 	if (GameManager::Instance.currentLevel == Game)
-	LoadNewWave(&m_entitiesList);
+		LoadNewWave(&m_entitiesList);
 
 }
 
@@ -64,7 +64,6 @@ void Level::Update(float deltaTime)
 {
 	if (GameManager::Instance.currentLevel == Game)
 	{
-
 		timeWave -= deltaTime;
 		if (timeWave < 0)
 		{

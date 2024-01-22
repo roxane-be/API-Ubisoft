@@ -1,8 +1,8 @@
-﻿  Collision.cpp
+﻿  GameManager.cpp
   Génération de code en cours
-  6 of 2407 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    4 functions were new in current compilation
-    28 functions had inline decision re-evaluated but remain unchanged
+  4 of 2560 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    9 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
   GameTest.vcxproj -> C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Release\GameTest.exe
   C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
