@@ -59,7 +59,7 @@ public:
 
 	std::vector<Vector2f> m_points;
 
-	float CollisionCenter(eCollisionOutside toCenter, Entity* _entity);
-	bool isColliding(Entity* other);
+	float CollisionCenter(eCollisionOutside toCenter, Vector2f* entityPosition, const std::vector<Vector2f>* _rectCollision);
+	bool isColliding(Entity* other, const std::vector<Vector2f>* _rectCollision);
 };
 

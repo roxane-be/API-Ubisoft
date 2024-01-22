@@ -81,6 +81,7 @@ void Entity::LoadComponentBehaviorAI(Entity& _entity, std::ifstream& myFile)
 {
 	BehaviorAI* component = new BehaviorAI(&_entity);
 	_entity.blackBoard->ptrFOnCollision = std::bind(&BehaviorAI::OnCollision, component, std::placeholders::_1);
+	_entity.blackBoard->ptrFOnTrigger = std::bind(&BehaviorAI::OnTrigger, component, std::placeholders::_1);
 	_entity.blackBoard->ptrFDeath = std::bind(&BehaviorAI::Death, component);
 	_entity.blackBoard->ptrFDamage = std::bind(&BehaviorAI::Damage, component);
 	_entity.AddComponent(component);
@@ -90,6 +91,7 @@ void Entity::LoadComponentBehaviorPlayer(Entity& _entity, std::ifstream& myFile)
 {
 	BehaviorPlayer* component = new BehaviorPlayer(&_entity);
 	_entity.blackBoard->ptrFOnCollision = std::bind(&BehaviorPlayer::OnCollision, component, std::placeholders::_1);
+	_entity.blackBoard->ptrFOnTrigger = std::bind(&BehaviorPlayer::OnTrigger, component, std::placeholders::_1);
 	_entity.blackBoard->ptrFDeath = std::bind(&BehaviorPlayer::Death, component);
 	_entity.blackBoard->ptrFDamage = std::bind(&BehaviorPlayer::Damage, component);
 	_entity.AddComponent(component);
@@ -154,7 +156,7 @@ void Entity::LoadComponentAnimationSprite(Entity& _entity, std::ifstream& myFile
 
 	AnimationSprite* component = new AnimationSprite(&_entity);
 	myFile >> line;
-	component->CreateAnimations(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows,line , scale, layer);
+	component->CreateAnimations(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows, line, scale, layer);
 	component->SetAnimation(AnimationSprite::eAnimationSprite::ANIM_WALK);
 	_entity.blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_WALK;
 	_entity.blackBoard->SetLayerVisualSprite(layer);
@@ -193,8 +195,8 @@ void Entity::LoadComponentCollision(Entity& _entity, std::ifstream& myFile)
 			assert(false);
 
 	}
-	_entity.blackBoard->m_typeCollision = component->m_typeCollision;
-	_entity.blackBoard->rectCollision = &component->m_points;
+	_entity.blackBoard->dataCollision.typeCollisionMap[_entity.blackBoard->dataCollision.rectCollisionMap.size()] = component->m_typeCollision;
+	_entity.blackBoard->dataCollision.rectCollisionMap[_entity.blackBoard->dataCollision.rectCollisionMap.size()] = &component->m_points;
 	_entity.AddComponent(component);
 }
 

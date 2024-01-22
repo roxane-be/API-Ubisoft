@@ -38,6 +38,7 @@ Component* BehaviorAI::Clone(Entity* resultEntity)
 
 	behavior->m_entity = resultEntity;
 	behavior->m_entity->blackBoard->ptrFOnCollision = std::bind(&BehaviorAI::OnCollision, behavior, std::placeholders::_1);
+	behavior->m_entity->blackBoard->ptrFOnTrigger = std::bind(&BehaviorAI::OnTrigger, behavior, std::placeholders::_1);
 	behavior->m_entity->blackBoard->ptrFDeath = std::bind(&BehaviorAI::Death, behavior);
 	behavior->m_entity->blackBoard->ptrFDamage = std::bind(&BehaviorAI::Damage, behavior);
 	return behavior;
@@ -48,6 +49,10 @@ void BehaviorAI::OnCollision(Entity* other)
 if(other->blackBoard->currentAnimation != AnimationSprite::eAnimationSprite::ANIM_DEATH)
 	other->blackBoard->ptrFDamage();
 
+}
+
+void BehaviorAI::OnTrigger(Entity* other)
+{
 }
 
 void BehaviorAI::Damage()

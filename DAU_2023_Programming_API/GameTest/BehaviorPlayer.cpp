@@ -9,19 +9,18 @@ void BehaviorPlayer::Init()
 
 void BehaviorPlayer::Update(float deltaTime)
 {
-	if (!doOnceAttack && App::IsKeyPressed(VK_TAB) && m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_WALK)
+	if (App::IsKeyPressed(VK_TAB) && m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_WALK)
 	{
 		m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_ATTACK;
-		doOnceAttack = true;
 	}
-	if (doOnceAttack)
+	if (m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_WALK && doOnceAttack)
 	{
-		timingAttack -= deltaTime;
-		if (timingAttack <= 0)
-		{
-			timingAttack = TIMING_ATTACK;
 			doOnceAttack = false;
-		}
+		
+	}
+	if (m_entity->GetTransform()->GetPosition()->x < 300.0f)
+	{
+		m_entity->GetTransform()->SetPosition(m_entity->GetTransform()->GetPosition()->x + 0.2f, m_entity->GetTransform()->GetPosition()->y);
 	}
 }
 
@@ -31,17 +30,21 @@ void BehaviorPlayer::Render()
 
 void BehaviorPlayer::OnCollision(Entity* other)
 {
-	if (m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_ATTACK
-		&& doOnceAttack)
+	
+}
+
+void BehaviorPlayer::OnTrigger(Entity* other)
+{
+	if (!doOnceAttack && m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_ATTACK)
 	{
 		other->blackBoard->ptrFDamage();
+		doOnceAttack=true;
 	}
-	//Damage();
 }
 
 void BehaviorPlayer::Damage()
 {
-	m_entity->GetTransform()->SetPosition(m_entity->GetTransform()->GetPosition()->x - 200.f, m_entity->GetTransform()->GetPosition()->y);
+	m_entity->GetTransform()->SetPosition(m_entity->GetTransform()->GetPosition()->x - 2.f, m_entity->GetTransform()->GetPosition()->y);
 	OutsideScreen();
 }
 

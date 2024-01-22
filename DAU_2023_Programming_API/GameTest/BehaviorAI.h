@@ -13,6 +13,7 @@ class BehaviorAI : public Behavior
 		virtual Component* Clone(Entity* resultEntity) override;
 
 		virtual void OnCollision(Entity* other) override;
+		virtual void OnTrigger(Entity* other) override;
 
 		virtual void Damage() override;
 		virtual void Death() override;

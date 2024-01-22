@@ -14,6 +14,7 @@ public:
 	virtual Component* Clone(Entity* resultEntity) = 0;
 
 	virtual void OnCollision(Entity* other) = 0;
+	virtual void OnTrigger(Entity* other) = 0;
 
 	virtual void Death() = 0;
 	virtual void Damage() = 0;

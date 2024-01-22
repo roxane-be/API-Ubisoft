@@ -11,6 +11,7 @@ public :
 	virtual void Render()override;
 
 	virtual void OnCollision(Entity* other) override;
+	virtual void OnTrigger(Entity* other) override;
 
 	virtual void Damage() override;
 	virtual void Death() override;
