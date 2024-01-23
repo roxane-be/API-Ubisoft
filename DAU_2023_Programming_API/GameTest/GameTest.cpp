@@ -47,7 +47,7 @@ float deltaTimeGame = deltaTime*0.001;
 
 	if (App::IsKeyPressed(VK_RETURN) || App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
-		GameManager::Instance.currentLevel = MainMenu;
+		GameManager::Instance.currentLevel = MAINMENU;
 
 	}
 

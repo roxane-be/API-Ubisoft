@@ -11,7 +11,7 @@
 
 void MapManager::Init()
 {
-	if (m_gameManager->currentLevel == eCurrentLevel::Game)
+	if (m_gameManager->currentLevel == eCurrentLevel::GAME)
 		InitBackgroundSpriteMap();
 }
 
@@ -34,7 +34,7 @@ void MapManager::Render()
 				element->Render();
 	}
 
-	if (GameManager::Instance.currentLevel == Game)
+	if (GameManager::Instance.currentLevel == GAME)
 	{
 		 std::string enemiesKills = std::to_string( GameManager::Instance.GetEnemiesKill());
 		char* charFile = new char[enemiesKills.length() + 1];

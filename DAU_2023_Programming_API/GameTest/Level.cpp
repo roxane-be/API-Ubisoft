@@ -16,11 +16,11 @@ void Level::Init()
 	std::string pathFile;
 	switch (GameManager::Instance.currentLevel)
 	{
-	case Game:
+	case GAME:
 		pathFile = ".\\TestData\\LoadEntities\\LevelGame";
 
 		break;
-	case MainMenu:
+	case MAINMENU:
 		pathFile = ".\\TestData\\LoadEntities\\LevelMenu";
 
 		break;
@@ -55,14 +55,14 @@ void Level::Init()
 			LoadEnemies(entry.path().string());
 		}
 	}
-	if (GameManager::Instance.currentLevel == Game)
+	if (GameManager::Instance.currentLevel == GAME)
 		LoadNewWave(&m_entitiesList);
 
 }
 
 void Level::Update(float deltaTime)
 {
-	if (GameManager::Instance.currentLevel == Game)
+	if (GameManager::Instance.currentLevel == GAME)
 	{
 		timeWave -= deltaTime;
 		if (timeWave < 0)

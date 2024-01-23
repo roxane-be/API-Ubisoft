@@ -13,10 +13,8 @@ class MapManager;
 
 enum eCurrentLevel
 {
-	MainMenu,
-	Game,
-	Shop,
-	numberLevel
+	MAINMENU,
+	GAME,
 };
 
 
@@ -31,7 +29,7 @@ public:
 
 
 	Level* GetCurrentLevel() { return m_levels[currentLevel]; };
-	eCurrentLevel currentLevel = Game;
+	eCurrentLevel currentLevel = MAINMENU;
 	std::list<Entity*>* GetActiveEntitiesList() { return &m_ActiveEntitiesList; };
 	void SetLevel(eCurrentLevel newLevel);
 	void AddEntityToDelete(Entity* _entity)
@@ -52,6 +50,5 @@ private:
 	std::list<Entity*> m_ActiveEntitiesList = std::list<Entity*>();
 	std::list<Entity*> m_EntitiesToDelete = std::list<Entity*>();
 	int enemyKill = 0;
-	void PlayGame();
 };
 

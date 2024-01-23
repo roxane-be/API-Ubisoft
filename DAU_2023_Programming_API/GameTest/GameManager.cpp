@@ -12,10 +12,9 @@ GameManager::GameManager()
 {
 	m_levels.push_back(new Level(this)); // menu
 	m_levels.push_back(new Level(this)); // game
-	m_levels.push_back(new Level(this)); // shop
 
-	functionMap["ButtonPlay"] = std::bind(&GameManager::PlayGame, this);
-	functionMap["ButtonShop"] = []() {};
+	functionMap["ButtonReturnMenu"] = []() {GameManager::Instance.SetLevel(eCurrentLevel::MAINMENU);};
+	functionMap["ButtonPlay"] = []() {GameManager::Instance.SetLevel(eCurrentLevel::GAME); };
 	functionMap["ButtonQuit"] = []() {exit(0); };
 }
 
@@ -92,9 +91,4 @@ void GameManager::Shutdown()
 void GameManager::SetLevel(eCurrentLevel newLevel)
 {
 	currentLevel = newLevel;
-}
-
-void GameManager::PlayGame()
-{
-	SetLevel(Game);
 }

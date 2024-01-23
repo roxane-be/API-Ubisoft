@@ -50,7 +50,7 @@ void BehaviorPlayer::Damage()
 
 void BehaviorPlayer::Death()
 {
-	GameManager::Instance.SetLevel(MainMenu);
+	//GameManager::Instance.SetLevel(MainMenu);
 }
 
 Component* BehaviorPlayer::Clone(Entity* resultEntity)
