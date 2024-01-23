@@ -1,7 +1,7 @@
 Entity 
 ButtonPlay
-200
-600
+512
+350
 VisualSprite
 .\\TestData\\UI\\Button.png
 1

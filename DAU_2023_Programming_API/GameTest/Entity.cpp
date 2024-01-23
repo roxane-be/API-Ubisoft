@@ -134,6 +134,7 @@ void Entity::LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile)
 	VisualSprite* component = new VisualSprite(&_entity);
 	component->CreateSprite(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows, layer);
 	_entity.blackBoard->SetLayerVisualSprite(layer);
+	_entity.blackBoard->sizeSprite = component->GetSize();
 	_entity.AddComponent(component);
 }
 

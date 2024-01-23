@@ -53,7 +53,6 @@ void BehaviorPlayer::Death()
 	if (GameManager::Instance.mainCharacter != nullptr)
 	{
 		GameManager::Instance.mainCharacter = nullptr;
-		GameManager::Instance.PlayerDeath();
 		GameManager::Instance.AddEntityToDelete(m_entity);
 	}
 }
@@ -68,8 +67,6 @@ void BehaviorPlayer::OutsideScreen()
 {
 	if (m_entity->GetTransform()->GetPosition()->x <= 0)
 	{
-		//m_entity->GetTransform()->SetPosition(APP_VIRTUAL_WIDTH / 2, m_entity->GetTransform()->GetPosition()->y);
-		//m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_DEATH;
 		Death();
 	}
 }

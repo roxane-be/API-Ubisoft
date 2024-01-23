@@ -43,7 +43,6 @@ public:
 	static GameManager Instance;
 	static std::map<std::string, std::function<void()>> functionMap;
 
-	void PlayerDeath();
 private:
 
 	std::vector<Level*> m_levels;

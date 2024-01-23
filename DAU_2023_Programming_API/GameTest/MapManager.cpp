@@ -39,7 +39,7 @@ void MapManager::Render()
 		 std::string enemiesKills = std::to_string( GameManager::Instance.GetEnemiesKill());
 		char* charFile = new char[enemiesKills.length() + 1];
 		std::strcpy(charFile, enemiesKills.c_str());
-		App::Print(500, 700, charFile, 1, 0, 0);
+		App::Print(APP_VIRTUAL_WIDTH/2, 700, charFile, 1, 0, 0);
 	}
 
 }

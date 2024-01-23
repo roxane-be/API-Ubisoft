@@ -66,10 +66,6 @@ void GameManager::Render()
 	{
 		element->Render();
 	}
-
-
-	
-
 }
 
 void GameManager::Shutdown()
@@ -95,7 +91,3 @@ void GameManager::SetLevel(eCurrentLevel newLevel)
 	currentLevel = newLevel;
 }
 
-void GameManager::PlayerDeath()
-{
-
-}

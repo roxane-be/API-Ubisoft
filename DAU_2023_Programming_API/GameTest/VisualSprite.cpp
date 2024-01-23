@@ -82,6 +82,7 @@ Component* VisualSprite::Clone(Entity* resultEntity)
 
 	visualSprite->m_entity = resultEntity;
 	visualSprite->m_entity->blackBoard = resultEntity->blackBoard;
+	visualSprite->m_entity->blackBoard->sizeSprite = resultEntity->blackBoard->sizeSprite;
 	visualSprite->m_entity->blackBoard->currentAnimation = m_entity->blackBoard->currentAnimation;
 	visualSprite->m_entity->blackBoard->SetLayerVisualSprite(m_layer);
 

@@ -21,6 +21,16 @@ void Button::Render()
 	float r = 1.0f;
 	float g = 0.0f;
 	float b = 0.0f;
+
+	Vector2f pos = *m_entity->GetTransform()->GetPosition();
+	Vector2f size = m_entity->blackBoard->sizeSprite/2 ;
+	size += 10;
+
+	//App::DrawLine(pos.x - size.x, pos.y + size.y, pos.x + size.x, pos.y + size.y, 1, 0, 0);
+	//App::DrawLine(pos.x + size.x, pos.y + size.y, pos.x + size.x, pos.y - size.y, 1, 0, 0);
+	//App::DrawLine(pos.x + size.x, pos.y - size.y, pos.x - size.x, pos.y - size.y, 1, 0, 0);
+	//App::DrawLine(pos.x - size.x, pos.y - size.y, pos.x - size.x, pos.y + size.y, 1, 0, 0);
+
 }
 
 
@@ -44,6 +54,9 @@ void Button::SetOffsetTextPosition(Vector2f _position)
 bool Button::IsHovered()
 {
 	Vector2f posMouse(0, 0);
+	Vector2f size = m_entity->blackBoard->sizeSprite / 2;
+	size += 10;
+
 	App::GetMousePos(posMouse.x, posMouse.y);
 	if (posMouse.x > m_entity->GetTransform()->GetPosition()->x - size.x
 		&& posMouse.x < m_entity->GetTransform()->GetPosition()->x + size.x

@@ -1,6 +1,6 @@
 Entity 
 ButtonQuit
-200
+512
 200
 VisualSprite
 .\\TestData\\UI\\Button.png

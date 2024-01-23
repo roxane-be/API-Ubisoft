@@ -1,10 +1,53 @@
-﻿  BehaviorPlayer.cpp
+﻿  stdafx.cpp
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\VisualSprite.h(16,3): warning C4150: suppression de pointeur vers type incomplet 'CSimpleSprite' ; aucun destructeur appelé
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\VisualSprite.h(5,7): message : voir la déclaration de 'CSimpleSprite'
+  AnimationSprite.cpp
+  SimpleController.cpp
+  SimpleSound.cpp
+  SimpleSprite.cpp
+  app.cpp
+  main.cpp
+  Behavior.cpp
+  BehaviorAI.cpp
+  BehaviorPlayer.cpp
+  BlackBoard.cpp
+  Button.cpp
+  Collision.cpp
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Collision.cpp(63,134): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Collision.cpp(64,134): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+  Component.cpp
+  Entity.cpp
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(135,103): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(135,94): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(136,43): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(160,126): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(160,107): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(160,98): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(163,43): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(199,108): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Entity.cpp(200,108): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+  FunctionLibrary.cpp
+  GameManager.cpp
   GameTest.cpp
 C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\GameTest.cpp(36,21): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+  Item.cpp
+  Level.cpp
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Level.cpp(32,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Level.cpp(132,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Level.cpp(151,55): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  MapManager.cpp
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\MapManager.cpp(94,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Compilation en cours...
+  Transform.cpp
+  Vector2.cpp
+  VisualSprite.cpp
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\VisualSprite.cpp(61,28): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  stb_image.cpp
   Génération de code en cours
-  7 of 2572 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
+C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\Vector2.h(19): warning C4723: division potentielle par 0
+  2 of 2574 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    8 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
   GameTest.vcxproj -> C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Release\GameTest.exe
   C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll

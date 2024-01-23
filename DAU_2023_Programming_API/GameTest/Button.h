@@ -28,5 +28,4 @@ public:
 private:
 	std::string text = "Button";
 	Vector2f offsetPositionText;
-	Vector2f size {100, 100};
 };
