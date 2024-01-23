@@ -1,0 +1,4 @@
+ANIM_WALK
+0.1
+0 11
+true

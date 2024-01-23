@@ -45,11 +45,6 @@ float deltaTimeGame = deltaTime*0.001;
 	//	App::PlaySound(".\\TestData\\Test.wav");
 	//}
 
-	if (App::IsKeyPressed(VK_RETURN) || App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
-	{
-		GameManager::Instance.currentLevel = MAINMENU;
-
-	}
 
 	/*if (App::IsKeyPressed(VK_CONTROL))
 	{

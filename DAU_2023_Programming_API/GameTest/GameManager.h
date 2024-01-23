@@ -32,11 +32,9 @@ public:
 	eCurrentLevel currentLevel = MAINMENU;
 	std::list<Entity*>* GetActiveEntitiesList() { return &m_ActiveEntitiesList; };
 	void SetLevel(eCurrentLevel newLevel);
-	void AddEntityToDelete(Entity* _entity)
-	{
-		m_EntitiesToDelete.push_back(_entity);
-		enemyKill++;
-	};
+	void AddEntityToDelete(Entity* _entity) { m_EntitiesToDelete.push_back(_entity); };
+
+	void AddEnemyKill() { enemyKill++; };
 	MapManager* ptrMapManager{ nullptr };
 	Entity* mainCharacter{ nullptr };
 
@@ -44,6 +42,8 @@ public:
 
 	static GameManager Instance;
 	static std::map<std::string, std::function<void()>> functionMap;
+
+	void PlayerDeath();
 private:
 
 	std::vector<Level*> m_levels;

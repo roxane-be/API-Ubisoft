@@ -12,6 +12,8 @@ void Level::Init()
 	m_entitiesList.clear();
 	timeWave = 0;
 	currentWave = 0;
+	playerIsDead = false;
+
 
 	std::string pathFile;
 	switch (GameManager::Instance.currentLevel)
@@ -29,34 +31,10 @@ void Level::Init()
 	}
 	srand(time(0));
 
-	for (const auto& entry : std::filesystem::directory_iterator(pathFile))
-	{
-		//check only file txt 
-		if (entry.is_regular_file())
-		{
-			std::string pathLoad = entry.path().string();
 
-			Entity* entity = new Entity();
-			entity->Load(entity, pathLoad);
-			m_entitiesList.push_back(entity);
-			if (entry.path().string().find("MainCharacter") != std::string::npos)
-			{
-				GameManager::Instance.mainCharacter = entity;
-			}
-
-		}
-		//check if a folder is a Load Wave
-		if (entry.path().string().find("LoadWave") != std::string::npos)
-		{
-			LoadWaves(entry.path().string(), pathFile);
-		}
-		if (entry.path().string().find("LoadEnemies") != std::string::npos)
-		{
-			LoadEnemies(entry.path().string());
-		}
-	}
+	LoadEntities(pathFile);
 	if (GameManager::Instance.currentLevel == GAME)
-		LoadNewWave(&m_entitiesList);
+		LoadNewWave(m_gameManager->GetActiveEntitiesList());
 
 }
 
@@ -64,10 +42,18 @@ void Level::Update(float deltaTime)
 {
 	if (GameManager::Instance.currentLevel == GAME)
 	{
-		timeWave -= deltaTime;
-		if (timeWave < 0)
+		if (GameManager::Instance.mainCharacter != nullptr)
 		{
-			LoadNewWave(m_gameManager->GetActiveEntitiesList());
+			timeWave -= deltaTime;
+			if (timeWave < 0)
+			{
+				LoadNewWave(m_gameManager->GetActiveEntitiesList());
+			}
+		}
+		else if(!playerIsDead)
+		{
+			LoadEntities(".\\TestData\\LoadEntities\\EndGame");
+			playerIsDead =true;
 		}
 	}
 
@@ -165,6 +151,36 @@ void Level::LoadNewWave(std::list<Entity*>* _entityList)
 		entity->GetTransform()->SetPosition((rand() % 1000) + 1000, entity->GetTransform()->GetPosition()->y);
 		_entityList->push_back(entity);
 
+	}
+}
+
+void Level::LoadEntities(std::string _pathFile)
+{
+	for (const auto& entry : std::filesystem::directory_iterator(_pathFile))
+	{
+		//check only file txt 
+		if (entry.is_regular_file())
+		{
+			std::string pathLoad = entry.path().string();
+
+			Entity* entity = new Entity();
+			entity->Load(entity, pathLoad);
+			m_gameManager->GetActiveEntitiesList()->push_back(entity);
+			if (entry.path().string().find("MainCharacter") != std::string::npos)
+			{
+				GameManager::Instance.mainCharacter = entity;
+			}
+
+		}
+		//check if a folder is a Load Wave
+		if (entry.path().string().find("LoadWave") != std::string::npos)
+		{
+			LoadWaves(entry.path().string(), _pathFile);
+		}
+		if (entry.path().string().find("LoadEnemies") != std::string::npos)
+		{
+			LoadEnemies(entry.path().string());
+		}
 	}
 }
 

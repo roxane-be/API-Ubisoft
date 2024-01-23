@@ -10,8 +10,11 @@ void BehaviorAI::Init()
 void BehaviorAI::Update(float deltaTime)
 {
 
-	if(GameManager::Instance.mainCharacter->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_DEATH)
-	GameManager::Instance.AddEntityToDelete(m_entity);
+	if (GameManager::Instance.mainCharacter == nullptr)
+	{
+		GameManager::Instance.AddEntityToDelete(m_entity);
+		return;
+	}
 	if (m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_DEATH)
 		return;
 	//enemy move to left 
@@ -46,8 +49,8 @@ Component* BehaviorAI::Clone(Entity* resultEntity)
 
 void BehaviorAI::OnCollision(Entity* other)
 {
-if(other->blackBoard->currentAnimation != AnimationSprite::eAnimationSprite::ANIM_DEATH)
-	other->blackBoard->ptrFDamage();
+	if (other->blackBoard->currentAnimation != AnimationSprite::eAnimationSprite::ANIM_DEATH)
+		other->blackBoard->ptrFDamage();
 
 }
 
@@ -63,6 +66,7 @@ void BehaviorAI::Damage()
 void BehaviorAI::Death()
 {
 	GameManager::Instance.AddEntityToDelete(m_entity);
+	GameManager::Instance.AddEnemyKill();
 }
 
 void BehaviorAI::OutsideScreen()

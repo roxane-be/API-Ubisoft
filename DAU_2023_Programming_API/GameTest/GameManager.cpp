@@ -56,6 +56,8 @@ void GameManager::Update(float deltaTime)
 	}
 	m_EntitiesToDelete.clear();
 
+
+
 }
 
 void GameManager::Render()
@@ -91,4 +93,9 @@ void GameManager::Shutdown()
 void GameManager::SetLevel(eCurrentLevel newLevel)
 {
 	currentLevel = newLevel;
+}
+
+void GameManager::PlayerDeath()
+{
+
 }

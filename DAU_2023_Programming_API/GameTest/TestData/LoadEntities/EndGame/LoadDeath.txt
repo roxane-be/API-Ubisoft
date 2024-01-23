@@ -1,0 +1,11 @@
+Entity 
+MainCharacterDeath
+512
+345
+AnimationSprite
+.\\TestData\\Player\\spritesheetDeathPlayer.png
+12
+1
+1
+1
+.\\TestData\\Player\\spritesheetDeathPlayer.txt

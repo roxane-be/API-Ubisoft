@@ -9,14 +9,14 @@ void BehaviorPlayer::Init()
 
 void BehaviorPlayer::Update(float deltaTime)
 {
-	if (App::IsKeyPressed(VK_TAB) && m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_WALK)
+	if (App::IsKeyPressed(VK_LBUTTON) && m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_WALK)
 	{
 		m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_ATTACK;
 	}
 	if (m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_WALK && doOnceAttack)
 	{
-			doOnceAttack = false;
-		
+		doOnceAttack = false;
+
 	}
 	if (m_entity->GetTransform()->GetPosition()->x < 300.0f)
 	{
@@ -30,7 +30,7 @@ void BehaviorPlayer::Render()
 
 void BehaviorPlayer::OnCollision(Entity* other)
 {
-	
+
 }
 
 void BehaviorPlayer::OnTrigger(Entity* other)
@@ -38,7 +38,7 @@ void BehaviorPlayer::OnTrigger(Entity* other)
 	if (!doOnceAttack && m_entity->blackBoard->currentAnimation == AnimationSprite::eAnimationSprite::ANIM_ATTACK)
 	{
 		other->blackBoard->ptrFDamage();
-		doOnceAttack=true;
+		doOnceAttack = true;
 	}
 }
 
@@ -50,7 +50,12 @@ void BehaviorPlayer::Damage()
 
 void BehaviorPlayer::Death()
 {
-	//GameManager::Instance.SetLevel(MainMenu);
+	if (GameManager::Instance.mainCharacter != nullptr)
+	{
+		GameManager::Instance.mainCharacter = nullptr;
+		GameManager::Instance.PlayerDeath();
+		GameManager::Instance.AddEntityToDelete(m_entity);
+	}
 }
 
 Component* BehaviorPlayer::Clone(Entity* resultEntity)
@@ -63,7 +68,8 @@ void BehaviorPlayer::OutsideScreen()
 {
 	if (m_entity->GetTransform()->GetPosition()->x <= 0)
 	{
-		m_entity->GetTransform()->SetPosition(APP_VIRTUAL_WIDTH / 2, m_entity->GetTransform()->GetPosition()->y);
-		m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_DEATH;
+		//m_entity->GetTransform()->SetPosition(APP_VIRTUAL_WIDTH / 2, m_entity->GetTransform()->GetPosition()->y);
+		//m_entity->blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_DEATH;
+		Death();
 	}
 }

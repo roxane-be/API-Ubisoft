@@ -49,10 +49,11 @@ void AnimationSprite::CreateAnimations(const char* fileName, int columns, int ro
 
 	if (myFile)
 	{
-		std::string line;
+		
 
 		while (!myFile.eof())
 		{
+			std::string line;
 			std::vector <int> tabAnim;
 			float speed;
 			myFile >> line;
@@ -60,8 +61,8 @@ void AnimationSprite::CreateAnimations(const char* fileName, int columns, int ro
 			myFile >> speed;
 			myFile >> line;
 			int frameBegin = std::stoi(line);
-			myFile >> line;
-			int frameEnd = std::stoi(line);
+			int frameEnd;/* = std::stoi(line);*/
+			myFile >> frameEnd;
 			for (int i = frameBegin; i != frameEnd + 1; i++)
 			{
 				tabAnim.push_back(i);

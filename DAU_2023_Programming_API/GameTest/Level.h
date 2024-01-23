@@ -24,11 +24,10 @@ public:
 
 	void GetAllEntitiesLevel(std::list<Entity*>* _list);
 
-	//Entity* mainCharacter = nullptr;
+	void LoadEntities(std::string _pathFile);
+
 protected:
 	GameManager* m_gameManager;
-	//std::list<Entity*> m_ButtonEntities;
-	//std::list<Entity*> m_EnemiesEntities;
 
 	std::list<Entity*> m_entitiesList;
 
@@ -37,17 +36,11 @@ protected:
 	void LoadWaves(std::string _pathFolder, std::string _pathFile);
 	void LoadEnemies(std::string _pathFolder);
 	void LoadNewWave(std::list<Entity*>* _entityList);
+
 	std::list<Wave*> sWaves;
-	//bug
 	std::map< std::string, Entity* > m_EnemyEntitiesMap;
-	//std::vector<Entity> m_EnemyEntitiesList; // all loaded entities
 
-	//split avec un vector enemi, bonus, objetc , (((waves)))..... 
-	//std::vector<Entity> m_EnemyEntities;
-	//std::vector<Entity> m_BonusEntities;
-	//std::vector<Entity> m_ObjectEntities;
-	//std::list<Entity*> m_UIEntities;
-
+	bool playerIsDead =false;
 	
 };
 

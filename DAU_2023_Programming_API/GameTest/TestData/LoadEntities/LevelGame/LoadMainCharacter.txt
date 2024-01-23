@@ -11,8 +11,8 @@ AnimationSprite
 .\\TestData\\Player\\spritesheetShield.txt
 AnimationSprite
 .\\TestData\\Player\\spritesheet.png
-11
-2
+8
+1
 1
 1
 .\\TestData\\Player\\spritesheet.txt
