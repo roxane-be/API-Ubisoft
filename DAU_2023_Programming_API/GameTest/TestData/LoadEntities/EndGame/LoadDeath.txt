@@ -1,7 +1,11 @@
+-------Create Entity-------
 Entity 
 MainCharacterDeath
 512
 345
+
+
+-------Component Animation Sprite-------
 AnimationSprite
 .\\TestData\\Player\\spritesheetDeathPlayer.png
 12
@@ -9,3 +13,4 @@ AnimationSprite
 1
 1
 .\\TestData\\Player\\spritesheetDeathPlayer.txt
+-------End-------

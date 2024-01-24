@@ -1,7 +1,11 @@
+-------Create Entity-------
 Entity 
 Enemy
 1500
 345
+
+
+-------Component Animation Sprite-------
 AnimationSprite
 .\\TestData\\Enemies\\spritesheetEnemiesBase.png
 8
@@ -9,6 +13,9 @@ AnimationSprite
 1
 0
 .\\TestData\\Enemies\\spritesheetEnemiesBase.txt
+
+
+-------Component Animation Sprite-------
 AnimationSprite
 .\\TestData\\Enemies\\spritesheetArmAI.png
 8
@@ -16,7 +23,13 @@ AnimationSprite
 1
 0
 .\\TestData\\Enemies\\spritesheetArmAI.txt
+
+
+-------Component Behavior AI-------
 BehaviorAI
+
+
+-------Component Collision-------
 Collision
 ENEMYGROUND
 -35
@@ -33,3 +46,4 @@ ENEMYGROUND
 IGNORE
 WEAPONS
 IGNORE
+-------End-------

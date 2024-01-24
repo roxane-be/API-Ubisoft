@@ -1,7 +1,11 @@
+-------Create Entity-------
 Entity 
 MainCharacter
 300
 345
+
+
+-------Component Animation Sprite-------
 AnimationSprite
 .\\TestData\\Player\\spritesheetShield.png
 8
@@ -9,6 +13,9 @@ AnimationSprite
 1
 1
 .\\TestData\\Player\\spritesheetShield.txt
+
+
+-------Component Animation Sprite-------
 AnimationSprite
 .\\TestData\\Player\\spritesheet.png
 8
@@ -16,6 +23,9 @@ AnimationSprite
 1
 1
 .\\TestData\\Player\\spritesheet.txt
+
+
+-------Component Animation Sprite-------
 AnimationSprite
 .\\TestData\\Player\\spritesheetArm.png
 8
@@ -23,7 +33,13 @@ AnimationSprite
 1
 1
 .\\TestData\\Player\\spritesheetArm.txt
+
+
+-------Component Behavior Player-------
 BehaviorPlayer
+
+
+-------Component Collision-------
 Collision
 WEAPONS
 -65
@@ -40,6 +56,9 @@ ENEMYGROUND
 OVERLAP
 WEAPONS
 IGNORE
+
+
+-------Component Collision-------
 Collision
 MAINCHARACTER
 -65
@@ -56,3 +75,4 @@ ENEMYGROUND
 OVERLAP
 WEAPONS
 IGNORE
+-------End-------

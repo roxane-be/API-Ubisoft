@@ -39,7 +39,6 @@ void Entity::Load(Entity* entity, std::string pathFile)
 	std::ifstream myFile(pathFile);
 	if (myFile)
 	{
-
 		std::string line;
 		while (!myFile.eof())
 		{

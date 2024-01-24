@@ -1,15 +1,23 @@
+-------Create Entity-------
 Entity 
 ButtonReturnMenu
 512
 500
+
+
+-------Component Visual Sprite-------
 VisualSprite
 .\\TestData\\UI\\Button.png
 1
 1
 1
 2
+
+
+-------Component Button-------
 Button
 Menu
 -20
 -5
 ButtonReturnMenu
+-------End-------

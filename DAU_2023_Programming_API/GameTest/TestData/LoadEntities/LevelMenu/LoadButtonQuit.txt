@@ -1,15 +1,23 @@
+-------Create Entity-------
 Entity 
 ButtonQuit
 512
 200
+
+
+-------Component Visual Sprite-------
 VisualSprite
 .\\TestData\\UI\\Button.png
 1
 1
 1
 2
+
+
+-------Component Button-------
 Button
 Quit
 -15
 -5
 ButtonQuit
+-------End-------
