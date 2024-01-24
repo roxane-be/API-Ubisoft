@@ -1,17 +1,21 @@
 #include "stdafx.h"
 #include "VisualSprite.h"
 #include "App/app.h"
-#include "App/SimpleSprite.h"
 #include <string>
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include "App/SimpleSprite.h"
 
 std::map< std::string, const char* > VisualSprite::m_stringFile;
 
 
-void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, float scale, int layer,
-	std::string fileNameAnimation)
+VisualSprite::~VisualSprite()
+{
+	delete sprite;
+}
+
+void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, float scale, int layer)
 {
 	if (!std::filesystem::exists(fileName)
 		|| !std::filesystem::is_regular_file(fileName))
@@ -22,45 +26,9 @@ void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, flo
 	sprite->SetPosition(0.f, 0.f);
 	SetScaleSprite(scale);
 
-
-	if (fileNameAnimation != "None")
-	{
-		CreateAnimations(fileNameAnimation);
-	}
 	m_layer = layer;
 }
 
-void VisualSprite::CreateAnimations(std::string fileNameAnimation)
-{
-	std::ifstream myFile(fileNameAnimation);
-
-	std::vector <std::vector<int>> tabAnim;
-	float speed =0;
-	if (myFile)
-	{
-		myFile >> speed;
-		std::string line;
-		int count = 0;
-
-		while (!myFile.eof()) {
-			tabAnim.push_back(std::vector<int>(0, 0));
-			myFile >> line;
-			int enumAnim = line[0] - '0';
-			myFile >> line;
-			int frameBegin = std::stoi(line);
-			myFile >> line;
-			int frameEnd = std::stoi(line);
-			for (int i = frameBegin; i != frameEnd + 1; i++)
-			{
-				tabAnim[count].push_back(i);
-			}
-			count++;
-		}
-	}
-	for (int i = 0; i < tabAnim.size(); i++)
-		sprite->CreateAnimation(i, speed, tabAnim[i]);
-
-}
 
 Vector2f VisualSprite::GetSize()
 {
@@ -87,11 +55,7 @@ void VisualSprite::SetScaleSprite(float scale)
 		sprite->SetScale(scale);
 }
 
-void VisualSprite::SetAnimation(int id)
-{
-	if (!IsNull())
-		sprite->SetAnimation(id);
-}
+
 
 void VisualSprite::Init()
 {
@@ -100,7 +64,8 @@ void VisualSprite::Init()
 void VisualSprite::Update(float deltaTime)
 {
 	if (!IsNull())
-		sprite->Update(deltaTime/0.001);
+		sprite->Update(deltaTime / 0.001);
+
 }
 
 void VisualSprite::Render()
@@ -118,16 +83,18 @@ Component* VisualSprite::Clone(Entity* resultEntity)
 	VisualSprite* visualSprite = new VisualSprite();
 
 	*visualSprite = *this;
-	visualSprite->sprite = App::CreateSprite(m_fileName, 1, 1); 
+	visualSprite->sprite = App::CreateSprite(m_fileName, 1, 1);
 	*(visualSprite->sprite) = *(this->sprite);
 
 	visualSprite->m_entity = resultEntity;
-	visualSprite->m_blackBoard = resultEntity->blackBoard;
+	visualSprite->m_entity->blackBoard = resultEntity->blackBoard;
+	visualSprite->m_entity->blackBoard->sizeSprite = resultEntity->blackBoard->sizeSprite;
+	visualSprite->m_entity->blackBoard->currentAnimation = m_entity->blackBoard->currentAnimation;
+	visualSprite->m_entity->blackBoard->SetLayerVisualSprite(m_layer);
 
 	// no need because the auto copy is ok for now (and lack some clone func in CSimpleSprite we can't change)
 	//visualSprite->CreateSprite(m_fileName, columns, rows, sprite->GetScale, m_layer, line);
 
-	resultEntity->blackBoard->SetLayerVisualSprite(m_layer);
 
 	return visualSprite;
 }

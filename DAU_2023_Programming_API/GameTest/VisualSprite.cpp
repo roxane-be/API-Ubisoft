@@ -5,9 +5,15 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include "App/SimpleSprite.h"
 
 std::map< std::string, const char* > VisualSprite::m_stringFile;
 
+
+VisualSprite::~VisualSprite()
+{
+	delete sprite;
+}
 
 void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, float scale, int layer)
 {
@@ -58,7 +64,7 @@ void VisualSprite::Init()
 void VisualSprite::Update(float deltaTime)
 {
 	if (!IsNull())
-		sprite->Update(deltaTime / 0.001);
+		sprite->Update(deltaTime / 0.001f);
 
 }
 

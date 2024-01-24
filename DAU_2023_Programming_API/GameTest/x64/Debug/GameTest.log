@@ -1,5 +1,31 @@
-﻿  MapManager.cpp
-C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\GameTest\MapManager.cpp(94,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  GameTest.vcxproj -> C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
-  C:\Users\roxan\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
+﻿  stdafx.cpp
+  AnimationSprite.cpp
+  app.cpp
+  main.cpp
+  SimpleController.cpp
+  SimpleSound.cpp
+  SimpleSprite.cpp
+  Behavior.cpp
+  BehaviorAI.cpp
+  BehaviorPlayer.cpp
+  BlackBoard.cpp
+  Collision.cpp
+  Component.cpp
+  Entity.cpp
+  FunctionLibrary.cpp
+  Item.cpp
+  Level.cpp
+  Vector2.cpp
+  GameManager.cpp
+  GameTest.cpp
+  MapManager.cpp
+  Génération de code en cours...
+  Compilation en cours...
+  stb_image.cpp
+  Button.cpp
+  Transform.cpp
+  VisualSprite.cpp
+  Génération de code en cours...
+  GameTest.vcxproj -> C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\x64\Debug\GameTest.exe
+  C:\Users\Roxane\Documents\GitHub\API-Ubisoft\DAU_2023_Programming_API\\GameTest\glut\bin\x64\freeglut.dll
   1 fichier(s) copiÚ(s)

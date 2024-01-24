@@ -11,10 +11,7 @@ public:
 
 	VisualSprite(Entity* parent = nullptr) : Component(parent) {};
 	
-	~VisualSprite()
-	{
-		delete sprite;
-	}
+	~VisualSprite();
 
 	virtual void Init() override;
 	virtual void Update(float deltaTime)override;

@@ -34,11 +34,11 @@ public:
 	void SetLevel(eCurrentLevel newLevel);
 	void AddEntityToDelete(Entity* _entity) { m_EntitiesToDelete.push_back(_entity); };
 
-	void AddEnemyKill() { enemyKill++; };
+	void AddEnemyKill() { enemiesKilled++; };
 	MapManager* ptrMapManager{ nullptr };
 	Entity* mainCharacter{ nullptr };
 
-	int GetEnemiesKill() { return enemyKill; };
+	int GetEnemiesKilled() {return enemiesKilled;};
 
 	static GameManager Instance;
 	static std::map<std::string, std::function<void()>> functionMap;
@@ -48,6 +48,6 @@ private:
 	std::vector<Level*> m_levels;
 	std::list<Entity*> m_ActiveEntitiesList = std::list<Entity*>();
 	std::list<Entity*> m_EntitiesToDelete = std::list<Entity*>();
-	int enemyKill = 0;
+	int enemiesKilled = 0;
 };
 

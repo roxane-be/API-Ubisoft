@@ -11,7 +11,7 @@
 
 void MapManager::Init()
 {
-	if (m_gameManager->currentLevel == eCurrentLevel::Game)
+	if (m_gameManager->currentLevel == eCurrentLevel::GAME)
 		InitBackgroundSpriteMap();
 }
 
@@ -33,6 +33,15 @@ void MapManager::Render()
 			if (element != nullptr)
 				element->Render();
 	}
+
+	if (GameManager::Instance.currentLevel == GAME)
+	{
+		 std::string enemiesKills = std::to_string( GameManager::Instance.GetEnemiesKilled());
+		char* charFile = new char[enemiesKills.length() + 1];
+		std::strcpy(charFile, enemiesKills.c_str());
+		App::Print(APP_VIRTUAL_WIDTH/2, 700, charFile, 1, 0, 0);
+	}
+
 }
 
 void MapManager::Shutdown()
@@ -70,7 +79,7 @@ void MapManager::InitBackgroundSpriteMap()
 
 		Entity* backgroundMap = new Entity("BackGroundMap" + i);
 		BlackBoard* blackBoard = new BlackBoard(backgroundMap);
-		VisualSprite* componentVisualSpriteBackground = new VisualSprite(backgroundMap, blackBoard);
+		VisualSprite* componentVisualSpriteBackground = new VisualSprite(backgroundMap);
 		componentVisualSpriteBackground->CreateSprite(VisualSprite::m_stringFile[stringFile], 1, 1, 0.8f, -1);
 		backgroundMap->AddComponent(componentVisualSpriteBackground);
 		blackBoard->sizeSprite = componentVisualSpriteBackground->GetSize();
@@ -80,7 +89,7 @@ void MapManager::InitBackgroundSpriteMap()
 
 		backgroundMap->GetTransform()->SetPosition({ -500,-500 });
 		backgroundList[i] = backgroundMap;
-		m_gameManager->GetActiveEntity()->push_back(backgroundList[i]);
+		m_gameManager->GetActiveEntitiesList()->push_back(backgroundList[i]);
 	}
 	srand(time(0));
 

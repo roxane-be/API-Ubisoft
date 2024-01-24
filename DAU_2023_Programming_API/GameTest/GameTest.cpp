@@ -33,7 +33,7 @@ void Init()
 //------------------------------------------------------------------------
 void Update(float deltaTime)
 {
-float deltaTimeGame = deltaTime*0.001;
+float deltaTimeGame = deltaTime*0.001f;
 	mapManager.Update(deltaTimeGame);
 	GameManager::Instance.Update(deltaTimeGame);
 

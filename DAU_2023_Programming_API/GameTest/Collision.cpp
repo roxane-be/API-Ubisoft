@@ -60,8 +60,8 @@ Component* Collision::Clone(Entity* resultEntity)
 
 	collision->m_entity = resultEntity;
 	collision->m_entity->blackBoard = resultEntity->blackBoard;
-	collision->m_entity->blackBoard->dataCollision.rectCollisionMap[collision->m_entity->blackBoard->dataCollision.rectCollisionMap.size()] = &m_points;
-	collision->m_entity->blackBoard->dataCollision.typeCollisionMap[collision->m_entity->blackBoard->dataCollision.typeCollisionMap.size()] = collision->m_typeCollision;
+	collision->m_entity->blackBoard->dataCollision.rectCollisionMap[(int)collision->m_entity->blackBoard->dataCollision.rectCollisionMap.size()] = &m_points;
+	collision->m_entity->blackBoard->dataCollision.typeCollisionMap[(int)collision->m_entity->blackBoard->dataCollision.typeCollisionMap.size()] = collision->m_typeCollision;
 
 	return collision;
 }

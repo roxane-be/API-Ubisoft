@@ -7,6 +7,7 @@ VisualSprite
 1
 1
 1
+2
 Button
 Play
 -15

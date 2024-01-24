@@ -1,18 +1,15 @@
 #pragma once
 #include "Component.h"
-//#include "App/SimpleSprite.h"
+
 
 class CSimpleSprite;
 class BlackBoard;
-enum eAnimationSprite
-{
-	ANIM_WALK = 0,
-};
 
 class VisualSprite : public Component
 {
 public:
-	VisualSprite(Entity* parent = nullptr, BlackBoard* _blackBoard =nullptr) : Component(parent, _blackBoard) {};
+
+	VisualSprite(Entity* parent = nullptr) : Component(parent) {};
 	
 	~VisualSprite()
 	{
@@ -26,10 +23,8 @@ public:
 	virtual Component* Clone(Entity* resultEntity) override;
 
 
-	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f, int layer = 0,
-		std::string = "None");
+	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f, int layer = 0);
 	void SetScaleSprite(float scale);
-	void SetAnimation(int id);
 
 
 
@@ -54,8 +49,7 @@ public:
 
 	static std::map< std::string, const char* > m_stringFile;
 
-private:
-	void CreateAnimations(std::string fileNameAnimation);
+protected:
 
 	const char* m_fileName{ nullptr };
 	CSimpleSprite* sprite{ nullptr };

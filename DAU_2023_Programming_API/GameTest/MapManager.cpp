@@ -36,7 +36,7 @@ void MapManager::Render()
 
 	if (GameManager::Instance.currentLevel == GAME)
 	{
-		 std::string enemiesKills = std::to_string( GameManager::Instance.GetEnemiesKill());
+		 std::string enemiesKills = std::to_string( GameManager::Instance.GetEnemiesKilled());
 		char* charFile = new char[enemiesKills.length() + 1];
 		std::strcpy(charFile, enemiesKills.c_str());
 		App::Print(APP_VIRTUAL_WIDTH/2, 700, charFile, 1, 0, 0);
@@ -91,7 +91,7 @@ void MapManager::InitBackgroundSpriteMap()
 		backgroundList[i] = backgroundMap;
 		m_gameManager->GetActiveEntitiesList()->push_back(backgroundList[i]);
 	}
-	srand(time(0));
+	srand((unsigned int)time(0));
 
 	for (int i = 0; i < 2; i++)
 	{

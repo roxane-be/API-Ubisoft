@@ -10,6 +10,7 @@ public:
 		ANIM_ATTACK,
 		ANIM_DEATH,
 		TPOSE,
+		ERROR
 	};
 
 	AnimationSprite(Entity* parent = nullptr) : VisualSprite(parent) {};

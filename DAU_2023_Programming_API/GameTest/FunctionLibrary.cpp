@@ -16,6 +16,7 @@ Collision::eCollisionObjectResponses FunctionLibrary::ConvertStringToEnumCollisi
 		return Collision::eCollisionObjectResponses::WEAPONS;
 
 	assert(false);
+	return Collision::eCollisionObjectResponses::NONE;
 }
 
 Collision::eCollisionResponses FunctionLibrary::ConvertStringToEnumCollisionResponses(std::string str)
@@ -29,7 +30,7 @@ Collision::eCollisionResponses FunctionLibrary::ConvertStringToEnumCollisionResp
 		return Collision::eCollisionResponses::BLOCK;
 
 	assert(false);
-
+	return Collision::eCollisionResponses::ERROR;
 }
 
 AnimationSprite::eAnimationSprite FunctionLibrary::ConvertStringToEnumAnimationSprite(std::string str)
@@ -42,6 +43,7 @@ AnimationSprite::eAnimationSprite FunctionLibrary::ConvertStringToEnumAnimationS
 		return AnimationSprite::eAnimationSprite::ANIM_DEATH;
 
 	assert(false);
+	return AnimationSprite::eAnimationSprite::ERROR;
 }
 
 bool FunctionLibrary::ConvertStringToBoolean(std::string str)
@@ -52,6 +54,7 @@ bool FunctionLibrary::ConvertStringToBoolean(std::string str)
 		return true;
 
 	assert(false);
+	return false;
 }
 
 bool FunctionLibrary::RaycastObject2D(Vector2f _origin, Vector2f _object, float distance)

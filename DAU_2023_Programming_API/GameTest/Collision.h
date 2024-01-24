@@ -27,6 +27,7 @@ public:
 		IGNORECOLLISION,
 		OVERLAP,
 		BLOCK,
+		ERROR
 	};
 public:
 	Collision(Entity* parent = nullptr) : Component(parent) {};

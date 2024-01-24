@@ -7,76 +7,54 @@
 #include "App/app.h"
 
 
-
-
-
 void Level::Init()
 {
 	m_entitiesList.clear();
 	timeWave = 0;
 	currentWave = 0;
+	playerIsDead = false;
+
 
 	std::string pathFile;
 	switch (GameManager::Instance.currentLevel)
 	{
-	case Game:
+	case GAME:
 		pathFile = ".\\TestData\\LoadEntities\\LevelGame";
 
 		break;
-	case MainMenu:
+	case MAINMENU:
 		pathFile = ".\\TestData\\LoadEntities\\LevelMenu";
 
 		break;
 	default:
 		break;
 	}
-	srand(time(0));
-
-	for (const auto& entry : std::filesystem::directory_iterator(pathFile))
-	{
-		//check only file txt 
-		if (entry.is_regular_file())
-		{
-			std::string pathLoad = entry.path().string();
-
-			/*if (entry.path().string().find("LoadWave") != std::string::npos)
-			{
-				LoadWaveEnemies(pathLoad, pathFile);
-			}
-			else*/
-			{
-				Entity* entity = new Entity();
-				entity->Load(entity, pathLoad);
-				m_entitiesList.push_back(entity);
-				if (entry.path().string().find("MainCharacter") != std::string::npos)
-				{
-					GameManager::Instance.mainCharacter = entity;
-				}
-			}
-		}
-		//check if a folder is a Load Wave
-		if (entry.path().string().find("LoadWave") != std::string::npos)
-		{
-			LoadWaves(entry.path().string(), pathFile);
-		}
-		//bug 
-		/*if (entry.path().string().find("LoadEnemies") != std::string::npos)
-		{
-			LoadEnemy(entry.path().string());
-		}*/
-	}
+	srand((unsigned int)time(0));
 
 
-	LoadNewWave(&m_entitiesList);
+	LoadEntities(pathFile);
+	if (GameManager::Instance.currentLevel == GAME)
+		LoadNewWave(m_gameManager->GetActiveEntitiesList());
 
 }
 
 void Level::Update(float deltaTime)
 {
-	timeWave -= deltaTime;
-	if (timeWave < 0)
+	if (GameManager::Instance.currentLevel == GAME)
 	{
-		LoadNewWave(m_gameManager->GetActiveEntitiesList());
+		if (GameManager::Instance.mainCharacter != nullptr)
+		{
+			timeWave -= deltaTime;
+			if (timeWave < 0)
+			{
+				LoadNewWave(m_gameManager->GetActiveEntitiesList());
+			}
+		}
+		else if(!playerIsDead)
+		{
+			LoadEntities(".\\TestData\\LoadEntities\\EndGame");
+			playerIsDead =true;
+		}
 	}
 
 }
@@ -124,7 +102,6 @@ void Level::LoadWaves(std::string _pathFolder, std::string _pathFile)
 
 }
 
-//bug
 void Level::LoadEnemies(std::string _pathFolder)
 {
 
@@ -144,7 +121,6 @@ void Level::LoadEnemies(std::string _pathFolder)
 					entityEnemy->Load(entityEnemy, pathfiletoLoad);
 
 					m_EnemyEntitiesMap[pathfiletoLoad] = entityEnemy;
-					//m_EnemyEntitiesList.push_back(*entityEnemy);
 				}
 			}
 		}
@@ -153,7 +129,7 @@ void Level::LoadEnemies(std::string _pathFolder)
 
 void Level::LoadNewWave(std::list<Entity*>* _entityList)
 {
-	srand(time(0));
+	srand((unsigned int)time(0));
 	std::list<Wave*>::iterator it = sWaves.begin();
 	currentWave = rand() % sWaves.size();
 	std::advance(it, currentWave);
@@ -169,16 +145,42 @@ void Level::LoadNewWave(std::list<Entity*>* _entityList)
 
 	for (const auto element : (*it)->pathEnemyToLoad)
 	{
-		//Entity* entity = new Entity();
-		//entity->Load(entity, element);
 
 		Entity* baseEntity = m_EnemyEntitiesMap[element];
 		Entity* entity = new Entity(*baseEntity);  // copy
-		//bug
-		//Entity* entity = new Entity(m_EnemyEntitiesList[0]);
 		entity->GetTransform()->SetPosition((rand() % 1000) + 1000, entity->GetTransform()->GetPosition()->y);
 		_entityList->push_back(entity);
 
+	}
+}
+
+void Level::LoadEntities(std::string _pathFile)
+{
+	for (const auto& entry : std::filesystem::directory_iterator(_pathFile))
+	{
+		//check only file txt 
+		if (entry.is_regular_file())
+		{
+			std::string pathLoad = entry.path().string();
+
+			Entity* entity = new Entity();
+			entity->Load(entity, pathLoad);
+			m_gameManager->GetActiveEntitiesList()->push_back(entity);
+			if (entry.path().string().find("MainCharacter") != std::string::npos)
+			{
+				GameManager::Instance.mainCharacter = entity;
+			}
+
+		}
+		//check if a folder is a Load Wave
+		if (entry.path().string().find("LoadWave") != std::string::npos)
+		{
+			LoadWaves(entry.path().string(), _pathFile);
+		}
+		if (entry.path().string().find("LoadEnemies") != std::string::npos)
+		{
+			LoadEnemies(entry.path().string());
+		}
 	}
 }
 

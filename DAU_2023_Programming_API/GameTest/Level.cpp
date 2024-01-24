@@ -29,7 +29,7 @@ void Level::Init()
 	default:
 		break;
 	}
-	srand(time(0));
+	srand((unsigned int)time(0));
 
 
 	LoadEntities(pathFile);
@@ -129,7 +129,7 @@ void Level::LoadEnemies(std::string _pathFolder)
 
 void Level::LoadNewWave(std::list<Entity*>* _entityList)
 {
-	srand(time(0));
+	srand((unsigned int)time(0));
 	std::list<Wave*>::iterator it = sWaves.begin();
 	currentWave = rand() % sWaves.size();
 	std::advance(it, currentWave);
@@ -148,7 +148,7 @@ void Level::LoadNewWave(std::list<Entity*>* _entityList)
 
 		Entity* baseEntity = m_EnemyEntitiesMap[element];
 		Entity* entity = new Entity(*baseEntity);  // copy
-		entity->GetTransform()->SetPosition((rand() % 1000) + 1000, entity->GetTransform()->GetPosition()->y);
+		entity->GetTransform()->SetPosition((float)((rand() % 1000) + 1000), entity->GetTransform()->GetPosition()->y);
 		_entityList->push_back(entity);
 
 	}

@@ -23,7 +23,7 @@ void GameManager::Init()
 	m_levels[currentLevel]->Init();
 	m_levels[currentLevel]->GetAllEntitiesLevel(&m_ActiveEntitiesList);
 	ptrMapManager->currentLevel = GetCurrentLevel();
-	enemyKill =0;
+	enemiesKilled =0;
 }
 
 void GameManager::Update(float deltaTime)
