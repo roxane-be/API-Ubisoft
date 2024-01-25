@@ -23,8 +23,6 @@ void AnimationSprite::Update(float deltaTime)
 
 }
 
-
-
 void AnimationSprite::SetAnimation(eAnimationSprite id)
 {
 	if (!IsNull())
@@ -81,7 +79,7 @@ Component* AnimationSprite::Clone(Entity* resultEntity)
 	AnimationSprite* animationSprite = new AnimationSprite();
 
 	*animationSprite = *this;
-	animationSprite->m_sprite = App::CreateSprite(m_fileName, 1, 1);
+	animationSprite->m_sprite = App::CreateSprite(m_fileName.c_str(), 1, 1);
 	*(animationSprite->m_sprite) = *(this->m_sprite);
 
 	animationSprite->m_entity = resultEntity;

@@ -7,9 +7,6 @@
 #include <filesystem>
 #include "App/SimpleSprite.h"
 
-std::map< std::string, const char* > VisualSprite::m_stringFile;
-
-
 VisualSprite::~VisualSprite()
 {
 	delete m_sprite;
@@ -22,7 +19,7 @@ void VisualSprite::CreateSprite(const char* fileName, int columns, int rows, flo
 		return;
 
 	m_fileName = fileName;
-	m_sprite = App::CreateSprite(fileName, columns, rows);
+	m_sprite = App::CreateSprite(m_fileName.c_str(), columns, rows);
 	m_sprite->SetPosition(0.f, 0.f);
 	SetScaleSprite(scale);
 	m_layer = layer;
@@ -79,7 +76,7 @@ Component* VisualSprite::Clone(Entity* resultEntity)
 	VisualSprite* visualSprite = new VisualSprite();
 
 	*visualSprite = *this;
-	visualSprite->m_sprite = App::CreateSprite(m_fileName, 1, 1);
+	visualSprite->m_sprite = App::CreateSprite(m_fileName.c_str(), 1, 1);
 	*(visualSprite->m_sprite) = *(this->m_sprite);
 
 	visualSprite->m_entity = resultEntity;

@@ -119,9 +119,6 @@ void Entity::LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile)
 	std::string line;
 	myFile >> line;
 	std::string pathSprite = line;
-	char* charFile = new char[pathSprite.length() + 1];
-	std::strcpy(charFile, pathSprite.c_str());
-	VisualSprite::m_stringFile[pathSprite] = charFile;
 	myFile >> line;
 	int columns = std::stoi(line);
 	myFile >> line;
@@ -132,7 +129,7 @@ void Entity::LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile)
 	int layer = std::stoi(line);
 
 	VisualSprite* component = new VisualSprite(&_entity);
-	component->CreateSprite(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows, scale, layer);
+	component->CreateSprite(pathSprite.c_str(), columns, rows, scale, layer);
 	_entity.blackBoard->layerSprite=layer;
 	_entity.blackBoard->sizeSprite = component->GetSize();
 	_entity.AddComponent(component);
@@ -143,9 +140,6 @@ void Entity::LoadComponentAnimationSprite(Entity& _entity, std::ifstream& myFile
 	std::string line;
 	myFile >> line;
 	std::string pathSprite = line;
-	char* charFile = new char[pathSprite.length() + 1];
-	std::strcpy(charFile, pathSprite.c_str());
-	VisualSprite::m_stringFile[pathSprite] = charFile;
 	myFile >> line;
 	int columns = std::stoi(line);
 	myFile >> line;
@@ -157,7 +151,7 @@ void Entity::LoadComponentAnimationSprite(Entity& _entity, std::ifstream& myFile
 
 	AnimationSprite* component = new AnimationSprite(&_entity);
 	myFile >> line;
-	component->CreateAnimations(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows, line, scale, layer);
+	component->CreateAnimations(pathSprite.c_str(), columns, rows, line, scale, layer);
 	component->SetAnimation(AnimationSprite::eAnimationSprite::ANIM_WALK);
 	_entity.blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_WALK;
 	_entity.blackBoard->layerSprite = layer;
