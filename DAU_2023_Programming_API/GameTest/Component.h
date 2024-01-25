@@ -1,12 +1,11 @@
 #pragma once
 class Entity;
-class BlackBoard;
+
 class Component
 {
 public:
 	Component(Entity* parent = nullptr) : m_entity(parent) {}
 
-	//method
 	virtual void Init() = 0;
 	virtual void Update(float deltaTime) = 0;
 	virtual void Render() = 0;

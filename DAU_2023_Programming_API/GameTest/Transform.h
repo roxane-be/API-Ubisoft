@@ -22,7 +22,7 @@ public:
 private:
 	Vector2f m_position;
 	Vector2f m_rotation;
-	Vector2f m_scale{ 1, 1 };
+	Vector2f m_scale{ 1, 1 }; 
 
 };
 

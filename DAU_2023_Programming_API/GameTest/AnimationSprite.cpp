@@ -8,12 +8,12 @@ void AnimationSprite::Update(float deltaTime)
 {
 	VisualSprite::Update(deltaTime);
 
-	if (currentAnimation != m_entity->blackBoard->currentAnimation)
+	if (m_currentAnimation != m_entity->blackBoard->currentAnimation)
 		SetAnimation(m_entity->blackBoard->currentAnimation);
 
-	else if (!m_animationLoopingMap[currentAnimation] && GetFrame() == m_lastFrameMap[currentAnimation])
+	else if (!m_animationLoopingMap[m_currentAnimation] && GetFrame() == m_lastFrameMap[m_currentAnimation])
 	{
-		if (currentAnimation == ANIM_DEATH)
+		if (m_currentAnimation == ANIM_DEATH)
 		{
 			m_entity->blackBoard->ptrFDeath();
 		}
@@ -29,15 +29,15 @@ void AnimationSprite::SetAnimation(eAnimationSprite id)
 {
 	if (!IsNull())
 	{
-		sprite->SetAnimation((int)id, true);
-		currentAnimation = id;
+		m_sprite->SetAnimation((int)id, true);
+		m_currentAnimation = id;
 		m_entity->blackBoard->currentAnimation = id;
 	}
 }
 
 unsigned int AnimationSprite::GetFrame() const
 {
-	return sprite->GetFrame();
+	return m_sprite->GetFrame();
 }
 
 
@@ -67,7 +67,7 @@ void AnimationSprite::CreateAnimations(const char* fileName, int columns, int ro
 			{
 				tabAnim.push_back(i);
 			}
-			sprite->CreateAnimation((int)animEnum, speed, tabAnim);
+			m_sprite->CreateAnimation((int)animEnum, speed, tabAnim);
 			myFile >> line;
 			m_animationLoopingMap[animEnum] = FunctionLibrary::ConvertStringToBoolean(line);
 			m_lastFrameMap[animEnum] = frameEnd;
@@ -81,14 +81,14 @@ Component* AnimationSprite::Clone(Entity* resultEntity)
 	AnimationSprite* animationSprite = new AnimationSprite();
 
 	*animationSprite = *this;
-	animationSprite->sprite = App::CreateSprite(m_fileName, 1, 1);
-	*(animationSprite->sprite) = *(this->sprite);
+	animationSprite->m_sprite = App::CreateSprite(m_fileName, 1, 1);
+	*(animationSprite->m_sprite) = *(this->m_sprite);
 
 	animationSprite->m_entity = resultEntity;
 	animationSprite->m_entity->blackBoard = resultEntity->blackBoard;
 	animationSprite->m_entity->blackBoard->currentAnimation = ANIM_WALK;
-	animationSprite->m_entity->blackBoard->SetLayerVisualSprite(m_layer);
-	animationSprite->currentAnimation = ANIM_WALK;
+	animationSprite->m_entity->blackBoard->layerSprite = m_layer;
+	animationSprite->m_currentAnimation = ANIM_WALK;
 	animationSprite->m_animationLoopingMap = m_animationLoopingMap;
 	animationSprite->m_lastFrameMap = m_lastFrameMap;
 

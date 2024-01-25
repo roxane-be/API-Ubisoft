@@ -7,43 +7,41 @@
 
 std::map<std::string, std::function<void()>> GameManager::functionMap;
 
-
 GameManager::GameManager()
 {
-	m_levels.push_back(new Level(this)); // menu
-	m_levels.push_back(new Level(this)); // game
+	m_levels.push_back(new Level()); // menu
+	m_levels.push_back(new Level()); // game
 
-	functionMap["ButtonReturnMenu"] = []() {GameManager::Instance.SetLevel(eCurrentLevel::MAINMENU);};
-	functionMap["ButtonPlay"] = []() {GameManager::Instance.SetLevel(eCurrentLevel::GAME); };
+	functionMap["ButtonReturnMenu"] = []() {GameManager::Instance.SetLevel(eStatusGame::MAINMENU); };
+	functionMap["ButtonPlay"] = []() {GameManager::Instance.SetLevel(eStatusGame::INGAME); };
 	functionMap["ButtonQuit"] = []() {exit(0); };
 }
 
 void GameManager::Init()
 {
-	m_levels[currentLevel]->Init();
-	m_levels[currentLevel]->GetAllEntitiesLevel(&m_ActiveEntitiesList);
-	ptrMapManager->currentLevel = GetCurrentLevel();
-	enemiesKilled =0;
+	m_levels[m_statusGame]->Init();
+	m_levels[m_statusGame]->GetAllEntitiesLevel(&m_ActiveEntitiesList);
+	ptrMapManager->currentLevel = GetLevel();
+	m_enemiesKilled = 0;
 }
 
 void GameManager::Update(float deltaTime)
 {
-	if (ptrMapManager->currentLevel != GetCurrentLevel())
+	if (ptrMapManager->currentLevel != GetLevel())
 	{
 		ptrMapManager->Shutdown();
 		Shutdown();
-		ptrMapManager->currentLevel = GetCurrentLevel();
+		ptrMapManager->currentLevel = GetLevel();
 		Init();
 		ptrMapManager->Init();
 	}
 
-	GetCurrentLevel()->Update(deltaTime);
+	GetLevel()->Update(deltaTime);
 	for (const auto element : (m_ActiveEntitiesList))
 	{
 		element->Update(deltaTime);
 	}
 
-	
 	//delete entity
 	for (auto entity : m_EntitiesToDelete)
 	{
@@ -55,9 +53,6 @@ void GameManager::Update(float deltaTime)
 		}
 	}
 	m_EntitiesToDelete.clear();
-
-
-
 }
 
 void GameManager::Render()
@@ -70,8 +65,6 @@ void GameManager::Render()
 
 void GameManager::Shutdown()
 {
-
-
 	for (auto entity : m_ActiveEntitiesList)
 	{
 		if (entity != nullptr)
@@ -82,12 +75,10 @@ void GameManager::Shutdown()
 	}
 	m_ActiveEntitiesList.clear();
 	m_EntitiesToDelete.clear();
-
-
 }
 
-void GameManager::SetLevel(eCurrentLevel newLevel)
+void GameManager::SetLevel(eStatusGame newLevel)
 {
-	currentLevel = newLevel;
+	m_statusGame = newLevel;
 }
 

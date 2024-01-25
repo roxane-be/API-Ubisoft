@@ -11,7 +11,7 @@
 
 void MapManager::Init()
 {
-	if (m_gameManager->currentLevel == eCurrentLevel::GAME)
+	if (GameManager::Instance.GetStatusGame() == GameManager::eStatusGame::INGAME)
 		InitBackgroundSpriteMap();
 }
 
@@ -21,35 +21,35 @@ void MapManager::Update(float deltaTime)
 		UpdateBackgroundSpriteMap(deltaTime);
 }
 
-
-
-
 void MapManager::Render()
 {
-	if (m_gameManager->GetActiveEntitiesList())
+	//render all entities of the game
+	if (GameManager::Instance.GetActiveEntitiesList())
 	{
-		m_gameManager->GetActiveEntitiesList()->sort(MapManager::CompareLayer);
-		for (const auto& element : *m_gameManager->GetActiveEntitiesList())
+		GameManager::Instance.GetActiveEntitiesList()->sort(MapManager::SortLayer);
+		for (const auto& element : *GameManager::Instance.GetActiveEntitiesList())
 			if (element != nullptr)
 				element->Render();
 	}
-
-	if (GameManager::Instance.currentLevel == GAME)
+	//render text
+	if (GameManager::Instance.GetStatusGame() == GameManager::eStatusGame::INGAME)
 	{
-		 std::string enemiesKills = std::to_string( GameManager::Instance.GetEnemiesKilled());
-		char* charFile = new char[enemiesKills.length() + 1];
-		std::strcpy(charFile, enemiesKills.c_str());
-		App::Print(APP_VIRTUAL_WIDTH/2, 700, charFile, 1, 0, 0);
-	}
+		//render text counter EnemiesKilled
+		std::string enemiesKillsString = "Enemy :";
+		if (GameManager::Instance.GetEnemiesKilled() > 1)
+			enemiesKillsString = "Enemies : ";
+		enemiesKillsString += std::to_string(GameManager::Instance.GetEnemiesKilled());
+		App::Print(APP_VIRTUAL_WIDTH / 2 - 20, 690, enemiesKillsString.c_str(), 1, 0, 0);
 
+		//render text information for attack
+		App::Print(380, 720, "Click the left mouse button to attack", 1, 0, 0);
+	}
 }
 
 void MapManager::Shutdown()
 {
 	backgroundList.clear();
 }
-
-
 
 void MapManager::InitBackgroundSpriteMap()
 {
@@ -60,13 +60,13 @@ void MapManager::InitBackgroundSpriteMap()
 	{
 		if (entry.is_regular_file() && VisualSprite::m_stringFile.find(entry.path().string()) == VisualSprite::m_stringFile.end())
 		{
-			std::string machin = entry.path().string();
-			char* charFile = new char[machin.length() + 1];
-			std::strcpy(charFile, machin.c_str());
-			VisualSprite::m_stringFile[machin] = charFile;
+			std::string pathSprite = entry.path().string();
+			char* charFile = new char[pathSprite.length() + 1];
+			std::strcpy(charFile, pathSprite.c_str());
+			VisualSprite::m_stringFile[pathSprite] = charFile;
 
 		}
-			nbElemenet++;
+		nbElemenet++;
 	}
 	backgroundList.resize(nbElemenet);
 
@@ -84,12 +84,12 @@ void MapManager::InitBackgroundSpriteMap()
 		backgroundMap->AddComponent(componentVisualSpriteBackground);
 		blackBoard->sizeSprite = componentVisualSpriteBackground->GetSize();
 		blackBoard->scaleSprite = componentVisualSpriteBackground->GetScale();
-		blackBoard->SetLayerVisualSprite(-1);
+		blackBoard->layerSprite = -1;
 		backgroundMap->blackBoard = blackBoard;
 
 		backgroundMap->GetTransform()->SetPosition({ -500,-500 });
 		backgroundList[i] = backgroundMap;
-		m_gameManager->GetActiveEntitiesList()->push_back(backgroundList[i]);
+		GameManager::Instance.GetActiveEntitiesList()->push_back(backgroundList[i]);
 	}
 	srand((unsigned int)time(0));
 
@@ -107,18 +107,23 @@ void MapManager::InitBackgroundSpriteMap()
 
 void MapManager::UpdateBackgroundSpriteMap(float deltaTime)
 {
+	//side scroll to left 
 	backgroundList[currentMapShow[0]]->GetTransform()->SetPosition(backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->x + SpeedSideScroll, backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->y);
 	backgroundList[currentMapShow[1]]->GetTransform()->SetPosition(backgroundList[currentMapShow[1]]->GetTransform()->GetPosition()->x + SpeedSideScroll, backgroundList[currentMapShow[1]]->GetTransform()->GetPosition()->y);
 
 	if (backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->x <= -backgroundList[currentMapShow[0]]->blackBoard->sizeSprite.x * backgroundList[currentMapShow[0]]->blackBoard->scaleSprite / 2)
 	{
+		//set the current outside screen
 		backgroundList[currentMapShow[0]]->GetTransform()->SetPosition({ -500,-500 });
 
+		//switch current map 
 		currentMapShow[0] = currentMapShow[1];
+		//have different map than the first 
 		while (currentMapShow[0] == currentMapShow[1])
 		{
 			currentMapShow[1] = rand() % backgroundList.size();
 		}
+		//Reset position map
 		backgroundList[currentMapShow[0]]->GetTransform()->SetPosition(backgroundList[currentMapShow[0]]->blackBoard->sizeSprite.x / 2.f * backgroundList[currentMapShow[0]]->blackBoard->scaleSprite, backgroundList[currentMapShow[0]]->blackBoard->sizeSprite.y / 2.f * backgroundList[currentMapShow[0]]->blackBoard->scaleSprite);
 		backgroundList[currentMapShow[1]]->GetTransform()->SetPosition(backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->x + backgroundList[currentMapShow[0]]->blackBoard->sizeSprite.x * backgroundList[currentMapShow[0]]->blackBoard->scaleSprite, backgroundList[currentMapShow[0]]->GetTransform()->GetPosition()->y);
 	}

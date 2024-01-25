@@ -19,7 +19,7 @@ class BehaviorAI : public Behavior
 		virtual void Death() override;
 
 	protected :
-		virtual void OutsideScreen() override;
+		virtual void BehaviorOutsideScreen() override;
 
 
 };

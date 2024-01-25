@@ -8,22 +8,17 @@ class BlackBoard;
 class VisualSprite : public Component
 {
 public:
-
 	VisualSprite(Entity* parent = nullptr) : Component(parent) {};
-	
 	~VisualSprite();
 
+	//override pure function parent 
 	virtual void Init() override;
 	virtual void Update(float deltaTime)override;
 	virtual void Render()override;
-
 	virtual Component* Clone(Entity* resultEntity) override;
-
 
 	void CreateSprite(const char* fileName, int columns, int rows, float scale = 1.0f, int layer = 0);
 	void SetScaleSprite(float scale);
-
-
 
 	Vector2f GetSize();
 	float GetScale();
@@ -43,15 +38,13 @@ public:
 		}
 	}
 
-
 	static std::map< std::string, const char* > m_stringFile;
 
 protected:
 
 	const char* m_fileName{ nullptr };
-	CSimpleSprite* sprite{ nullptr };
+	CSimpleSprite* m_sprite{ nullptr };
 	Vector2f m_offsetSpritePosition = Vector2f();
-	//le Z, fond
 	int m_layer = 0;
 };
 

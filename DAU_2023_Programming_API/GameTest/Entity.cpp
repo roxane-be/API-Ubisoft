@@ -72,7 +72,6 @@ void Entity::Load(Entity* entity, std::string pathFile)
 				LoadComponentCollision(*entity, myFile);
 			}
 		}
-
 	}
 }
 
@@ -134,7 +133,7 @@ void Entity::LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile)
 
 	VisualSprite* component = new VisualSprite(&_entity);
 	component->CreateSprite(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows, scale, layer);
-	_entity.blackBoard->SetLayerVisualSprite(layer);
+	_entity.blackBoard->layerSprite=layer;
 	_entity.blackBoard->sizeSprite = component->GetSize();
 	_entity.AddComponent(component);
 }
@@ -161,7 +160,7 @@ void Entity::LoadComponentAnimationSprite(Entity& _entity, std::ifstream& myFile
 	component->CreateAnimations(VisualSprite::m_stringFile[VisualSprite::m_stringFile[pathSprite]], columns, rows, line, scale, layer);
 	component->SetAnimation(AnimationSprite::eAnimationSprite::ANIM_WALK);
 	_entity.blackBoard->currentAnimation = AnimationSprite::eAnimationSprite::ANIM_WALK;
-	_entity.blackBoard->SetLayerVisualSprite(layer);
+	_entity.blackBoard->layerSprite = layer;
 	_entity.AddComponent(component);
 }
 
@@ -171,7 +170,7 @@ void Entity::LoadComponentCollision(Entity& _entity, std::ifstream& myFile)
 	std::string line;
 	myFile >> line;
 	auto typeCollision = FunctionLibrary::ConvertStringToEnumCollisionObjectResponses(line);
-	component->m_typeCollision = typeCollision;
+	component->SetTypeCollision(typeCollision);
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -179,7 +178,7 @@ void Entity::LoadComponentCollision(Entity& _entity, std::ifstream& myFile)
 		float x = std::stof(line);
 		myFile >> line;
 		float y = std::stof(line);
-		component->m_points.push_back(Vector2f(x, y));
+		component->AddPointRectCollision(Vector2f(x, y));
 	}
 	for (int i = 0; i < component->collisionPresets.size(); i++)
 	{
@@ -197,8 +196,8 @@ void Entity::LoadComponentCollision(Entity& _entity, std::ifstream& myFile)
 			assert(false);
 
 	}
-	_entity.blackBoard->dataCollision.typeCollisionMap[(int)_entity.blackBoard->dataCollision.rectCollisionMap.size()] = component->m_typeCollision;
-	_entity.blackBoard->dataCollision.rectCollisionMap[(int)_entity.blackBoard->dataCollision.rectCollisionMap.size()] = &component->m_points;
+	_entity.blackBoard->dataCollision.typeCollisionMap[(int)_entity.blackBoard->dataCollision.rectCollisionMap.size()] = component->GetTypeCollision();
+	_entity.blackBoard->dataCollision.rectCollisionMap[(int)_entity.blackBoard->dataCollision.rectCollisionMap.size()] = component->GetRectCollision();
 	_entity.AddComponent(component);
 }
 
@@ -213,7 +212,7 @@ void Entity::LoadEntity(Entity& _entity, std::ifstream& myFile)
 	float x = std::stof(line);
 	myFile >> line;
 	float y = std::stof(line);
-	_entity.transform.SetPosition(x, y);
+	_entity.m_transform.SetPosition(x, y);
 	BlackBoard* blackBoard = new BlackBoard(&_entity);
 	_entity.blackBoard = blackBoard;
 }

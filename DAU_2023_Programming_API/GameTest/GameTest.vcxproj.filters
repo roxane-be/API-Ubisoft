@@ -39,9 +39,6 @@
     <ClCompile Include="Entity.cpp">
       <Filter>UbiCode\Private\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>UbiCode\Private\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Behavior.cpp">
       <Filter>UbiCode\Private\Engine\Component\Gameplay</Filter>
     </ClCompile>
@@ -115,9 +112,6 @@
       <Filter>UbiCode\Public\Level</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>UbiCode\Public\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
       <Filter>UbiCode\Public\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Behavior.h">

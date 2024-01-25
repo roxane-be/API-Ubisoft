@@ -10,11 +10,10 @@
 //------------------------------------------------------------------------
 
 //------------------------------------------------------------------------
-// Eample data....
+// Data Game
 //------------------------------------------------------------------------
-
 GameManager GameManager::Instance;
-MapManager mapManager(&GameManager::Instance);
+MapManager mapManager;
 
 
 //------------------------------------------------------------------------
@@ -22,6 +21,7 @@ MapManager mapManager(&GameManager::Instance);
 //------------------------------------------------------------------------
 void Init()
 {
+	//init Data and game 
 	GameManager::Instance.ptrMapManager = &mapManager;
 	GameManager::Instance.Init();
 	mapManager.Init();
@@ -33,7 +33,10 @@ void Init()
 //------------------------------------------------------------------------
 void Update(float deltaTime)
 {
-float deltaTimeGame = deltaTime*0.001f;
+	//Fix deltaTime in second 
+	float deltaTimeGame = deltaTime * 0.001f;
+
+	//update Game 
 	mapManager.Update(deltaTimeGame);
 	GameManager::Instance.Update(deltaTimeGame);
 
@@ -44,14 +47,6 @@ float deltaTimeGame = deltaTime*0.001f;
 	//{
 	//	App::PlaySound(".\\TestData\\Test.wav");
 	//}
-
-
-	/*if (App::IsKeyPressed(VK_CONTROL))
-	{
-		GameManager::Instance.currentLevel = Game;
-	}*/
-
-
 }
 
 //------------------------------------------------------------------------
@@ -60,6 +55,7 @@ float deltaTimeGame = deltaTime*0.001f;
 //------------------------------------------------------------------------
 void Render()
 {
+	//render Game
 	mapManager.Render();
 
 	//------------------------------------------------------------------------

@@ -10,19 +10,18 @@
 void Level::Init()
 {
 	m_entitiesList.clear();
-	timeWave = 0;
-	currentWave = 0;
-	playerIsDead = false;
-
+	m_timeWave = 0;
+	m_currentWave = 0;
+	m_playerIsDead = false;
 
 	std::string pathFile;
-	switch (GameManager::Instance.currentLevel)
+	switch (GameManager::Instance.GetStatusGame())
 	{
-	case GAME:
+	case GameManager::eStatusGame::INGAME:
 		pathFile = ".\\TestData\\LoadEntities\\LevelGame";
 
 		break;
-	case MAINMENU:
+	case GameManager::eStatusGame::MAINMENU:
 		pathFile = ".\\TestData\\LoadEntities\\LevelMenu";
 
 		break;
@@ -31,37 +30,33 @@ void Level::Init()
 	}
 	srand((unsigned int)time(0));
 
-
 	LoadEntities(pathFile);
-	if (GameManager::Instance.currentLevel == GAME)
-		LoadNewWave(m_gameManager->GetActiveEntitiesList());
-
+	if (GameManager::Instance.GetStatusGame() == GameManager::eStatusGame::INGAME)
+		LoadNewWave(GameManager::Instance.GetActiveEntitiesList());
 }
 
 void Level::Update(float deltaTime)
 {
-	if (GameManager::Instance.currentLevel == GAME)
+	if (GameManager::Instance.GetStatusGame() == GameManager::eStatusGame::INGAME)
 	{
 		if (GameManager::Instance.mainCharacter != nullptr)
 		{
-			timeWave -= deltaTime;
-			if (timeWave < 0)
+			m_timeWave -= deltaTime;
+			if (m_timeWave < 0)
 			{
-				LoadNewWave(m_gameManager->GetActiveEntitiesList());
+				LoadNewWave(GameManager::Instance.GetActiveEntitiesList());
 			}
 		}
-		else if(!playerIsDead)
+		else if(!m_playerIsDead)
 		{
 			LoadEntities(".\\TestData\\LoadEntities\\EndGame");
-			playerIsDead =true;
+			m_playerIsDead =true;
 		}
 	}
-
 }
 
 void Level::Render()
 {
-
 }
 
 void Level::Shutdown()
@@ -78,7 +73,6 @@ void Level::GetAllEntitiesLevel(std::list<Entity*>* _list)
 
 void Level::LoadWaves(std::string _pathFolder, std::string _pathFile)
 {
-
 	for (const auto& entry : std::filesystem::directory_iterator(_pathFolder))
 	{
 		std::string pathfiletoLoad = entry.path().string();
@@ -96,15 +90,13 @@ void Level::LoadWaves(std::string _pathFolder, std::string _pathFile)
 				path += line;
 				waveTemp->pathEnemyToLoad.push_back(path);
 			} while (!myFile.eof());
-			sWaves.push_back(waveTemp);
+			m_sWaves.push_back(waveTemp);
 		}
 	}
-
 }
 
 void Level::LoadEnemies(std::string _pathFolder)
 {
-
 	for (const auto& entry : std::filesystem::directory_iterator(_pathFolder))
 	{
 		if (entry.is_regular_file())
@@ -116,10 +108,8 @@ void Level::LoadEnemies(std::string _pathFolder)
 				std::ifstream myFile(pathfiletoLoad);
 				if (myFile)
 				{
-
 					Entity* entityEnemy = new Entity();
 					entityEnemy->Load(entityEnemy, pathfiletoLoad);
-
 					m_EnemyEntitiesMap[pathfiletoLoad] = entityEnemy;
 				}
 			}
@@ -130,27 +120,24 @@ void Level::LoadEnemies(std::string _pathFolder)
 void Level::LoadNewWave(std::list<Entity*>* _entityList)
 {
 	srand((unsigned int)time(0));
-	std::list<Wave*>::iterator it = sWaves.begin();
-	currentWave = rand() % sWaves.size();
-	std::advance(it, currentWave);
-	if (it != sWaves.end())
+	std::list<Wave*>::iterator it = m_sWaves.begin();
+	m_currentWave = rand() % m_sWaves.size();
+	std::advance(it, m_currentWave);
+	if (it != m_sWaves.end())
 	{
-		timeWave = (*it)->time;
+		m_timeWave = (*it)->time;
 	}
 	else
 	{
 		assert(false);
 	}
-
-
+	//copy enemy to create new entity
 	for (const auto element : (*it)->pathEnemyToLoad)
 	{
-
 		Entity* baseEntity = m_EnemyEntitiesMap[element];
 		Entity* entity = new Entity(*baseEntity);  // copy
 		entity->GetTransform()->SetPosition((float)((rand() % 1000) + 1000), entity->GetTransform()->GetPosition()->y);
 		_entityList->push_back(entity);
-
 	}
 }
 
@@ -162,15 +149,13 @@ void Level::LoadEntities(std::string _pathFile)
 		if (entry.is_regular_file())
 		{
 			std::string pathLoad = entry.path().string();
-
 			Entity* entity = new Entity();
 			entity->Load(entity, pathLoad);
-			m_gameManager->GetActiveEntitiesList()->push_back(entity);
+			GameManager::Instance.GetActiveEntitiesList()->push_back(entity);
 			if (entry.path().string().find("MainCharacter") != std::string::npos)
 			{
 				GameManager::Instance.mainCharacter = entity;
 			}
-
 		}
 		//check if a folder is a Load Wave
 		if (entry.path().string().find("LoadWave") != std::string::npos)

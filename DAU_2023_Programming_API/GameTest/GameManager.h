@@ -11,34 +11,35 @@ class Level;
 class Entity;
 class MapManager;
 
-enum eCurrentLevel
-{
-	MAINMENU,
-	GAME,
-};
 
 
 class GameManager
 {
 public:
+
+	enum eStatusGame
+	{
+		MAINMENU,
+		INGAME,
+	};
+
 	GameManager();
 	void Init();
 	void Update(float deltaTime);
 	void Render();
 	void Shutdown();
 
-
-	Level* GetCurrentLevel() { return m_levels[currentLevel]; };
-	eCurrentLevel currentLevel = MAINMENU;
+	Level* GetLevel() { return m_levels[m_statusGame]; };
+	void SetLevel(eStatusGame newLevel);
+	eStatusGame GetStatusGame() { return m_statusGame; };
 	std::list<Entity*>* GetActiveEntitiesList() { return &m_ActiveEntitiesList; };
-	void SetLevel(eCurrentLevel newLevel);
 	void AddEntityToDelete(Entity* _entity) { m_EntitiesToDelete.push_back(_entity); };
 
-	void AddEnemyKill() { enemiesKilled++; };
+	void AddEnemyKill() { m_enemiesKilled++; };
+	int GetEnemiesKilled() { return m_enemiesKilled; };
+
 	MapManager* ptrMapManager{ nullptr };
 	Entity* mainCharacter{ nullptr };
-
-	int GetEnemiesKilled() {return enemiesKilled;};
 
 	static GameManager Instance;
 	static std::map<std::string, std::function<void()>> functionMap;
@@ -48,6 +49,7 @@ private:
 	std::vector<Level*> m_levels;
 	std::list<Entity*> m_ActiveEntitiesList = std::list<Entity*>();
 	std::list<Entity*> m_EntitiesToDelete = std::list<Entity*>();
-	int enemiesKilled = 0;
+	int m_enemiesKilled = 0;
+	eStatusGame m_statusGame = MAINMENU;
 };
 

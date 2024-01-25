@@ -5,7 +5,6 @@
 
 Collision::eCollisionObjectResponses FunctionLibrary::ConvertStringToEnumCollisionObjectResponses(std::string str)
 {
-	// Collision object responses
 	if (str == "NONE")
 		return  Collision::eCollisionObjectResponses::NONE;
 	else if (str == "MAINCHARACTER")
@@ -21,7 +20,6 @@ Collision::eCollisionObjectResponses FunctionLibrary::ConvertStringToEnumCollisi
 
 Collision::eCollisionResponses FunctionLibrary::ConvertStringToEnumCollisionResponses(std::string str)
 {
-	// Collision responses
 	if (str == "IGNORE")
 		return Collision::eCollisionResponses::IGNORECOLLISION;
 	else if (str == "OVERLAP")
@@ -57,9 +55,9 @@ bool FunctionLibrary::ConvertStringToBoolean(std::string str)
 	return false;
 }
 
-bool FunctionLibrary::RaycastObject2D(Vector2f _origin, Vector2f _object, float distance)
+bool FunctionLibrary::RaycastObject2D(Vector2f pointOrigin, Vector2f pointOther, float distance)
 {
-	Vector2f direction = _object - _origin;
+	Vector2f direction = pointOther - pointOrigin;
 
 	float distanceToObj = std::sqrt(direction.x * direction.x + direction.y * direction.y);
 

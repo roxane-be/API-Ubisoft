@@ -10,7 +10,7 @@ public:
 	Entity(std::string name = "") : m_name(name) {};
 	Entity(const Entity& other)
 	{
-		transform = other.transform;
+		m_transform = other.m_transform;
 		m_name = other.m_name + std::string(" Cloned");
 
 		blackBoard = static_cast<BlackBoard*>(other.blackBoard->Clone(this));  // copy
@@ -39,28 +39,33 @@ public:
 
 
 	void AddComponent(Component* component);
-	Transform* GetTransform() { return &transform; }
+	Transform* GetTransform() { return &m_transform; }
 	const std::list<Component*> GetComponents() { return m_components; };
 	BlackBoard* blackBoard = nullptr;
 
 
 	void Load(Entity* entity, std::string pathFile);
 protected:
+	//no information in file 
 	void LoadComponentBehaviorAI(Entity& _entity, std::ifstream& myFile);
+	//no information in file 
 	void LoadComponentBehaviorPlayer(Entity& _entity, std::ifstream& myFile);
+	//load text button, offset text, ptr function for OnClick
 	void LoadComponentButton(Entity& _entity, std::ifstream& myFile);
+	//load path sprite, columns, rows, scale, layer
 	void LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile);
+	//load path sprite, columns, rows, scale, layer, path spritsheet text
 	void LoadComponentAnimationSprite(Entity& _entity, std::ifstream& myFile);
+	//load typeCollision, 4 point for rectCollision, collisionPreset
 	void LoadComponentCollision(Entity& _entity, std::ifstream& myFile);
-	//load name entity, this position et create blackboard
+	//Load name, position 
 	void LoadEntity(Entity& _entity, std::ifstream& myFile);
 
 
 private:
-	Transform transform = Transform();
+	Transform m_transform = Transform();
 	std::string m_name;
 	std::list<Component*> m_components;
-	//Component* componentStatus; // shortcut for perfo
 };
 
 

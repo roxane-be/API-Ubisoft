@@ -16,23 +16,8 @@ void Button::Update(float deltaTime)
 
 void Button::Render()
 {
-	App::Print(offsetPositionText.x + m_entity->GetTransform()->GetPosition()->x, offsetPositionText.y + m_entity->GetTransform()->GetPosition()->y, text.c_str());
-
-	float r = 1.0f;
-	float g = 0.0f;
-	float b = 0.0f;
-
-	Vector2f pos = *m_entity->GetTransform()->GetPosition();
-	Vector2f size = m_entity->blackBoard->sizeSprite/2 ;
-	size += 10;
-
-	//App::DrawLine(pos.x - size.x, pos.y + size.y, pos.x + size.x, pos.y + size.y, 1, 0, 0);
-	//App::DrawLine(pos.x + size.x, pos.y + size.y, pos.x + size.x, pos.y - size.y, 1, 0, 0);
-	//App::DrawLine(pos.x + size.x, pos.y - size.y, pos.x - size.x, pos.y - size.y, 1, 0, 0);
-	//App::DrawLine(pos.x - size.x, pos.y - size.y, pos.x - size.x, pos.y + size.y, 1, 0, 0);
-
+	App::Print(m_offsetPositionText.x + m_entity->GetTransform()->GetPosition()->x, m_offsetPositionText.y + m_entity->GetTransform()->GetPosition()->y, m_text.c_str());
 }
-
 
 void Button::OnClick()
 {
@@ -41,15 +26,13 @@ void Button::OnClick()
 
 void Button::SetText(std::string _text)
 {
-	text = _text;
+	m_text = _text;
 }
 
 void Button::SetOffsetTextPosition(Vector2f _position)
 {
-	offsetPositionText = _position;
+	m_offsetPositionText = _position;
 }
-
-
 
 bool Button::IsHovered()
 {

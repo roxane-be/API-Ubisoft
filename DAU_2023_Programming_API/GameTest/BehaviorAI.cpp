@@ -20,7 +20,7 @@ void BehaviorAI::Update(float deltaTime)
 	//enemy move to left 
 	m_entity->GetTransform()->SetPosition(m_entity->GetTransform()->GetPosition()->x - 5.f, m_entity->GetTransform()->GetPosition()->y);
 	//check if entity is outside the screen 
-	OutsideScreen();
+	BehaviorOutsideScreen();
 	//
 	if (CheckDistanceWithEntity(GameManager::Instance.mainCharacter, 150.f) && !doOnceAttack)
 	{
@@ -49,6 +49,7 @@ Component* BehaviorAI::Clone(Entity* resultEntity)
 
 void BehaviorAI::OnCollision(Entity* other)
 {
+	//attack
 	if (other->blackBoard->currentAnimation != AnimationSprite::eAnimationSprite::ANIM_DEATH)
 		other->blackBoard->ptrFDamage();
 
@@ -69,12 +70,10 @@ void BehaviorAI::Death()
 	GameManager::Instance.AddEnemyKill();
 }
 
-void BehaviorAI::OutsideScreen()
+void BehaviorAI::BehaviorOutsideScreen()
 {
 	if (m_entity->GetTransform()->GetPosition()->x < -200)
-	{
 		GameManager::Instance.AddEntityToDelete(m_entity);
-	}
 }
 
 

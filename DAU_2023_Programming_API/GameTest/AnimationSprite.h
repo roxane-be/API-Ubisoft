@@ -17,21 +17,20 @@ public:
 
 
 	virtual void Update(float deltaTime) override;
-
 	virtual Component* Clone(Entity* resultEntity) override;
 
 	void CreateAnimations(const char* fileName, int columns, int rows, std::string fileNameAnimation, float scale = 1.0f, int layer = 0);
 
 	void SetAnimation(eAnimationSprite id);
 
-	unsigned int GetFrame()  const;
+	unsigned int GetFrame() const;
 
 protected:
 
 	std::map< eAnimationSprite, bool> m_animationLoopingMap;
 	std::map< eAnimationSprite, int> m_lastFrameMap;
 
-	eAnimationSprite currentAnimation = TPOSE;
+	eAnimationSprite m_currentAnimation = TPOSE;
 
 };
 

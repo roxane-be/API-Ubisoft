@@ -14,7 +14,7 @@ class GameManager;
 class MapManager
 {
 public:
-	MapManager(GameManager* gameManager) { m_gameManager = gameManager; };
+	MapManager() { };
 
 	void Init();
 	void Update(float deltaTime);
@@ -23,30 +23,35 @@ public:
 	void Shutdown();
 
 
-	//pour faire spawn les entités dispo dans le level
-	Level* currentLevel = nullptr; // point vers le current level
+	//Ptr GameManager current level
+	Level* currentLevel = nullptr; 
 
-	//std::list<Entity*>* activeEntitiesSpriteList;
-
-	static bool CompareLayer(const Entity* entity1, const Entity* entity2)
+	//Sort layer from the smallest to the largest number
+	static bool SortLayer(const Entity* entity1, const Entity* entity2)
 	{
 		if (entity1->blackBoard && entity2->blackBoard)
 		{
-			return  entity1->blackBoard->GetLayervisualSprite()
-				< entity2->blackBoard->GetLayervisualSprite();
+			return  entity1->blackBoard->layerSprite
+				< entity2->blackBoard->layerSprite;
 		}
 		return false;
 	};
 
 protected:
+
 	void InitBackgroundSpriteMap();
 	void UpdateBackgroundSpriteMap(float deltaTime);
-	void LoadWaveEnemies(std::string _pathLoad, std::string _pathFile);
 
 
 private:
+
+	/// <summary>
+	/// background/map of game
+	/// </summary>
 	std::vector<Entity*> backgroundList;
+	/// <summary>
+	/// Only 2 map is showing, this array indicates which map is displayed
+	/// </summary>
 	int currentMapShow[2]{ 0,0 };
-	GameManager* m_gameManager;
 };
 
