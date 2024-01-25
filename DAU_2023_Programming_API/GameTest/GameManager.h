@@ -33,7 +33,13 @@ public:
 	void SetLevel(eStatusGame newLevel);
 	eStatusGame GetStatusGame() { return m_statusGame; };
 	std::list<Entity*>* GetActiveEntitiesList() { return &m_ActiveEntitiesList; };
-	void AddEntityToDelete(Entity* _entity) { m_EntitiesToDelete.push_back(_entity); };
+	void AddEntityToDelete(Entity* _entity)
+	{
+		if (std::find(m_EntitiesToDelete.begin(), m_EntitiesToDelete.end(), _entity) == m_EntitiesToDelete.end())
+		{
+			m_EntitiesToDelete.push_back(_entity);
+		}
+	};
 
 	void AddEnemyKill() { m_enemiesKilled++; };
 	int GetEnemiesKilled() { return m_enemiesKilled; };

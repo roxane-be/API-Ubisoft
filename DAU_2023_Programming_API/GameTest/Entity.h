@@ -44,22 +44,22 @@ public:
 	BlackBoard* blackBoard = nullptr;
 
 
-	void Load(Entity* entity, std::string pathFile);
+	static void Load(Entity* entity, std::string pathFile);
 protected:
 	//no information in file 
-	void LoadComponentBehaviorAI(Entity& _entity, std::ifstream& myFile);
+	static void LoadComponentBehaviorAI(Entity& _entity, std::ifstream& myFile);
 	//no information in file 
-	void LoadComponentBehaviorPlayer(Entity& _entity, std::ifstream& myFile);
+	static void LoadComponentBehaviorPlayer(Entity& _entity, std::ifstream& myFile);
 	//load text button, offset text, ptr function for OnClick
-	void LoadComponentButton(Entity& _entity, std::ifstream& myFile);
+	static void LoadComponentButton(Entity& _entity, std::ifstream& myFile);
 	//load path sprite, columns, rows, scale, layer
-	void LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile);
+	static void LoadComponentVisualSprite(Entity& _entity, std::ifstream& myFile);
 	//load path sprite, columns, rows, scale, layer, path spritsheet text
-	void LoadComponentAnimationSprite(Entity& _entity, std::ifstream& myFile);
+	static void LoadComponentAnimationSprite(Entity& _entity, std::ifstream& myFile);
 	//load typeCollision, 4 point for rectCollision, collisionPreset
-	void LoadComponentCollision(Entity& _entity, std::ifstream& myFile);
+	static void LoadComponentCollision(Entity& _entity, std::ifstream& myFile);
 	//Load name, position 
-	void LoadEntity(Entity& _entity, std::ifstream& myFile);
+	static void LoadEntity(Entity& _entity, std::ifstream& myFile);
 
 
 private:
